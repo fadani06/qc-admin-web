@@ -1,0 +1,53 @@
+body {
+	background: #2d3035;
+}
+.card {
+	width: 85vw;
+	margin: auto;
+	margin-top: 70px;
+	margin-bottom: 70px;
+	background: #e1e1e1;
+}
+
+.container {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.row {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+label {
+	font-weight: bold;
+}
+
+/*=========================*/
+/*=====Edit Page Style=====*/
+
+.edit-page .card-title {
+	text-align: center;
+}
+
+.edit-page img {
+	margin-bottom: 10px;
+	height: 150px;
+	width: 300px;
+}
+
+/*=========================*/
+/*=====view Page Style=====*/
+.table-data {
+	margin-bottom: 30px;
+	margin-top: 30px;
+}
+
+.view-page img {
+	margin-bottom: 10px;
+	height: 150px;
+	width: 300px;
+}
+
+/*=========================*/
+/*=====Insert Page Style=====*/
+

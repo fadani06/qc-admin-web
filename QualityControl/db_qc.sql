@@ -1,0 +1,2350 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Feb 22, 2022 at 07:44 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.3.31
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `db_qc`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assy_epp`
+--
+
+CREATE TABLE `assy_epp` (
+  `id_AssyEpp` bigint(11) NOT NULL,
+  `id_Produk` int(11) NOT NULL,
+  `tglInputEpp` varchar(20) NOT NULL,
+  `assyKe` int(11) NOT NULL,
+  `model` varchar(11) NOT NULL,
+  `pNameDm` varchar(255) NOT NULL,
+  `kBrgDm` varchar(20) NOT NULL,
+  `qtyDm` varchar(10) NOT NULL,
+  `pNameAssy` varchar(50) NOT NULL,
+  `pNumbAssy` varchar(50) NOT NULL,
+  `kBrgAssy` varchar(20) NOT NULL,
+  `qtyAssy` varchar(11) NOT NULL,
+  `suppAssy` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assy_eps`
+--
+
+CREATE TABLE `assy_eps` (
+  `id_AssyEps` bigint(11) NOT NULL,
+  `id_Produk` int(11) NOT NULL,
+  `tglInputEps` varchar(20) NOT NULL,
+  `assyKe` varchar(5) NOT NULL,
+  `model` varchar(11) NOT NULL,
+  `pNameDm` varchar(255) NOT NULL,
+  `kBrgDm` varchar(50) NOT NULL,
+  `qtyDm` varchar(11) NOT NULL,
+  `pNameAssy` varchar(255) NOT NULL,
+  `pNumbAssy` varchar(50) NOT NULL,
+  `kBrgAssy` varchar(50) NOT NULL,
+  `qtyAssy` varchar(11) NOT NULL,
+  `suppAssy` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `claim`
+--
+
+CREATE TABLE `claim` (
+  `id_Claim` bigint(11) NOT NULL,
+  `id_Produk` int(11) NOT NULL,
+  `tglInput` varchar(20) NOT NULL,
+  `tglCom` varchar(20) NOT NULL,
+  `comClas` varchar(5) NOT NULL,
+  `mileage` varchar(11) NOT NULL,
+  `prodDate` varchar(20) NOT NULL,
+  `prob` text NOT NULL,
+  `cause` text NOT NULL,
+  `countM` text NOT NULL,
+  `target` varchar(20) NOT NULL,
+  `actual` varchar(20) NOT NULL,
+  `target2` varchar(20) NOT NULL,
+  `actual2` varchar(20) NOT NULL,
+  `reocurre` varchar(5) NOT NULL,
+  `proses` varchar(255) NOT NULL,
+  `fmea` varchar(50) NOT NULL,
+  `contPlan` varchar(50) NOT NULL,
+  `inspStd` varchar(50) NOT NULL,
+  `wi` varchar(50) NOT NULL,
+  `others` varchar(50) NOT NULL,
+  `statClaim` varchar(11) NOT NULL,
+  `statCom` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ipqc_epp`
+--
+
+CREATE TABLE `ipqc_epp` (
+  `id_IpqcEpp` int(11) NOT NULL,
+  `id_PartEpp` int(11) NOT NULL,
+  `tglInputIpqcEpp` varchar(255) NOT NULL,
+  `densityAkt` varchar(255) NOT NULL,
+  `densityStatus` varchar(255) NOT NULL,
+  `agingAkt` varchar(255) NOT NULL,
+  `agingStatus` varchar(255) NOT NULL,
+  `beratAktBasah` varchar(255) NOT NULL,
+  `beratAktBasahStatus` varchar(255) NOT NULL,
+  `beratAktKering` varchar(255) NOT NULL,
+  `beratAktKeringStatus` varchar(255) NOT NULL,
+  `cavity` varchar(255) NOT NULL,
+  `selisih` varchar(255) NOT NULL,
+  `persentase` varchar(255) NOT NULL,
+  `panjangAktual` varchar(255) NOT NULL,
+  `panjangStatus` varchar(255) NOT NULL,
+  `lebarAktual` varchar(255) NOT NULL,
+  `lebarStatus` varchar(255) NOT NULL,
+  `tinggiAktual` varchar(255) NOT NULL,
+  `tinggiStatus` varchar(255) NOT NULL,
+  `keterangan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ipqc_eps`
+--
+
+CREATE TABLE `ipqc_eps` (
+  `id_IpqcEps` bigint(11) NOT NULL,
+  `id_PartEps` int(11) NOT NULL,
+  `tglInputIpqcEps` varchar(20) NOT NULL,
+  `densityAkt` varchar(255) NOT NULL,
+  `densityStatus` varchar(255) NOT NULL,
+  `agingAkt` varchar(255) NOT NULL,
+  `agingStatus` varchar(255) NOT NULL,
+  `beratAktBasah` varchar(255) NOT NULL,
+  `beratAktBasahStatus` varchar(255) NOT NULL,
+  `beratAktKering` varchar(255) NOT NULL,
+  `beratAktKeringStatus` varchar(255) NOT NULL,
+  `cavity` int(11) NOT NULL,
+  `selisih` varchar(255) NOT NULL,
+  `persentase` varchar(255) NOT NULL,
+  `panjangAktual` varchar(255) NOT NULL,
+  `panjangStatus` varchar(255) NOT NULL,
+  `lebarAktual` varchar(255) NOT NULL,
+  `lebarStatus` varchar(255) NOT NULL,
+  `tinggiAktual` varchar(255) NOT NULL,
+  `tinggiStatus` varchar(255) NOT NULL,
+  `keterangan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kalibrasi`
+--
+
+CREATE TABLE `kalibrasi` (
+  `id_Kalibrasi` int(11) NOT NULL,
+  `namaAlat` varchar(255) NOT NULL,
+  `nomorAlat` varchar(255) NOT NULL,
+  `nomorSeri` varchar(255) NOT NULL,
+  `deptPemakai` varchar(255) NOT NULL,
+  `ukuran` varchar(255) NOT NULL,
+  `nilaiKetelitian` varchar(255) NOT NULL,
+  `qty` varchar(255) NOT NULL,
+  `deptPjawab` varchar(255) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `tanggal` varchar(255) NOT NULL,
+  `masaBerlakuTahun` varchar(255) NOT NULL,
+  `masaBerlakuHari` varchar(255) NOT NULL,
+  `tanggalBerikutnya` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kontrol_cf`
+--
+
+CREATE TABLE `kontrol_cf` (
+  `id_KontrolCf` bigint(11) NOT NULL,
+  `id_Produk` int(11) NOT NULL,
+  `tgl_check` varchar(20) NOT NULL,
+  `model` varchar(25) NOT NULL,
+  `pic` varchar(15) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `lokasi` varchar(50) NOT NULL,
+  `posisi` varchar(50) NOT NULL,
+  `asset_no` varchar(50) NOT NULL,
+  `tgl_dtg` varchar(20) NOT NULL,
+  `permukaan_cf` varchar(30) NOT NULL,
+  `dataCfm` varchar(11) NOT NULL,
+  `grs_ukur` varchar(255) NOT NULL,
+  `poin_ukur` varchar(20) NOT NULL,
+  `s_gauge` varchar(20) NOT NULL,
+  `ks_gauge` varchar(20) NOT NULL,
+  `pos_gauge` varchar(20) NOT NULL,
+  `kpos_gauge` varchar(20) NOT NULL,
+  `toggle` varchar(20) NOT NULL,
+  `k_toggle` varchar(20) NOT NULL,
+  `pin_datum` varchar(20) NOT NULL,
+  `kpin_datum` varchar(20) NOT NULL,
+  `gng` varchar(20) NOT NULL,
+  `k_gng` varchar(20) NOT NULL,
+  `stat_cf` varchar(20) NOT NULL,
+  `fotoCf` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `oqc`
+--
+
+CREATE TABLE `oqc` (
+  `id_Oqc` bigint(11) NOT NULL,
+  `id_Produk` int(11) NOT NULL,
+  `tgl_ins` varchar(255) NOT NULL,
+  `pic` varchar(255) NOT NULL,
+  `lot_num` varchar(100) NOT NULL,
+  `jml_kirim` varchar(100) NOT NULL,
+  `jml_check` varchar(100) NOT NULL,
+  `jmlPart_prob` varchar(100) NOT NULL,
+  `problem` varchar(100) NOT NULL,
+  `tindakan` varchar(100) NOT NULL,
+  `targetCheck` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `part_abf`
+--
+
+CREATE TABLE `part_abf` (
+  `id_PartAbf` int(11) NOT NULL,
+  `id_Produk` int(11) NOT NULL,
+  `tglInputPartAbf` varchar(20) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `dimPanjang` varchar(11) NOT NULL,
+  `dimLebar` varchar(11) NOT NULL,
+  `dimTinggi` varchar(11) NOT NULL,
+  `berat` varchar(11) NOT NULL,
+  `warna` varchar(20) NOT NULL,
+  `layer` varchar(20) NOT NULL,
+  `ldpe` varchar(11) NOT NULL,
+  `antistatic` varchar(11) NOT NULL,
+  `pMerah` varchar(11) NOT NULL,
+  `pCoklat` varchar(11) NOT NULL,
+  `warnaPlastik` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `part_epp`
+--
+
+CREATE TABLE `part_epp` (
+  `id_PartEpp` int(11) NOT NULL,
+  `id_Produk` int(11) NOT NULL,
+  `tglInputPartEpp` varchar(20) NOT NULL,
+  `fotoProduk` varchar(100) NOT NULL,
+  `fotoCrit` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  `identitasProduk` varchar(255) NOT NULL,
+  `critPoint` varchar(255) NOT NULL,
+  `rawMat` varchar(255) NOT NULL,
+  `agingMin` varchar(255) NOT NULL,
+  `agingMax` varchar(255) NOT NULL,
+  `densityStd` varchar(255) NOT NULL,
+  `densityMin` varchar(255) NOT NULL,
+  `densityMax` varchar(255) NOT NULL,
+  `beratBmin` varchar(255) NOT NULL,
+  `beratBmax` varchar(255) NOT NULL,
+  `beratBstd` varchar(255) NOT NULL,
+  `beratKmin` varchar(255) NOT NULL,
+  `beratKmax` varchar(255) NOT NULL,
+  `beratKstd` varchar(255) NOT NULL,
+  `denProduk` varchar(255) NOT NULL,
+  `cycTime` varchar(255) NOT NULL,
+  `volume` varchar(255) NOT NULL,
+  `dimPanjangStd` varchar(255) NOT NULL,
+  `dimPanjangMin` varchar(255) NOT NULL,
+  `dimPanjangMaks` varchar(255) NOT NULL,
+  `dimLebarStd` varchar(255) NOT NULL,
+  `dimLebarMin` varchar(255) NOT NULL,
+  `dimLebarMaks` varchar(255) NOT NULL,
+  `dimTinggiStd` varchar(255) NOT NULL,
+  `dimTinggiMin` varchar(255) NOT NULL,
+  `dimTinggiMaks` varchar(255) NOT NULL,
+  `isiPack` varchar(255) NOT NULL,
+  `typePack` varchar(255) NOT NULL,
+  `trackTime` varchar(255) NOT NULL,
+  `dimMmPanjang` varchar(255) NOT NULL,
+  `dimMmLebar` varchar(255) NOT NULL,
+  `dimMmTinggi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `part_eps`
+--
+
+CREATE TABLE `part_eps` (
+  `id_PartEps` int(11) NOT NULL,
+  `id_Produk` int(11) NOT NULL,
+  `tglInputPartEps` varchar(20) NOT NULL,
+  `fotoProduk` varchar(255) NOT NULL,
+  `fotoCrit` varchar(255) NOT NULL,
+  `identitasProduk` varchar(20) NOT NULL,
+  `critPoint` varchar(50) NOT NULL,
+  `rawMat` varchar(11) NOT NULL,
+  `agingMin` varchar(11) NOT NULL,
+  `agingMax` varchar(11) NOT NULL,
+  `densityStd` varchar(11) NOT NULL,
+  `densityMin` varchar(11) NOT NULL,
+  `densityMax` varchar(11) NOT NULL,
+  `beratBmin` varchar(11) NOT NULL,
+  `beratBmax` varchar(11) NOT NULL,
+  `beratBstd` varchar(11) NOT NULL,
+  `beratKmin` varchar(11) NOT NULL,
+  `beratKmax` varchar(11) NOT NULL,
+  `beratKstd` varchar(11) NOT NULL,
+  `denProduk` varchar(11) NOT NULL,
+  `cycTime` varchar(11) NOT NULL,
+  `volume` varchar(11) NOT NULL,
+  `dimPanjangStd` varchar(11) NOT NULL,
+  `dimPanjangMin` varchar(11) NOT NULL,
+  `dimPanjangMaks` varchar(11) NOT NULL,
+  `dimLebarStd` varchar(11) NOT NULL,
+  `dimLebarMin` varchar(11) NOT NULL,
+  `dimLebarMaks` varchar(11) NOT NULL,
+  `dimTinggiStd` varchar(11) NOT NULL,
+  `dimTinggiMin` varchar(11) NOT NULL,
+  `dimTinggiMaks` varchar(11) NOT NULL,
+  `isiPack` varchar(11) NOT NULL,
+  `typePack` varchar(11) NOT NULL,
+  `trackTime` varchar(11) NOT NULL,
+  `dimMmPanjang` varchar(11) NOT NULL,
+  `dimMmLebar` varchar(11) NOT NULL,
+  `dimMmTinggi` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `part_sb`
+--
+
+CREATE TABLE `part_sb` (
+  `id_PartSb` int(11) NOT NULL,
+  `id_Produk` int(11) NOT NULL,
+  `tglInputPartSb` varchar(20) NOT NULL,
+  `bentuk` text NOT NULL,
+  `dimPanjang` varchar(11) NOT NULL,
+  `dimLebar` varchar(11) NOT NULL,
+  `dimTinggi` varchar(11) NOT NULL,
+  `stdBerat` varchar(11) NOT NULL,
+  `beratMin` varchar(11) NOT NULL,
+  `beratMax` varchar(11) NOT NULL,
+  `pKhusus` text NOT NULL,
+  `type` varchar(11) NOT NULL,
+  `stdDensity` varchar(11) NOT NULL,
+  `denMin` varchar(11) NOT NULL,
+  `denMax` varchar(11) NOT NULL,
+  `isiPack` varchar(11) NOT NULL,
+  `satuan` varchar(11) NOT NULL,
+  `plastik` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `patrol_qc`
+--
+
+CREATE TABLE `patrol_qc` (
+  `id_PatrolQc` bigint(11) NOT NULL,
+  `id_Produk` int(11) NOT NULL,
+  `tgl_check` varchar(20) NOT NULL,
+  `shift` int(5) NOT NULL,
+  `pic` varchar(20) NOT NULL,
+  `area` varchar(50) NOT NULL,
+  `eq_cek` varchar(255) NOT NULL,
+  `problem` text NOT NULL,
+  `tgl_pro` varchar(20) NOT NULL,
+  `shift_pro` varchar(1) NOT NULL,
+  `ket_prob` text NOT NULL,
+  `qty_cek` varchar(12) NOT NULL,
+  `qty_prob` varchar(12) NOT NULL,
+  `act` varchar(255) NOT NULL,
+  `stat` varchar(20) NOT NULL,
+  `ket_stat` text NOT NULL,
+  `tgl_close` varchar(20) NOT NULL,
+  `foto_prob` varchar(255) NOT NULL,
+  `foto_act` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_produk`
+--
+
+CREATE TABLE `tb_produk` (
+  `id_Produk` int(11) NOT NULL,
+  `partName` varchar(255) NOT NULL,
+  `kodeBarang` varchar(50) NOT NULL,
+  `customer` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_produk`
+--
+
+INSERT INTO `tb_produk` (`id_Produk`, `partName`, `kodeBarang`, `customer`) VALUES
+(1, '58579-BZ020-00 PAD, RR FLOOR', 'FG_EPS_0343', 'ADM. PT'),
+(2, 'PAD SUB ASSY,RR FLOOR SILENCER LH', 'FG_EPS_0391', 'ADM. PT'),
+(3, 'PAD SUB-ASSY, RR FLOOR SILENCER, RH', 'FG_EPS_0392', 'ADM. PT'),
+(4, '58427-BZ060-00 SPACER,RR FLOOR BOARD', 'FG_EPS_0497', 'ADM. PT'),
+(5, '58065-BZ040 PAD SUB ASSY SILENCER RR RH', 'FG_EPS_0564', 'ADM. PT'),
+(6, '58066-BZ040 PAD SUB ASSY SILENCER RR LH', 'FG_EPS_0565', 'ADM. PT'),
+(7, '58676-BZ050 PAD RR FLOOR SILENCER, NO.1 RH', 'FG_EPS_0985', 'ADM. PT'),
+(8, '58677-BZ050 PAD RR FLOOR SILENCER, NO.1 LH', 'FG_EPS_0986', 'ADM. PT'),
+(9, '58607-BZ010-00/ PAD SUB-ASSY, FR FLOOR, RH', 'FG_EPS_1062', 'ADM. PT'),
+(10, '58608-BZ010-00/ PAD SUB-ASSY, FR FLOOR, LH', 'FG_EPS_1063', 'ADM. PT'),
+(11, '58607-BZ020-00/ PAD SUB-ASSY, FR FLOOR, RH', 'FG_EPS_1104', 'ADM. PT'),
+(12, '58608-BZ020-00/ PAD SUB-ASSY, FR FLOOR, LH', 'FG_EPS_1105', 'ADM. PT'),
+(13, '58065-BZ050 PAD SUB ASSY, RR FLOOR SILENCER, RH', 'FG_EPS_1058', 'ADM. PT'),
+(14, '58066-BZ050 PAD SUB ASSY, RR FLOOR SILENCER, LH', 'FG_EPS_1059', 'ADM. PT'),
+(15, '58065-BZ060 PAD SUB ASSY, RR FLOOR SILENCER, RH', 'FG_EPS_1060', 'ADM. PT'),
+(16, '58066-BZ060 PAD SUB ASSY, RR FLOOR SILENCER, LH', 'FG_EPS_1061', 'ADM. PT'),
+(17, 'T58065-BZ040-001 PAD SUB ASSY, RR FLOOR SILENCER, RH', 'FG_EPS_0723', 'ADM. PT'),
+(18, 'T58066-BZ040-001 PAD SUB ASSY, RR FLOOR SILENCER, LH', 'FG_EPS_0724', 'ADM. PT'),
+(19, '48435-52R00-000 01 PAD, STRG COLUMN COVER', 'FG_EPP_0124', 'SUZUKI. PT'),
+(20, 'PAD EPS L', 'FG_EPS_0156', 'KICI. PT'),
+(21, 'PAD EPS R', 'FG_EPS_0157', 'KICI. PT'),
+(22, 'PAD-AR (TIBIA-PAD) LH 74977', 'FG_EPS_0158', 'KICI. PT'),
+(23, 'PAD-DR (TIBIA-PAD) RH 74976', 'FG_EPS_0159', 'KICI. PT'),
+(24, 'SPCR FR LH 74977 CJ410', 'FG_EPS_0177', 'KICI. PT'),
+(25, 'SPCR FR RH 74976 CJ410', 'FG_EPS_0178', 'KICI. PT'),
+(26, 'SPCR RR LH 74979 CJ410', 'FG_EPS_0179', 'KICI. PT'),
+(27, 'SPCR RR RH 74978 CJ410', 'FG_EPS_0180', 'KICI. PT'),
+(28, 'SPCR-FLOOR, RH 74976 (P32R)', 'FG_EPS_0181', 'KICI. PT'),
+(29, 'SPCR-FR FLOOR RR, LH 74979 (P32R)', 'FG_EPS_0182', 'KICI. PT'),
+(30, 'SPCR-FLOOR,LH 74977 (P32R)', 'FG_EPS_0336', 'KICI. PT'),
+(31, 'SPCR-FR FLOOR RR,RH 74978 (P32R)', 'FG_EPS_0337', 'KICI. PT'),
+(32, '74976-1TTOA PAD SPCR FR FLOOR FR, RH', 'FG_EPS_0347', 'KICI. PT'),
+(33, '74979-1TTOA SPCR FR FLOOR RR, LH', 'FG_EPS_0348', 'KICI. PT'),
+(34, '74977-1TTOA PAD SPCR FR FLOOR FR, LH', 'FG_EPS_0349', 'KICI. PT'),
+(35, '74977-1TTOA BASE SPCR FR FLOOR FR, LH', 'FG_EPS_0350', 'KICI. PT'),
+(36, '74978-1TTOA SPCR FR FLOOR RR, RH', 'FG_EPS_0351', 'KICI. PT'),
+(37, '74976-1TTOA BASE SPCR FR FLOOR FR, RH', 'FG_EPS_0352', 'KICI. PT'),
+(38, '74976-3LTOB FOOT REST', 'FG_EPS_0451', 'KICI. PT'),
+(39, '74976-3LTOB PEDAL', 'FG_EPS_0452', 'KICI. PT'),
+(40, '74976-3LTOB BASE AREA', 'FG_EPS_0453', 'KICI. PT'),
+(41, '74977-3LTOB PAD', 'FG_EPS_0454', 'KICI. PT'),
+(42, '74977-B66 BASE SPCR', 'FG_EPS_0455', 'KICI. PT'),
+(43, 'BD-143570-INS.KEY CAS AS', 'FG_EPS_0450', 'PANASONIC KULKAS. PT'),
+(44, 'STY IP UPPER R', 'FG_EPS_0532', 'SUGITI / TMMIN. PT'),
+(45, 'STY IP UPPER L', 'FG_EPS_0533', 'SUGITI / TMMIN. PT'),
+(46, 'STY KUNCI (KL,KR,KL,KR)', 'FG_EPS_0534', 'SUGITI / TMMIN. PT'),
+(47, 'STY INSERT (IL,IR)', 'FG_EPS_0535', 'SUGITI / TMMIN. PT'),
+(48, 'IP LOWER BOTTOM-L', 'FG_EPS_0715', 'TMMIN. PT'),
+(49, 'IP LOWER BOTTOM-R', 'FG_EPS_0714', 'TMMIN. PT'),
+(50, 'IP LOWER TOP-L', 'FG_EPS_0717', 'TMMIN. PT'),
+(51, 'IP LOWER TOP-R', 'FG_EPS_0716', 'TMMIN. PT'),
+(52, 'LNG SIDE L-BOTTOM R1', 'FG_EPS_0678', 'PT. NITTSU SHOJI (ALOZ)'),
+(53, 'LNG SIDE L-BOTTOM R2', 'FG_EPS_0679', 'PT. NITTSU SHOJI (ALOZ)'),
+(54, 'LNG SIDE L-TOP 1', 'FG_EPS_0680', 'PT. NITTSU SHOJI (ALOZ)'),
+(55, 'STOPPER BLOCK', 'FG_EPS_0677', 'PT. NITTSU SHOJI (ALOZ)'),
+(56, 'LNG SIDE L-BOTTOM L1', 'FG_EPS_0681', 'PT. NITTSU SHOJI (ALOZ)'),
+(57, 'LNG SIDE L-BOTTOM L2', 'FG_EPS_0682', 'PT. NITTSU SHOJI (ALOZ)'),
+(58, 'LNG SIDE L-TOP 2', 'FG_EPS_0683', 'PT. NITTSU SHOJI (ALOZ)'),
+(59, 'STOPPER BLOCK', 'FG_EPS_0677', 'PT. NITTSU SHOJI (ALOZ)'),
+(60, 'LNG SIDE R-BOTTOM R1', 'FG_EPS_0671', 'PT. NITTSU SHOJI (ALOZ)'),
+(61, 'LNG SIDE R-BOTTOM R2', 'FG_EPS_0672', 'PT. NITTSU SHOJI (ALOZ)'),
+(62, 'LNG SIDE R-TOP 1', 'FG_EPS_0673', 'PT. NITTSU SHOJI (ALOZ)'),
+(63, 'STOPPER BLOCK', 'FG_EPS_0677', 'PT. NITTSU SHOJI (ALOZ)'),
+(64, 'LNG SIDE R-BOTTOM L1', 'FG_EPS_0674', 'PT. NITTSU SHOJI (ALOZ)'),
+(65, 'LNG SIDE R-BOTTOM L2', 'FG_EPS_0675', 'PT. NITTSU SHOJI (ALOZ)'),
+(66, 'LNG SIDE R-TOP 2', 'FG_EPS_0676', 'PT. NITTSU SHOJI (ALOZ)'),
+(67, 'STOPPER BLOCK', 'FG_EPS_0677', 'PT. NITTSU SHOJI (ALOZ)'),
+(68, 'SKP-I03-R GRILLE ASSY, FR BUMPER', 'FG_EPS_0697', 'PT. NITTSU SHOJI (ALOZ)'),
+(69, 'SKP-I03-L GRILLE ASSY, FR BUMPER', 'FG_EPS_0698', 'PT. NITTSU SHOJI (ALOZ)'),
+(70, 'CUSHION AXLE B1', 'WIP_EPS_040', 'TMMIN. PT'),
+(71, 'CUSHION AXLE B2', 'WIP_EPS_041', 'TMMIN. PT'),
+(72, 'STOPPER AXLE B', 'WIP_EPS_051', 'TMMIN. PT'),
+(73, 'CUSHION AXLE A1', 'WIP_EPS_038', 'TMMIN. PT'),
+(74, 'CUSHION AXLE A2', 'WIP_EPS_039', 'TMMIN. PT'),
+(75, 'STOPPER AXLE A', 'WIP_EPS_050', 'TMMIN. PT'),
+(76, 'CUSHION AXLE C1', 'WIP_EPS_042', 'TMMIN. PT'),
+(77, 'CUSHION AXLE C2', 'WIP_EPS_043', 'TMMIN. PT'),
+(78, 'STOPPER AXLE C', 'WIP_EPS_052', 'TMMIN. PT'),
+(79, 'CUSHION AXLE D1', 'WIP_EPS_044', 'TMMIN. PT'),
+(80, 'CUSHION AXLE D2', 'WIP_EPS_045', 'TMMIN. PT'),
+(81, 'CUSHION AXLE TOP A1', 'WIP_EPS_046', 'TMMIN. PT'),
+(82, 'CUSHION AXLE TOP A2', 'WIP_EPS_047', 'TMMIN. PT'),
+(83, 'CUSHION AXLE TOP B1', 'WIP_EPS_048', 'TMMIN. PT'),
+(84, 'CUSHION AXLE TOP B2', 'WIP_EPS_049', 'TMMIN. PT'),
+(85, '71614-BZ1030 PAD, RR SEAT CUSHION, CTR', 'FG_EPS_0989', 'PT FUJI SEAT INDONESIA'),
+(86, 'FENDER FRONT RH', 'FG_EPS_0804', 'PT. FUJITRANS LOGISTIC INDO'),
+(87, 'FENDER FRONT LH', 'FG_EPS_0805', 'PT. FUJITRANS LOGISTIC INDO'),
+(88, 'GARNISH REAR RIGHT', 'FG_EPS_0820', 'PT. FUJITRANS LOGISTIC INDO'),
+(89, 'GARNISH REAR LEFT', 'FG_EPS_0821', 'PT. FUJITRANS LOGISTIC INDO'),
+(90, 'GARNISH FRONT RIGHT', 'FG_EPS_0822', 'PT. FUJITRANS LOGISTIC INDO'),
+(91, 'GARNISH FRONT LEFT', 'FG_EPS_0823', 'PT. FUJITRANS LOGISTIC INDO'),
+(92, 'FRAME COMP, SIDE LOWER UPPER', 'FG_EPS_0948', 'PT KAWASAKI MOTOR INDONESIA'),
+(93, 'FRAME COMP, MIDDLE', 'FG_EPS_0949', 'PT KAWASAKI MOTOR INDONESIA'),
+(94, 'FRAME COMP, STOPPER', 'FG_EPS_0950', 'PT KAWASAKI MOTOR INDONESIA'),
+(95, '75.HSL.CWPP-012000 P-012 LD001F FOAM A1', 'FG_EPS_0576', 'HONORIS INDUSTRY. PT'),
+(96, '75.HSL.CWPP-013000 P-013 LD001F FOAM A2', 'FG_EPS_0375', 'HONORIS INDUSTRY. PT'),
+(97, 'STYROFOAM LDL 05 UPPER', 'FG_EPS_0632', 'HONORIS INDUSTRY. PT'),
+(98, 'STYROFOAM LDL 05 LOWER', 'FG_EPS_0633', 'HONORIS INDUSTRY. PT'),
+(99, 'STYROFOAM LDL 06 UPPER', 'FG_EPS_0634', 'HONORIS INDUSTRY. PT'),
+(100, 'STYROFOAM LDL 06 LOWER', 'FG_EPS_0635', 'HONORIS INDUSTRY. PT'),
+(101, 'STY JK 989174-0250', 'FG_EPS_0231', ' DENSO. PT'),
+(102, 'STY JK 989174-0590', 'FG_EPS_0232', ' DENSO. PT'),
+(103, 'STY JK 990202-9131', 'FG_EPS_0233', ' DENSO. PT'),
+(104, 'STY JK 990202-9131 D.35', 'FG_EPS_0234', ' DENSO. PT'),
+(105, 'STY JK 990202-9132', 'FG_EPS_0235', ' DENSO. PT'),
+(106, 'STY JK 990202-9133', 'FG_EPS_0236', ' DENSO. PT'),
+(107, 'STY JK 990232-7390', 'FG_EPS_0237', ' DENSO. PT'),
+(108, 'STY JK 9640', 'FG_EPS_0238', ' DENSO. PT'),
+(109, 'STY BUSI NGK B', 'FG_EPS_0218', 'NGK. PT'),
+(110, 'STY BUSI NGK C', 'FG_EPS_0219', 'NGK. PT'),
+(111, 'STY BUSI NGK D', 'FG_EPS_0220', 'NGK. PT'),
+(112, 'STYROFOAM C NEW', 'FG_EPS_0325', 'NGK. PT'),
+(113, 'CUSHION XA 361', 'FG_EPS_0101', 'MORITO. PT'),
+(114, 'STY DVD BMS-001 (FG)', 'FG_EPS_0221', 'NAGASENA. PT'),
+(115, 'STY DVD BMS 005', 'FG_EPS_0222', 'NAGASENA. PT'),
+(116, 'STY DVD HDMI D.18 LEFT', 'FG_EPS_0223', 'NAGASENA. PT'),
+(117, 'STY DVD HDMI D.18 RIGHT', 'FG_EPS_0224', 'NAGASENA. PT'),
+(118, 'STYROFOAM TRAY BIBIT', 'FG_EPS_0328', 'NAGASENA. PT'),
+(119, 'SPAKXE687WJZZ PACKING POLYFOAM TOP', 'FG_EPS_0684', 'SHARP. PT'),
+(120, 'SPAKXE687WJZZ PACKING POLYFOAM BOTTOM', 'FG_EPS_0685', 'SHARP. PT'),
+(121, 'SPAKXF356WJ61', 'FG_EPS_0495', 'SHARP. PT'),
+(122, 'SPAKXF357WJ61', 'FG_EPS_0494', 'SHARP. PT'),
+(123, 'PCUSCAD51VRF0', 'FG_EPS_0162', 'SHARP  KULKAS. PT'),
+(124, 'PCUSCAD51VRF0 TOP', 'FG_EPS_0162A', 'SHARP  KULKAS. PT'),
+(125, 'PCUSCAD51VRF0 BOTT', 'FG_EPS_0162B', 'SHARP  KULKAS. PT'),
+(126, 'PCUSA014VDFZ', 'FG_EPS_0439', 'SHARP  KULKAS. PT'),
+(127, 'PCUSBA014VDFZ (Bottom)', 'FG_EPS_0439A', 'SHARP  KULKAS. PT'),
+(128, 'PCUSTA014VDFZ (Top)', 'FG_EPS_0439B', 'SHARP  KULKAS. PT'),
+(129, 'PFPF-A001VDKO-F-R DUCT INSULATION', 'FG_EPS_0168', 'SHARP  KULKAS. PT'),
+(130, 'PCOV Q401 VRKO', 'FG_EPS_0160', 'SHARP  KULKAS. PT'),
+(131, 'SPAKXF332WJ61', 'FG_EPS_0622', 'SHARP TV. PT'),
+(132, 'SPAKXF331WJ61', 'FG_EPS_0621', 'SHARP TV. PT'),
+(133, 'SPAKXE982WJZZ', 'FG_EPS_0657', 'SHARP TV. PT'),
+(134, 'SPAKXE981WJZZ', 'FG_EPS_0656', 'SHARP TV. PT'),
+(135, 'SPAKXF832WJ61', 'FG_EPS_0824', 'SHARP TV. PT'),
+(136, 'SPAKXF833WJ61', 'FG_EPS_0825', 'SHARP TV. PT'),
+(137, 'SPAKXF527/528WJ61 BTM', 'FG_EPS_0815/16', 'SHARP TV. PT'),
+(138, 'SPAKXF672/673WJ61 TOP', 'FG_EPS_0817/18', 'SHARP TV. PT'),
+(139, 'SPAKXF856WJ61', 'FG_EPS_0862', 'SHARP TV. PT'),
+(140, 'SPAKXF857WJ61', 'FG_EPS_0863', 'SHARP TV. PT'),
+(141, 'STY BLENDER TSK 9627-6349G-01-L250 LEFT', 'FG_EPS_0211', 'STAR COMGISTIC. PT'),
+(142, 'STY BLENDER TSK 9627-6349G-01-L250 RIGHT', 'FG_EPS_0212', 'STAR COMGISTIC. PT'),
+(143, 'EPS-STY STABILITOR 1-R', 'FG_EPS_0867', 'PT. ARKANANTA NITYASA'),
+(144, 'EPS-STY STABILITOR 1-L', 'FG_EPS_0868', 'PT. ARKANANTA NITYASA'),
+(145, 'EPS-STY STABILITOR 2', 'FG_EPS_SET_054', 'PT. ARKANANTA NITYASA'),
+(146, 'STY AFRON NK2', 'FG_EPS_0839', 'CV. MANDIRI'),
+(147, 'STYHEAD UNITASSYPE-4206N-WA K-003-007TOP', 'FG_EPS_0527', 'HITACHI. PT'),
+(148, 'STYHEAD UNT ASSYPE-4206 N-WA K003 007BOT', 'FG_EPS_0528', 'HITACHI. PT'),
+(149, 'EQ405A4008AP', 'FG_EPS_0666', 'PMI. PT'),
+(150, '30 RQN 34002-STY FAN ELECTRIC A', 'FG_EPS_0008', 'PMI FAN. PT'),
+(151, 'ZPAOP 125 JOA (Top)', 'FG_EPS_0335', 'PMI WATER PUMP. PT'),
+(152, 'ZPAOP 125 JOA (Bottom)', 'FG_EPS_0335', 'PMI WATER PUMP. PT'),
+(153, 'ZP2P137PWD5B/ UPPER STYROFOAM', 'FG_EPS_1007', 'PT PANASONIC MANUFACTURING IND'),
+(154, 'ZP2P137PWD5B/ BOTTOM STYROFOAM', 'FG_EPS_1008', 'PT PANASONIC MANUFACTURING IND'),
+(155, '2FB2231652500-INSULATION A HRF-249/229G', 'FG_EPS_0003', 'HAIER. PT'),
+(156, '2FB2231652600-INSULATION B HRF-249/229G', 'FG_EPS_0004', 'HAIER. PT'),
+(157, 'INS. AB+D ASSY AQR-D240/D260', 'FG_EPS_SET_049', 'HAIER. PT'),
+(158, '2FB2231652700-DUCT INSULATION (LONG) HRF-249', 'FG_EPS_0005', 'HAIER. PT'),
+(159, '2FB2231652800-DUCT INS(SHORT) HRF-229G', 'FG_EPS_0006', 'HAIER. PT'),
+(160, '2MP2341100100-LOCK SEAL PART', 'FG_EPS_0007', 'HAIER. PT'),
+(161, 'LDBC015000-0,INSULATION SIDE', 'FG_EPS_0538', 'PHCI. PT'),
+(162, 'LDBC014800-0, INSULATION BOTTOM', 'FG_EPS_0536', 'PHCI. PT'),
+(163, 'LDBC015100-0, INSULATION TOP', 'FG_EPS_0539', 'PHCI. PT'),
+(164, 'LDBC014900-0, INSULATION REAR', 'FG_EPS_0537', 'PHCI. PT'),
+(165, 'LDBC014900-1, INSULATION REAR', 'FG_EPS_0629', 'PHCI. PT'),
+(166, 'LDBC015200-0, INSULATION DOOR M', 'FG_EPS_0540', 'PHCI. PT'),
+(167, 'LDBC015300-0, INSULATION DOOR LR', 'FG_EPS_0541', 'PHCI. PT'),
+(168, 'LDBC015600-0,INSULATION SIDE', 'FG_EPS_0543', 'PHCI. PT'),
+(169, 'LDBC015400-0,INSULATION DOOR U', 'FG_EPS_0544', 'PHCI. PT'),
+(170, 'LDBC015500-0, INSULATION DOOR B', 'FG_EPS_0545', 'PHCI. PT'),
+(171, 'LDBC017900-0 INSULATION TOP MCO-230', 'FG_EPS_0560', 'PHCI. PT'),
+(172, 'LDBC18000-0 INSULATION BOTTOM MCO-230', 'FG_EPS_0561', 'PHCI. PT'),
+(173, 'LDBC018100-0 INSULATION SPACER LR', 'FG_EPS_0559', 'PHCI. PT'),
+(174, 'LDBC018200-0 INSULATION REAR MCO-230', 'FG_EPS_0558', 'PHCI. PT'),
+(175, 'LDCC006200-0 INSULATION SUPPORT', 'FG_EPS_0562', 'PHCI. PT'),
+(176, 'LDBC019700-0 INSULATION REAR MCO-170AC', '', 'PHCI. PT'),
+(177, 'LDBC019700-1 INSULATION REAR MCO-170AC', 'FG_EPS_0616', 'PHCI. PT'),
+(178, 'LDBC19600-0 INSULATION REAR B', '', 'PHCI. PT'),
+(179, 'LDBC19600-1 INSULATION REAR B', 'FG_EPS_0615', 'PHCI. PT'),
+(180, 'LDBC021100-0 INSULATION BOTTOM MCO50', 'FG_EPS_0757', 'PHCI. PT'),
+(181, 'LDBC021200-0 INSULATION SIDE MCO50', 'FG_EPS_0758', 'PHCI. PT'),
+(182, 'LDBC021300-0 INSULATION TOP MCO50', 'FG_EPS_0759', 'PHCI. PT'),
+(183, 'LDBC021700-0 INSULATION CENTER MCO50', 'FG_EPS_0760', 'PHCI. PT'),
+(184, 'LDBC021400-0 DOOR INSULATION LR MCO50', 'FG_EPS_0753', 'PHCI. PT'),
+(185, 'LDBC021500-0 DOOR INSULATION UPPER MCO50', 'FG_EPS_0754', 'PHCI. PT'),
+(186, 'LDBC021600-0 DOOR INSULATION UNDER MCO50', 'FG_EPS_0755', 'PHCI. PT'),
+(187, 'LDBC021800-0 DOOR HEATER SUPPORT MCO50', 'FG_EPS_0756', 'PHCI. PT'),
+(188, 'LDBC021900-0 INSULATION REAR', 'FG_EPS_0761', 'PHCI. PT'),
+(189, '7FB6K411211002 PAD UPPER R', 'FG_EPS_0372', 'PHCI. PT'),
+(190, '7FB6K411211012 PAD UPPER L', 'FG_EPS_0373', 'PHCI. PT'),
+(191, '7FB6K412137002 PAD UNDER R', 'FG_EPS_0374', 'PHCI. PT'),
+(192, '7FB6K412137012 PAD UNDER L', 'FG_EPS_0375', 'PHCI. PT'),
+(193, 'LDCC002200-0 TOP CUSHION R', 'FG_EPS_0378', 'PHCI. PT'),
+(194, 'LDCC002300-0 TOP CUSHION L', 'FG_EPS_0379', 'PHCI. PT'),
+(195, 'LDCC002000-0 BOTTOM CUSHION R', 'FG_EPS_0380', 'PHCI. PT'),
+(196, 'LDCC002100-0 BOTTOM CUSHION L', 'FG_EPS_0381', 'PHCI. PT'),
+(197, 'LDCC002700-1 PAD UPPER LR,', 'FG_EPS_0398', 'PHCI. PT'),
+(198, 'LDCC003900-0 PAD UNDER R', 'FG_EPS_0433', 'PHCI. PT'),
+(199, 'LDCC004000-0 PAD UNDER L', 'FG_EPS_0434', 'PHCI. PT'),
+(200, 'LDCC004800-0 INS AUXIL DOOR SEAL', 'FG_EPS_0438', 'PHCI. PT'),
+(201, 'LDCC007600-0 PAD UPPER R MCO50', 'FG_EPS_0801', 'PHCI. PT'),
+(202, '', '', 'PHCI. PT'),
+(203, 'LDCC009000-0 PAD UNDER LR MCO50', 'FG_EPS_SET_051', 'PHCI. PT'),
+(204, '', '', 'PHCI. PT'),
+(205, 'STY ALAT KEDOKTERAN', 'FG_EPS_0209', 'SANKEI. PT'),
+(206, 'STY TENSI BARU', 'FG_EPS_0307', 'SANKEI. PT'),
+(207, 'STY ALAS+TUTUP', 'FG_EPS_0208', ' SANKEI. PT'),
+(208, 'Tensi lama/Sty. Alas', 'FG_EPS_0208A', ' SANKEI. PT'),
+(209, ' Tensi lama/Sty Tutup', 'FG_EPS_0208B', ' SANKEI. PT'),
+(210, 'STY G205/G206', 'FG_EPS_0228', 'NITOH PRESISI I. PT'),
+(211, 'STY WA 02/03/05', 'FG_EPS_0313', 'NITOH PRESISI I. PT'),
+(212, 'STY WA 11', 'FG_EPS_0314', 'NITOH PRESISI I. PT'),
+(213, 'STY WA 12', 'FG_EPS_0315', 'NITOH PRESISI I. PT'),
+(214, 'STY WA 13', 'FG_EPS_0316', 'NITOH PRESISI I. PT'),
+(215, 'STY WA 14', 'FG_EPS_0317', 'NITOH PRESISI I. PT'),
+(216, 'WA1880800 STYROFOAM WA18', 'FG_EPS_0353', 'NITOH PRESISI I. PT'),
+(217, 'STYWE 38 (WE3880800)', 'FG_EPS_0460', 'NITTOH. PT'),
+(218, 'STYROFOAM INSERT RAPI EX 7 PART/SET/GANJAL 1', 'FG_EPS_0382', 'AMERICAN STANDARD. PT'),
+(219, 'STYROFOAM INSERT RAPI EX 7 PART/SET/GANJAL 2 (1F)', 'FG_EPS_0383A', 'AMERICAN STANDARD. PT'),
+(220, 'STYROFOAM INSERT RAPI EX 7 PART/SET/GANJAL 2 (2F)', 'FG_EPS_0383B', 'AMERICAN STANDARD. PT'),
+(221, 'STYROFOAM INSERT RAPI EX 7 PART/SET/GANJAL 3 (1B)', 'FG_EPS_0384A', 'AMERICAN STANDARD. PT'),
+(222, 'STYROFOAM INSERT RAPI EX 7 PART/SET/GANJAL 3 (2B)', 'FG_EPS_0384B', 'AMERICAN STANDARD. PT'),
+(223, '\'STYROFOAM INSERT RAPI EX 7 PART/SET/GANJAL 4', 'FG_EPS_0385', 'AMERICAN STANDARD. PT'),
+(224, 'STYROFOAM INSERT RAPI EX 7 PART/SET/GANJAL 5', 'FG_EPS_0386', 'AMERICAN STANDARD. PT'),
+(225, 'STY VIKING (Penangkal petir)', 'FG_EPS_0496', 'ANDALAN. PT'),
+(226, 'STY FOR REGULATOR', 'FG_EPS_0472', 'VINI. PT'),
+(227, 'CUSHION SPARE PART/OCEANIA GEAR', 'FG_EPS_0472', 'TRIJAYA PT'),
+(228, 'STY TOOTH TIGER R', 'FG_EPS_0960', 'PT INOX REKA PRESISI'),
+(229, 'STY TOOTH TIGER L', 'FG_EPS_0961', 'PT INOX REKA PRESISI'),
+(230, 'STYROFOAM L-8-102', 'FG_EPS_0510', 'PADMA. PT'),
+(231, '545-01-005-20-ZA-2120-STYROPHORE', 'FG_EPS_0028', 'TOA. PT'),
+(232, '545-02-002-40-ZA/A-1000/ZA2030-STYROPHOR', 'FG_EPS_0029', 'TOA. PT'),
+(233, '532-11-109-8A-ZA-230W STYROPHORE', 'FG_EPS_0415', 'TOA. PT'),
+(234, 'STY 55D23', 'FG_EPS_0206', 'GS BATTERY'),
+(235, 'STYR-D23-STYROPHORE D23', 'FG_EPS_0322', 'GS BATTERY'),
+(236, 'STSE-D23-G22A14-GS02-HE-STY SET D23 VP-GS-HIT H-HIT', 'FG_EPS_0193', 'GS BATTERY'),
+(237, 'STSE-D23-G22A14-TL05-HE-STY SET D23 VP-TL-KUN H-HIT', 'FG_EPS_0194', 'GS BATTERY'),
+(238, 'STY SET D23 VP-TL-MER H-HIT', 'FG_EPS_', 'GS BATTERY'),
+(239, 'STY N-100', 'FG_EPS_0241', 'GS BATTERY'),
+(240, 'STYROPHORE E41', 'FG_EPS_0751', 'GS BATTERY'),
+(241, 'STY SET E41 VP-TL-KUN', 'FG_EPS_', 'GS BATTERY'),
+(242, 'STSE-E41-G30A9-GS02-STY SET E41 VP-GS-HIT', 'FG_EPS_0199', 'GS BATTERY'),
+(243, 'STY SET E41 VP-TL-HIT', 'FG_EPS_', 'GS BATTERY'),
+(244, 'STY SET E41 VP-TL-MER', 'FG_EPS_', 'GS BATTERY'),
+(245, 'STSE-E41-G30A9-TL08-STY SET E41 VP-TL-ORA', 'FG_EPS_0200', 'GS BATTERY'),
+(246, 'STY N-120', 'FG_EPS_0242', 'GS BATTERY'),
+(247, 'STSE-F51-G30A9-GS02-STY SET F51 VP-GS-HIT', 'FG_EPS_0201', 'GS BATTERY'),
+(248, 'STY SET F51 VP-TL-HIT', 'FG_EPS_0', 'GS BATTERY'),
+(249, 'STY SET F51 VP-TL-MER', 'FG_EPS_0', 'GS BATTERY'),
+(250, 'STSE-F51-G30A9-TL08-STY SET F51 VP-TL-ORA', 'FG_EPS_0202', 'GS BATTERY'),
+(251, 'STY N-150', 'FG_EPS_0244', 'GS BATTERY'),
+(252, 'STY SET G51 VP-TL-KUN', 'FG_EPS_', 'GS BATTERY'),
+(253, 'STSE-G51-G30A9-GS02-STY SET G51 VP-GS-HIT', 'FG_EPS_0203', 'GS BATTERY'),
+(254, 'STY SET G51 VP-TL-HIT', 'FG_EPS_', 'GS BATTERY'),
+(255, 'STY SET G51 VP-TL-MER', 'FG_EPS_', 'GS BATTERY'),
+(256, 'STSE-G51-G30AG-TL08-STY SET G51 VP-TL-ORA', 'FG_EPS_0204', 'GS BATTERY'),
+(257, 'STY N-200', 'FG_EPS_0246', 'GS BATTERY'),
+(258, 'STY SET H52 TL-KUN', 'FG_EPS_', 'GS BATTERY'),
+(259, 'STSE-H52-G30A9-GS02-STY SET H52 VP-GS-HIT', 'FG_EPS_0205', 'GS BATTERY'),
+(260, 'STY SET H52 VP-TL-HIT', 'FG_EPS_', 'GS BATTERY'),
+(261, 'STY SET H52 VP-TL-MER', 'FG_EPS_', 'GS BATTERY'),
+(262, 'STY SET H52 VP-TL-ORA', 'FG_EPS_', 'GS BATTERY'),
+(263, 'STY N-50 H', 'FG_EPS_0247', 'GS BATTERY'),
+(264, 'STYR-D26A-STYROPHORE D26 GS', 'FG_EPS_0323', 'GS BATTERY'),
+(265, 'STSE-D26A-G18A50-GS02-STY SET D26A VP-GS-HIT', 'FG_EPS_0195', 'GS BATTERY'),
+(266, 'STY SET D26A VP-TL-HIT', 'FG_EPS_', 'GS BATTERY'),
+(267, 'STY SET D26A VP-TL-MER', 'FG_EPS_', 'GS BATTERY'),
+(268, 'STSE-D26A-G18A50-TL05-STY SET D26A VP-TL-KUN', 'FG_EPS_0196', 'GS BATTERY'),
+(269, 'STY SET D26A VP-TL-ORA', 'FG_EPS_', 'GS BATTERY'),
+(270, '22-STYR-D26D/ STYROPHORE D26 NO HANDLE', 'FG_EPS_1106', 'GS BATTERY'),
+(271, 'STY N50 HANDLE', 'FG_EPS_0248', 'GS BATTERY'),
+(272, 'STY N-50 HD', 'FG_EPS_0249', 'GS BATTERY'),
+(273, 'STY SET D26 B VP-TL-KUN', 'FG_EPS_', 'GS BATTERY'),
+(274, 'STY SET D26 B VP-TL-ORA', 'FG_EPS_', 'GS BATTERY'),
+(275, 'STY N-50 NON HANDLE', 'FG_EPS_0250', 'GS BATTERY'),
+(276, 'STY N-70 (H)', 'FG_EPS_0251', 'GS BATTERY'),
+(277, 'STYR-D31-STYROPHORE D31', 'FG_EPS_0324', 'GS BATTERY'),
+(278, 'STY SET D31 VP-TL-KUN', 'FG_EPS_', 'GS BATTERY'),
+(279, 'STY SET D31 VP-TL-HIT', 'FG_EPS_', 'GS BATTERY'),
+(280, 'STSE-D31-G18A50-GS02-STY SET D31 VP-GS-HIT', 'FG_EPS_0197', 'GS BATTERY'),
+(281, 'STY SET D31 VP-TL-MER', 'FG_EPS_', 'GS BATTERY'),
+(282, 'STSE-D31-G18A50-TL08-STY SET D31 VP-TL-ORA', 'FG_EPS_0198', 'GS BATTERY'),
+(283, 'STY SET D31-VP FILTER TL HIT', 'FG_EPS_0511', 'GS BATTERY'),
+(284, 'STY NS- 60 HD', 'FG_EPS_0252', 'GS BATTERY'),
+(285, 'STY SET B24B VP-TL-ORA', 'FG_EPS_', 'GS BATTERY'),
+(286, 'STY NS-40', 'FG_EPS_0253', 'GS BATTERY'),
+(287, 'STYROPHORE B20 GS', 'FG_EPS_0320', 'GS BATTERY'),
+(288, 'STSE-B20A-G18A50-TL05-STY SET B20A VP-TL-KUN', 'FG_EPS_0190', 'GS BATTERY'),
+(289, 'STSE-B20A-G18A50-GS02-STY SET B20A VP-GS-HIT', 'FG_EPS_0188', 'GS BATTERY'),
+(290, 'STSE-B20A-G18A50-TL03-STY SET B20A VP-TL-MER', 'FG_EPS_0189', 'GS BATTERY'),
+(291, 'STY SET B20A VP-TL-ORA', 'FG_EPS_', 'GS BATTERY'),
+(292, 'STY SET B20A VP-TL-HIT', 'FG_EPS_', 'GS BATTERY'),
+(293, 'STY NS-40 HD', 'FG_EPS_0255', 'GS BATTERY'),
+(294, 'STY SET B20B VP-TL-ORA', 'FG_EPS_0255', 'GS BATTERY'),
+(295, 'STY NS-60/40', 'FG_EPS_0260', 'GS BATTERY'),
+(296, 'STYR-B24A-STYROPHORE B24 GS', 'FG_EPS_0321', 'GS BATTERY'),
+(297, 'STSE-B24A-G18A50-GS02-STY SET B24A VP-GS-HIT', 'FG_EPS_0191', 'GS BATTERY'),
+(298, 'STSE-B24A-G18A50-TL05-STY SET B24A VP-TL-KUN', 'FG_EPS_0192', 'GS BATTERY'),
+(299, 'STY SET B24A VP-TL-ORA', 'FG_EPS_', 'GS BATTERY'),
+(300, 'STY SET B24A VP-TL-MER', 'FG_EPS_', 'GS BATTERY'),
+(301, 'STY SET B24A VP-TL-HIT', 'FG_EPS_', 'GS BATTERY'),
+(302, 'STYR-B19-STY B19', 'FG_EPS_0319', 'GS BATTERY'),
+(303, '22-STYR-B19-A/ STYROPHORE B19', 'FG_EPS_1040', 'GS BATTERY'),
+(304, 'STSE-B19-G18A50-GS01-STY SET B19 VP-GS-HIT', 'FG_EPS_0186', 'GS BATTERY'),
+(305, 'STSE-B19-G18A50-TL05-STY SET B19 VP-TL-KUN', 'FG_EPS_0187', 'GS BATTERY'),
+(306, 'STY 12N24', 'FG_EPS_0342', 'GS BATTERY'),
+(307, 'STSE-A19-G18A50-GS02-STY SET A19 VP-GS-HIT', 'FG_EPS_0184', 'GS BATTERY'),
+(308, 'STSE-A19-G18A50-TL05 STY SET A19 VP-TL-KUN', 'FG_EPS_0308', 'GS BATTERY'),
+(309, 'STSE-A19-G18A50-TL08-STY SET A19 VP-TL-ORA', 'FG_EPS_0185', 'GS BATTERY'),
+(310, 'STY SET 580-24 VP-TL-KUN', 'FG_EPS_0602', 'GS BATTERY'),
+(311, '12-STYR-03 STYROPHORE 03', 'FG_EPS_0628', 'GS BATTERY'),
+(312, 'STYROPHORE 555', 'FG_EPS_0600', 'GS BATTERY'),
+(313, 'STY SET 555 VP-TL-KUN', 'FG_EPS_0601', 'GS BATTERY'),
+(314, 'STYROPHORE D31 (SPACER)', 'FG_EPS_0579', 'GS BATTERY'),
+(315, 'STYROPHORE B24 (SPACER)', 'FG_EPS_0578', 'GS BATTERY'),
+(316, 'STYROPHORE D23/D26 (SPACER)', 'FG_EPS_0577', 'GS BATTERY'),
+(317, 'STY D26 LEXUS (ATAS)', '', 'GS BATTERY'),
+(318, 'STY D26 LEXUS (BAWAH)', '', 'GS BATTERY'),
+(319, 'STY D26 LEXUS', 'FG_EPS_SET_024', 'GS BATTERY'),
+(320, 'STY D31 LEXUS (ATAS)', '', 'GS BATTERY'),
+(321, 'STY D31 LEXUS (BAWAH)', '', 'GS BATTERY'),
+(322, 'STY D31 LEXUS', 'FG_EPS_SET_025', 'GS BATTERY'),
+(323, '22-STYR-E41', 'FG_EPS_0751', 'GS BATTERY'),
+(324, 'STYROFOAM N120 UD TRUCKS', 'FG_EPS_0779', 'GS BATTERY'),
+(325, '22-STYR-D31-VP/ STYROPHORE D31 GS CUT V POLE', 'FG_EPS_0802', 'GS BATTERY'),
+(326, '22-STYR-D31-TP/ STYROPHORE D31 GS CUT T POLE', 'FG_EPS_0803', 'GS BATTERY'),
+(327, 'STY 55D23', 'FG_EPS_0206', 'CBI'),
+(328, 'PP-STYR-55D23C-HAN', 'FG_EPS_1028', 'CBI'),
+(329, 'PP-STYR-55D23-HAN-VP-YEL', 'FG_EPS_', 'CBI'),
+(330, '', '', 'CBI'),
+(331, 'PP-STYR-55D23-HAN-VP-ORA', 'FG_EPS_', 'CBI'),
+(332, '', '', 'CBI'),
+(333, 'PP-STYR-55D23-HAN-VP-BLA', 'FG_EPS_', 'CBI'),
+(334, 'PP-STYR-55D23C-HAN-VP-BLA', 'FG_EPS_0999', 'CBI'),
+(335, 'PP-STYR-55D23C-HAN-VP-ORA', 'FG_EPS_1000', 'CBI'),
+(336, 'STY N-100', 'FG_EPS_0241', 'CBI'),
+(337, 'STY N-100 NORMAL', 'FG_EPS_0354', 'CBI'),
+(338, 'PP-STYR-N100-NOR-VP-YEL', 'FG_EPS_0903', 'CBI'),
+(339, 'PP-STYR-N100-NOR-VP-ORA', 'FG_EPS_0892', 'CBI'),
+(340, 'PP-STYR-N100-NOR-VP-BLA', 'FG_EPS_0904', 'CBI'),
+(341, 'STY N-120', 'FG_EPS_0242', 'CBI'),
+(342, 'PP-STYR-N120-NOR-VP-YEL', 'FG_EPS_0902', 'CBI'),
+(343, 'PP-STYR-N120-NOR-VP-ORA', 'FG_EPS_0889', 'CBI'),
+(344, 'PP-STYR-N120-NOR-VP-BLA', 'FG_EPS_0899', 'CBI'),
+(345, 'STY N120 NORMAL', 'FG_EPS_0243', 'CBI'),
+(346, 'STY N-150', 'FG_EPS_0244', 'CBI'),
+(347, 'PP-STYR-N150-NOR-VP-YEL', 'FG_EPS_0', 'CBI'),
+(348, 'PP-STYR-N150-NOR-VP-ORA', 'FG_EPS_0909', 'CBI'),
+(349, 'PP-STYR-N150-NOR-VP-BLA', 'FG_EPS_0906', 'CBI'),
+(350, 'PP-STYR-N150-NOR-VP-RED', 'FG_EPS_0905', 'CBI'),
+(351, 'STY N150 NORMAL', 'FG_EPS_0245', 'CBI'),
+(352, 'STY N-200', 'FG_EPS_0246', 'CBI'),
+(353, 'PP-STYR-N200-NOR-VP-YEL', 'FG_EPS_', 'CBI'),
+(354, 'PP-STYR-N200-NOR-VP-ORA', 'FG_EPS_0885', 'CBI'),
+(355, 'STY N200 NORMAL', 'FG_EPS_357', 'CBI'),
+(356, 'PP-STYR-N200-NOR-VP-BLA', 'FG_EPS_886', 'CBI'),
+(357, 'PP-STYR-N200-NOR-VP-RED', 'FG_EPS_', 'CBI'),
+(358, 'PP-STYR-N200-NOR-VP-RED/ STY N200 NORMAL- ASSY VP RED', 'FG_EPS_1096', 'CBI'),
+(359, 'STY N-50 H', 'FG_EPS_0247', 'CBI'),
+(360, 'PP-STYR-N50-HAN-VP-ORA', 'FG_EPS_0893', 'CBI'),
+(361, 'STY N50 HANDLE', 'FG_EPS_0248', 'CBI'),
+(362, 'PP-STYR-N50-HAN-VP-BLA', 'FG_EPS_887', 'CBI'),
+(363, 'PP-STYR-N50-HAN-VP-YEL', 'FG_EPS_888', 'CBI'),
+(364, 'STY N50 HANDLE', 'FG_EPS_0248', 'CBI'),
+(365, 'STY N-50 HD', 'FG_EPS_0249', 'CBI'),
+(366, 'STY SET N-50 H VP YELLOW NEM', 'FG_EPS_', 'CBI'),
+(367, 'STY SET N-50 HD VP ORANGE NEM', 'FG_EPS_', 'CBI'),
+(368, 'STY N-50 NON HANDLE', 'FG_EPS_0250', 'CBI'),
+(369, 'STY N-70 (H)', 'FG_EPS_0251', 'CBI'),
+(370, 'PP-STYR-N70-HAN-VP-YEL', 'FG_EPS_0900', 'CBI'),
+(371, 'PP-STYR-N70-HAN-VP-ORA', 'FG_EPS_0895', 'CBI'),
+(372, 'PP-STYR-N70-HAN-VP-BLA', 'FG_EPS_0890', 'CBI'),
+(373, 'STY NS- 60 HD', 'FG_EPS_0252', 'CBI'),
+(374, 'PP-STYR-NS60-HAN-VP-YEL', 'FG_EPS_0911', 'CBI'),
+(375, 'PP-STYR-NS60-HAN-VP-ORA', 'FG_EPS_0912', 'CBI'),
+(376, 'PP-STYR-NS60-HAN-VP-BLA', 'FG_EPS_0916', 'CBI'),
+(377, 'PP-STYR-NS60-HAN', 'FG_EPS_', 'CBI'),
+(378, 'PP-STYR-NS60-NOR-VP-YEL', 'FG_EPS_', 'CBI'),
+(379, 'PP-STYR-NS60-NOR-VP-ORA', 'FG_EPS_0908', 'CBI'),
+(380, 'STY NS-40', 'FG_EPS_0253', 'CBI'),
+(381, 'PP-STYR-NS40-NOR-VP-YEL', 'FG_EPS_', 'CBI'),
+(382, 'PP-STYR-NS40-NOR-VP-ORA', 'FG_EPS_0891', 'CBI'),
+(383, 'PP-STYR-NS40-NOR-VP-BLA', 'FG_EPS_', 'CBI'),
+(384, 'PP-STYR-NS40-NOR-VP-YEL', 'FG_EPS_', 'CBI'),
+(385, 'STY NS40 NORMAL', 'FG_EPS_0256', 'CBI'),
+(386, 'STY NS-40 HD', 'FG_EPS_0255', 'CBI'),
+(387, 'PP-STYR-NS40-HAN-VP-YEL', 'FG_EPS_0255', 'CBI'),
+(388, 'PP-STYR-NS40-HAN-VP-ORA', 'FG_EPS_0255', 'CBI'),
+(389, 'PP-STYR-NS40-HAN-VP-BLA', 'FG_EPS_0255', 'CBI'),
+(390, 'PP-STYR-NS40-HAN', 'FG_EPS_0255', 'CBI'),
+(391, 'STY NS-60/40', 'FG_EPS_0260', 'CBI'),
+(392, 'STY SET NS-60 VP YELLOW NEM', 'FG_EPS_0321', 'CBI'),
+(393, 'STY SET NS-60 VP ORANGE NEM', 'FG_EPS_0191', 'CBI'),
+(394, 'STY NS60 NORMAL', 'FG_EPS_0192', 'CBI'),
+(395, 'PP-STYR-N70T-HAN-VP-ORA', 'FG_EPS_0883', 'CBI'),
+(396, 'PP-STYR-N70T-HAN-VP-BLA', 'FG_EPS_0901', 'CBI'),
+(397, 'PP-STSE-N70THVP-BLA-NEM', 'FG_EPS_0864', 'CBI'),
+(398, 'PP-STYR-N70T-HAN-VP-YEL', 'FG_EPS_000', 'CBI'),
+(399, 'PP-STYR-12N24-VP-YEL', 'FG_EPS_0342', 'CBI'),
+(400, 'STYROPHORE 555', 'FG_EPS_0600', 'CBI'),
+(401, 'PP-STYR-545-NOR-VP-RED', 'FG_EPS_0530', 'CBI'),
+(402, 'STY-N100T', 'FG_EPS_0546', 'CBI'),
+(403, 'PP-STYR-N100T-NOR/STY N100T NORMAL', 'FG_EPS_0879', 'CBI'),
+(404, 'PP-STYR-N100T-NOR-VP-BLA', 'FG_EPS_0688', 'CBI'),
+(405, 'PP-STYR-N100T-NOR-VP-ORA', 'FG_EPS_', 'CBI'),
+(406, 'PP-STYR-N100T-NOR-VP-YEL', 'FG_EPS_', 'CBI'),
+(407, 'STYROPHORE 544', 'FG_EPS_0570', ' CBI. PT'),
+(408, 'PP-STYR-544-NOR-VP-RED', 'FG_EPS_0907', 'CBI'),
+(409, 'STYROPHORE 566', 'FG_EPS_0617', 'CBI'),
+(410, 'PP-STYR-566-NOR-VP-RED', 'FG_EPS_0915', 'CBI'),
+(411, 'STYROPHORE 588', 'WIP_EPS_55', 'CBI'),
+(412, 'PP-STYR-588-NOR-VP-RED', 'FG_EPS_0785', 'CBI'),
+(413, 'STY GOLF CART 256 X 177 X 76', 'FG_EPS_0563', 'CBI'),
+(414, 'STYSET GC6V VP BLACK NEM', 'FG_EPS_0690', 'CBI'),
+(415, 'PP-STYR-GC6V-NOR-VP-BLA/STY GOLFCART 6V NOR-ASSY', 'FG_EPS_1094', 'CBI'),
+(416, 'PP-STYR-GC8V-NOR-VP-BLA/STY GOLFCART 8V NOR-ASSY', 'FG_EPS_1095', 'CBI'),
+(417, 'PP-STYR-GC-NOR-VP-BLA/STY GOLFCHART NORMAL-ASSY', 'FG_EPS_1048', 'CBI'),
+(418, 'STY BOX WOODY POLOS', 'FG_EPS_0217', 'DMP. PT'),
+(419, 'Box Woody polos / Tanpa Tulang', 'FG_EPS_0217A', 'DMP. PT'),
+(420, 'Tutup box woody polos', 'FG_EPS_0217B', 'DMP. PT'),
+(421, 'STY BOX WOODY POLOS [MP]', 'FG_EPS_SET_084', 'CASH'),
+(422, 'STY BOX WOODY POLOS TOP [MP]', 'FG_EPS_1017', 'CASH'),
+(423, 'STY BOX WOODY POLOS BOTTOM [MP]', 'FG_EPS_1018', 'CASH'),
+(424, 'BOX STYROFOAM 2KG TOP', 'FG_EPS_0705A', 'CEMERLANG FREDI KARYA. PT'),
+(425, 'BOX STYROFOAM 2KG BTM', 'FG_EPS_0705B', 'CEMERLANG FREDI KARYA. PT'),
+(426, 'STY BOX 2 KG D,17 (TANPA LOGO)', 'FG_EPS_SET_078', 'CASH'),
+(427, 'STY BOX 2 KG D,17 (TANPA LOGO) TOP', 'FG_EPS_0997', 'CASH'),
+(428, 'STY BOX 2 KG D,17 (TANPA LOGO) BOTTOM', 'FG_EPS_0998', 'CASH'),
+(429, 'STY BOX 2 KG D.17 (TANPA LOGO) [MP]', 'FG_EPS_SET_083', 'CASH'),
+(430, 'STY BOX 2 KG D.17 TOP (TANPA LOGO) [MP]', 'FG_EPS_1015', 'CASH'),
+(431, 'STY BOX 2 KG D.17 BOTTOM (TANPA LOGO) [MP]', 'FG_EPS_1016', 'CASH'),
+(432, 'BOX AG 75 LOGO GARUDA', 'FG_EPS_0362', 'REY. BAPAK'),
+(433, 'BOX AG 75 LOGO GARUDA', 'FG_EPS_0362A', 'REY. BAPAK'),
+(434, 'BOX AG 75 LOGO GARUDA', 'FG_EPS_0362B', 'REY. BAPAK'),
+(435, 'STYROFOAM BOX AG 75 D.30 (HIGH)', 'FG_EPS_SET_077', 'CASH'),
+(436, 'STYROFOAM BOX AG 75 D.30 (HIGH) TOP', 'FG_EPS_0995', 'CASH'),
+(437, 'STYROFOAM BOX AG 75 D.30 (HIGH) BOTTOM', 'FG_EPS_0996', 'CASH'),
+(438, 'STYROFOAM BOX AG 75 D.30 (HIGH) [MP]', 'FG_EPS_SET_087', 'CASH'),
+(439, 'STYROFOAM BOX AG 75 D.30 (HIGH) TOP [MP]', 'FG_EPS_1023', 'CASH'),
+(440, 'STYROFOAM BOX AG 75 D.30 (HIGH) BOTTOM [MP]', 'FG_EPS_1024', 'CASH'),
+(441, 'STYROFOAM BOX AG 75 D,17 (LOW) ', 'FG_EPS_SET_000', 'CASH'),
+(442, 'STYROFOAM BOX AG 75 D,17 (LOW) TOP', 'FG_EPS_0987', 'CASH'),
+(443, 'STYROFOAM BOX AG 75 D,17 (LOW) BOTTOM ', 'FG_EPS_0988', 'CASH'),
+(444, 'STYROFOAM BOX AG 75 D,17 (LOW) [MP]', 'FG_EPS_SET_086', 'CASH'),
+(445, 'STYROFOAM BOX AG 75 D,17 (LOW) TOP [MP]', 'FG_EPS_1021', 'CASH'),
+(446, 'STYROFOAM BOX AG 75 D,17 (LOW) BOTTOM [MP]', 'FG_EPS_1022', 'CASH'),
+(447, 'STY DPR TOP', 'FG_EPS_0721', 'RUANGAN PENDINGIN INDONESIA. PT'),
+(448, 'STY DPR BOTTOM', 'FG_EPS_0722', 'RUANGAN PENDINGIN INDONESIA. PT'),
+(449, 'STY DPR (520 X 370 X 175) [MP]', 'FG_EPS_SET_088', 'RUANGAN PENDINGIN INDONESIA. PT'),
+(450, 'STY DPR (520 X 370 X 175) TOP [MP]', 'FG_EPS_1025', 'RUANGAN PENDINGIN INDONESIA. PT'),
+(451, 'STY DPR (520 X 370 X 175) BOTTOM [MP]', 'FG_EPS_1026', 'RUANGAN PENDINGIN INDONESIA. PT'),
+(452, 'STY BOX UDANG DPR D.40', 'FG_EPS_SET_089', 'CASH'),
+(453, 'STY BOX UDANG DPR D.40 TOP', 'FG_EPS_1033', 'CASH'),
+(454, 'STY BOX UDANG DPR D.40 BOTTOM', 'FG_EPS_1034', 'CASH'),
+(455, 'STY BOX GG B POLOS D.17', 'FG_EPS_0459', 'DMP. PT'),
+(456, 'Box GG  B polos  D17', 'FG_EPS_0459B', 'DMP. PT'),
+(457, 'Tutup Box GG D.14', 'FG_EPS_0459A', 'DMP. PT'),
+(458, 'BOX GG LOGO GARUDA', 'FG_EPS_0361', 'REY. BAPAK'),
+(459, 'BOX GG LOGO GARUDA', 'FG_EPS_0361A', 'REY. BAPAK'),
+(460, 'BOX GG LOGO GARUDA', 'FG_EPS_0361B', 'REY. BAPAK'),
+(461, 'STY BOX GG POLOS D,17 [MP]', 'FG_EPS_SET_085', 'CASH'),
+(462, 'STY BOX GG POLOS D,17 TOP [MP]', 'FG_EPS_1019', 'CASH'),
+(463, 'STY BOX GG POLOS D,17 BOTTOM [MP]', 'FG_EPS_1020', 'CASH'),
+(464, 'STY BOX MOTOR [MP]', 'FG_EPS_SET_080', 'CASH'),
+(465, 'STY BOX MOTOR TOP [MP]', 'FG_EPS_1009', 'CASH'),
+(466, 'STY BOX MOTOR BOTTOM [MP]', 'FG_EPS_1010', 'CASH'),
+(467, 'STY BOX MOTOR', 'FG_EPS_0216', 'DMP. PT'),
+(468, 'STY FB 5 KG', 'FG_EPS_0692', 'RUANGAN PENDINGIN INDONESIA. PT'),
+(469, 'STY FB 5 KG [MP]', 'FG_EPS_1011', 'CASH'),
+(470, 'ICE BOX 1 ( 34 X 34 X 15.5 CM ) [MP]', 'FG_EPS_1012', 'DMP. PT'),
+(471, 'ICE BOX 1 ( 34 X 34 X 15.5 CM )', 'FG_EPS_0150', 'CAROLINE. PT'),
+(472, 'BOX BM SMALL UK 330 X 215 X 235 MM', 'FG_EPS_SET_091', 'CASH'),
+(473, 'BOX BM SMALL UK 330 X 215 X 235 MM TOP', 'FG_EPS_1036', 'CASH'),
+(474, 'BOX BM SMALL UK 330 X 215 X 235 MM BOTTOM', 'FG_EPS_1037', 'CASH'),
+(475, 'STY VEGETABLE BOX BESAR (10 KG)', 'FG_EPS_0311', 'PREIZ PRATAMA. PT'),
+(476, 'STY VEGETABLE BOX KECIL (6 KG)', 'FG_EPS_0312', 'PREIZ PRATAMA. PT'),
+(477, 'STY ICE BOX BESAR 1 LITER ', 'FG_EPS_0229', 'GIPSINDO. PT'),
+(478, 'STY ICE BOX BESAR 1 LITER TOP', 'FG_EPS_0229A', 'GIPSINDO. PT'),
+(479, 'STY ICE BOX BESAR 1 LITER BOT', 'FG_EPS_0229B', 'GIPSINDO. PT'),
+(480, 'STY ICE BOX KECIL 1/2 LITER', 'FG_EPS_0230', 'GIPSINDO. PT'),
+(481, 'STY ICE BOX 1/2 LITER   Top', 'FG_EPS_0230A', 'GIPSINDO. PT'),
+(482, 'STY ICE BOX 1/2 LITER   Bottom', 'FG_EPS_0230B', 'GIPSINDO. PT'),
+(483, 'STY BOX MBL [MP]', 'FG_EPS_SET_082', 'CASH'),
+(484, 'STY BOX MBL TOP [MP]', 'FG_EPS_1013', 'CASH'),
+(485, 'STY BOX MBL BOTTOM [MP]', 'FG_EPS_1014', 'CASH'),
+(486, 'STY BOX MBL', 'FG_EPS_0215', 'DMP. PT'),
+(487, 'J.COOL STEREOFOAM TAKE AWAY-TOP', 'FG_EPS_0710', 'PT JCO DONUT & COFFEE'),
+(488, 'J.COOL STEREOFOAM TAKE AWAY-BOTTOM', 'FG_EPS_0710', 'PT JCO DONUT & COFFEE'),
+(489, 'BOX JALA-JALA NELAYAN', 'FG_EPS_0083', 'MIYOVA (KO THE MIN). PT'),
+(490, 'BOX JALA-JALA NELAYAN TOP', 'FG_EPS_0083A', 'MIYOVA (KO THE MIN). PT'),
+(491, 'BOX JALA-JALA NELAYAN BOTTOM', 'FG_EPS_0083B', 'MIYOVA (KO THE MIN). PT'),
+(492, 'STY BOX KERAMIK BM 20X25 CM (DECOTILE)', 'FG_EPS_0214', 'BUMI MEGAH / R. SETIAWAN. PT'),
+(493, 'Sty Box Keramik BM 20 x 25 top', 'FG_EPS_0214A', 'BUMI MEGAH / R. SETIAWAN. PT'),
+(494, 'Sty Box Keramik BM 20 x 25 bottom', 'FG_EPS_0214B', 'BUMI MEGAH/ R. SETIAWAN. PT'),
+(495, 'Sty Box 20 x 25 Logo ICON Top', 'FG_EPS_0431A', 'BUMI MEGAH/ R. SETIAWAN. PT'),
+(496, 'Sty Box 20 x 25 Logo ICON Bottom', 'FG_EPS_0431B', 'BUMI MEGAH/ R. SETIAWAN. PT'),
+(497, 'STY BOX KUE 30 X 30 CM', 'FG_EPS_0670', 'CEMERLANG FREDI KARYA. PT'),
+(498, 'STY BOX D85', 'FG_EPS_0636', 'LA REASSA ICE CREAM'),
+(499, 'STY BOX M', 'FG_EPS_0660', 'LA REASSA ICE CREAM'),
+(500, 'STY BOX S', 'FG_EPS_0658', 'LA REASSA ICE CREAM'),
+(501, 'STY BOX ROLL', 'FG_EPS_0661', 'LA REASSA ICE CREAM'),
+(502, 'STY BOX D60', 'FG_EPS_0662', 'LA REASSA ICE CREAM'),
+(503, 'STY BOX D45', 'FG_EPS_0659', 'LA REASSA ICE CREAM'),
+(504, 'STY BOX KACA 30 X 30 TOP', 'FG_EPS_SET_031A', 'MULIA GLASS. PT'),
+(505, 'STY BOX KACA 30 X 30 BTM', 'FG_EPS_SET_031B', 'MULIA GLASS. PT'),
+(506, 'STY NEW HARVEST 30 X 30', 'FG_EPS_0355', 'MITRA SELARAS. PT'),
+(507, 'STY NEW HARVEST 30 X 30 TOP', 'FG_EPS_0335A', 'MITRA SELARAS. PT'),
+(508, 'STY NEW HARVEST 30 X 30 MIDDLE & BOTTOM', 'FG_EPS_0335B', 'MITRA SELARAS. PT'),
+(509, 'BOX BENUR D.17', 'FG_EPS_SET_095', 'CASH'),
+(510, 'BOX BENUR D.17 TOP', 'FG_EPS_1097', 'CASH'),
+(511, 'BOX BENUR D.17 BOTTOM', 'FG_EPS_1098', 'CASH'),
+(512, 'ICE BOX KECIL 1/2 LITER (TANPA LOGO)', 'FG_EPS_SET_093', 'CASH'),
+(513, 'ICE BOX 1/2 LITER (TANPA LOGO) TOP', 'FG_EPS_1090', 'CASH'),
+(514, 'ICE BOX 1/2 LITER  (TANPA LOGO) BOTTOM', 'FG_EPS_1091', 'CASH'),
+(515, 'ICE BOX 1 LITER  ', 'FG_EPS_SET_094', 'CASH'),
+(516, 'ICE BOX 1 LITER (TANPA LOGO) TOP', 'FG_EPS_1092', 'CASH'),
+(517, 'ICE BOX 1 LITER  (TANPA LOGO) BOTTOM', 'FG_EPS_1093', 'CASH'),
+(518, 'STY BOX GIFT TOP + BOTTOM', 'FG_EPS_SET_0100', 'CASH'),
+(519, 'STY BOX GIFT TOP ', 'FG_EPS_1123', 'CASH'),
+(520, 'STY BOX GIFT BOTTOM', 'FG_EPS_1124', 'CASH'),
+(521, 'STY BOX AG 60 D.30', 'FG_EPS_SET_097', 'CASH'),
+(522, 'STY BOX AG 60 D.30 TOP ', 'FG_EPS_1114', 'CASH'),
+(523, 'STY BOX AG 60 D.30 BOTTOM', 'FG_EPS_1115', 'CASH'),
+(524, 'STY BOX AG 60 D.25', 'FG_EPS_SET_098', 'CASH'),
+(525, 'STY BOX AG 60 D.25 TOP ', 'FG_EPS_1116', 'CASH'),
+(526, 'STY BOX AG 60 D.25 BOTTOM', 'FG_EPS_1117', 'CASH'),
+(527, 'STY BOX AG 60 D.17', 'FG_EPS_SET_098', 'CASH'),
+(528, 'STY BOX AG 60 D.17 TOP ', 'FG_EPS_1116', 'CASH'),
+(529, 'STY BOX AG 60 D.17 BOTTOM', 'FG_EPS_1117', 'CASH'),
+(530, 'BENCH LEG LU', 'FG_EPS_0080', 'SAN SURYA. PT '),
+(531, 'STYROFOAM M-BOX VAKSINDO', 'FG_EPS_0598', 'CAHAYA PRATAMA. PT'),
+(532, 'NERACA 311', 'FG_EPS_SET_025', 'LFINDO BANDUNG. CV'),
+(533, 'NERACA 311 A', 'FG_EPS_0623', 'LFINDO BANDUNG. CV'),
+(534, 'NERACA 311 B', 'FG_EPS_0624', 'LFINDO BANDUNG. CV'),
+(535, 'STYROFORM PROPELLAR SHAFT', 'FG_EPS_0686', 'JIDOSHA BUHIN INDONESIA. PT'),
+(536, 'EDGE CORNER GUARD', 'FG_EPS_0699', 'KENTA PRATAMA JAYA. PT'),
+(537, 'YUSNI BOLA', 'FG_EPS_0331', 'DMP / KHARISMA. PT'),
+(538, 'STY HELM SUMA D.30', 'FG_EPS_0304', 'DAEKYOUNG. PT'),
+(539, 'STYROFOAM SUMA D.40', 'FG_EPS_0637', 'DAEKYOUNG. PT'),
+(540, 'EPS SUMA S D-30', 'FG_EPS_0346', 'DAEKYOUNG. PT'),
+(541, 'STYROFOAM SUMA D.25', 'FG_EPS_0556', 'DAEKYOUNG. PT'),
+(542, 'HELM ARMY', 'FG_EPS_0366', 'DAEKYOUNG. PT'),
+(543, 'EPS AMG D.30', 'FG_EPS_0376', 'DAEKYOUNG. PT'),
+(544, 'EPS.M3.D25', 'FG_EPS_0405', 'DAEKYOUNG. PT'),
+(545, 'STYROFOAM SUMA XQ D.22', 'FG_EPS_0445', 'DAEKYOUNG. PT'),
+(546, 'STEROFOAM SUMA S D.22', 'FG_EPS_0473', 'DAEKYOUNG. PT'),
+(547, 'STY HELM M3 D.30', 'FG_EPS_0332', 'DAEKYOUNG. PT'),
+(548, 'STY HELM FASHION 3 DENSITY 25', 'FG_EPS_0551', 'DAEKYOUNG. PT'),
+(549, 'STEROFOAM M3 D.22', 'FG_EPS_0551', 'DAEKYOUNG. PT'),
+(550, 'EPS SHELL P2L DENSITY 50 GR', 'FG_EPS_0569', 'DANA PERSADA. PT'),
+(551, 'CHEEK PAD P2 (L) DENSITY 50 GR', 'FG_EPS_0571', 'DANA PERSADA. PT'),
+(552, 'CHEEK PAD P2 (R) DENSITY 50 GR', 'FG_EPS_0572', 'DANA PERSADA. PT'),
+(553, 'CHEEK PAD GM CROSS SIZE M D.45 LEFT', 'FG_EPS_0088', 'DANA PERSADA. PT'),
+(554, 'CHEEK PAD GM CROSS SIZE L D.45 LEFT', 'FG_EPS_0086', 'DANA PERSADA. PT'),
+(555, 'CHEEK PAD GM CROSS SIZE L D.45 RIGHT', 'FG_EPS_0087', 'DANA PERSADA. PT'),
+(556, 'CHEEK PAD GM CROSS SIZE M D.45 RIGHT', 'FG_EPS_0089', 'DANA PERSADA. PT'),
+(557, 'CHEEK PAD GMAX R DEN 55 GR LEFT', 'FG_EPS_0090', 'DANA PERSADA. PT'),
+(558, 'CHEEK PAD GMAX R DEN 55 GR RIGHT', 'FG_EPS_0091', 'DANA PERSADA. PT'),
+(559, 'CHEEK PAD MAQ D.40 LEFT', 'FG_EPS_0092', 'DANA PERSADA. PT'),
+(560, 'CHEEK PAD MAQ D.40 RIGHT', 'FG_EPS_0093', 'DANA PERSADA. PT'),
+(561, 'CHEEK PAD NUV D.40 LEFT', 'FG_EPS_0094', 'DANA PERSADA. PT'),
+(562, 'CHEEK PAD NUV D.40 RIGT', 'FG_EPS_0095', 'DANA PERSADA. PT'),
+(563, 'CHEEK PAD P2 D.30 LEFT', 'FG_EPS_0096', 'DANA PERSADA. PT'),
+(564, 'CHEEK PAD P2 D.30 RIGHT', 'FG_EPS_0097', 'DANA PERSADA. PT'),
+(565, 'CHIN GUARD GMAX R DEN 50 GR', 'FG_EPS_0098', 'DANA PERSADA. PT'),
+(566, 'EPS CHEEK PAD NHK MX D.50 LEFT', 'FG_EPS_0105', 'DANA PERSADA. PT'),
+(567, 'EPS CHEEK PAD NHK MX D.50 RIGHT', 'FG_EPS_0106', 'DANA PERSADA. PT'),
+(568, 'EPS GM CROSS D.40 SIZE M', 'FG_EPS_0109', 'DANA PERSADA. PT'),
+(569, 'EPS GM CROSS D.45 SIZE L', 'FG_EPS_0110', 'DANA PERSADA. PT'),
+(570, 'EPS MAQ D.40', 'FG_EPS_0111', 'DANA PERSADA. PT'),
+(571, 'EPS MAZ D.25', 'FG_EPS_0112', 'DANA PERSADA. PT'),
+(572, 'EPS NUV D.40', 'FG_EPS_0113', 'DANA PERSADA. PT'),
+(573, 'EPS SHELL 502 D.25', 'FG_EPS_0114', 'DANA PERSADA. PT'),
+(574, 'EPS SHELL BENZ D.40', 'FG_EPS_0115', 'DANA PERSADA. PT'),
+(575, 'EPS SHELL FULL FACE 6 D.40', 'FG_EPS_0118', 'DANA PERSADA. PT'),
+(576, 'EPS SHELL GM EVO L D.35', 'FG_EPS_0120', 'DANA PERSADA. PT'),
+(577, 'EPS SHELL GM MO D.35', 'FG_EPS_0121', 'DANA PERSADA. PT'),
+(578, 'EPS SHELL INOVA D.25', 'FG_EPS_0125', 'DANA PERSADA. PT'),
+(579, 'EPS SHELL MA2 D.30', 'FG_EPS_0127', 'DANA PERSADA. PT'),
+(580, 'EPS SHELL MIX KB D.25', 'FG_EPS_0130', 'DANA PERSADA. PT'),
+(581, 'EPS SHELL MODULAR D.35', 'FG_EPS_0131', 'DANA PERSADA. PT'),
+(582, 'EPS SHELL NHK CB D.40', 'FG_EPS_0132', 'DANA PERSADA. PT'),
+(583, 'EPS SHELL NHK DV D.45', 'FG_EPS_0133', 'DANA PERSADA. PT'),
+(584, 'EPS SHELL NUV DEN 50', 'FG_EPS_0134', 'DANA PERSADA. PT'),
+(585, 'CHECKPAD NUV DENSITY 50 L', 'FG_EPS_0585', 'DANA PERSADA. PT'),
+(586, 'CHECKPAD NUV DENSITY 50 R', 'FG_EPS_0586', 'DANA PERSADA. PT'),
+(587, 'CHINGUARD NUV DENSITY 50', 'FG_EPS_0587', 'DANA PERSADA. PT'),
+(588, 'EPS SHELL P2 SIZE L D.35', 'FG_EPS_0135', 'DANA PERSADA. PT'),
+(589, 'EPS SHELL MAQ DENSITY 50 GR', 'FG_EPS_0358', 'DANA PERSADA. PT'),
+(590, 'EPS SHELL P2 DEN 40 GR SIZE L', 'FG_EPS_0367', 'DANA PERSADA. PT'),
+(591, 'CHEEK PAD MX 2014 DENSITY 50GR R', 'FG_EPS_0388', 'DANA PERSADA. PT'),
+(592, 'CHEEK PAD MX 2014 DENSITY 50GR L', 'FG_EPS_0389', 'DANA PERSADA. PT'),
+(593, 'EPS SHELL CROSS 2015 DENSITY 45', 'FG_EPS_0394', 'DANA PERSADA. PT'),
+(594, 'CHIN GUARD NUV DENSITY 40 GR', 'FG_EPS_0441', 'DANA PERSADA. PT'),
+(595, 'EPS SHELL GMAX R DEN 50 GR', 'FG_EPS_0122', 'DANA PERSADA. PT'),
+(596, 'EPS SHELL MAZ VARIAN D.25', 'FG_EPS_0128', 'DANA PERSADA. PT'),
+(597, 'EPS SHELL MAZ VARIANT DEN 50 GR', 'FG_EPS_0129', 'DANA PERSADA. PT'),
+(598, 'CHEEK PAD GDM \"ECE\" DENSITY 55', 'FG_EPS_0603', 'DANA PERSADA. PT'),
+(599, 'CHEEK PAD GDM ECE R D.55', 'FG_EPS_0609', 'DANA PERSADA. PT'),
+(600, 'CHEEK PAD GDM ECE L D.55', 'FG_EPS_0613', 'DANA PERSADA. PT'),
+(601, 'CHEEK PAD GDM \"ECE\" DENSITY 60', '', 'DANA PERSADA. PT'),
+(602, 'CHEEK PAD GDM ECE R D.60', 'FG_EPS_0608', 'DANA PERSADA. PT'),
+(603, 'CHEEK PAD GDM ECE L D.60', 'FG_EPS_0611', 'DANA PERSADA. PT'),
+(604, 'CHEEK PAD GDM \"ECE\" DENSITY 45', '', 'DANA PERSADA. PT'),
+(605, 'CHEEK PAD GDM ECE R D.45', 'FG_EPS_0607', 'DANA PERSADA. PT'),
+(606, 'CHEEK PAD GDM ECE L D.45', 'FG_EPS_0610', 'DANA PERSADA. PT'),
+(607, 'CHEEK PAD GDM \"ECE\" DENSITY 40', '', 'DANA PERSADA. PT'),
+(608, 'CHEEK PAD GDM ECE R D.40', 'FG_EPS_0606', 'DANA PERSADA. PT'),
+(609, 'CHEEK PAD GDM ECE L D.40', 'FG_EPS_0612', 'DANA PERSADA. PT'),
+(610, 'EPS SHELL GDM \"ECE\" DENSITY 40', 'FG_EPS_0605', 'DANA PERSADA. PT'),
+(611, 'EPS SHELL GDM \"ECE\" DENSITY 35', 'FG_EPS_0604', 'DANA PERSADA. PT'),
+(612, 'EPS SHELL GDM \"ECE\" DENSITY 30', 'FG_EPS_0603', 'DANA PERSADA. PT'),
+(613, 'EPS CHIN GUARD G MAX DEN 55', 'FG_EPS_0827', 'PT. DANA PERSADA RAYA'),
+(614, 'EPS SHELL SPORT F1 D.45', 'FG_EPS_0136', 'TARA KUSUMA INDAH. PT '),
+(615, 'HELM GT VITARA D.13', 'FG_EPS_0146', 'DMP. PT'),
+(616, 'HELM 875 D.25', 'FG_EPS_0144', 'DMP /IBU SUSI. PT'),
+(617, 'HELM CS DEN 18 GR/LTR', 'FG_EPS_0363', 'SUSI. IBU '),
+(618, 'HELM CS DEN 25 GR/LTR', 'FG_EPS_0364', 'SUSI. IBU '),
+(619, 'HELM CS DEN 30 GR/LTR', 'FG_EPS_0689', 'INSTITUT PERTANIAN BOGOR'),
+(620, '40106-35-004-STYROFOAM CF D.35', 'FG_EPS_0010', 'MKM. PT'),
+(621, '40111-35-009-EPS SHELL V2 GN D.35', 'FG_EPS_0011', 'MKM. PT'),
+(622, '40102-45-006 STYROFOAM OF DEVIL D.40', 'FG_EPS_0550', 'MKM. PT'),
+(623, '4010235-0006-EPS SHELL DEVIL D.35', 'FG_EPS_0488', 'MKM. PT'),
+(624, 'HELMET CUSHION MP.05 D.20', 'FG_EPS_0147', 'MULTI PLASINDO. PT'),
+(625, 'HELMET CUSHION MP 6 D.20', 'FG_EPS_0148', 'MULTI PLASINDO. PT'),
+(626, 'HELMET CUSHION MP 8 D.20', 'FG_EPS_0149', 'MULTI PLASINDO. PT'),
+(627, 'STR ONK DV', 'FG_EPS_0399', 'MUSTIKA KENCANA. PT'),
+(628, 'STY HELM ONK DV D30', 'FG_EPS_0401', 'MUSTIKA KENCANA. PT'),
+(629, 'STY JU 001 D.40', 'FG_EPS_0239', 'SEONG SIN TECH. PT'),
+(630, 'STY JU003 D.30', 'FG_EPS_0240', 'SEONG SIN TECH. PT'),
+(631, 'HELM BEST-1 D.35', 'FG_EPS_0145', 'SMI. PT'),
+(632, 'STY BOY SPORT D.25', 'FG_EPS_0476', 'SMI. PT'),
+(633, 'CHEEK PAD CT 77 D.45 LEFT', 'FG_EPS_0084', 'TARA KUSUMA INDAH. PT '),
+(634, 'CHEEK PAD CT 77 D.45 RIGHT', 'FG_EPS_0085', 'TARA KUSUMA INDAH. PT '),
+(635, 'EPS SHELL CX-22 3 IN 1 D.45', 'FG_EPS_0116', 'TARA KUSUMA INDAH. PT '),
+(636, 'EPS SHELL FOXER D.45', 'FG_EPS_0117', 'TARA KUSUMA INDAH. PT '),
+(637, 'EPS SHELL GL 500 D.45', 'FG_EPS_0119', 'TARA KUSUMA INDAH. PT '),
+(638, 'EPS SHELL HIU ICON (L) D.45', 'FG_EPS_0123', 'TARA KUSUMA INDAH. PT '),
+(639, 'EPS SHELL HIU ICON (M) D.45', 'FG_EPS_0124', 'TARA KUSUMA INDAH. PT '),
+(640, 'EPS SHELL KING 2 VISION L D.45', 'FG_EPS_0126', 'TARA KUSUMA INDAH. PT '),
+(641, 'EPS SHELL T-380 JUNIOR D.45', 'FG_EPS_0137', 'TARA KUSUMA INDAH. PT '),
+(642, 'STYROFOAM HELM VN', 'FG_EPS_0521', 'INPLASCO. PT'),
+(643, 'STYROFOAM HELM MODEL GRAB', 'FG_EPS_0507', 'CITRA PLASTINDO . PT'),
+(644, 'STYROFOAM HELM GRAB D.30', 'FG_EPS_0614', 'CITRA PLASTINDO . PT'),
+(645, 'STYROFOAM HELM TRX-3 D.22', 'FG_EPS_0516', 'CITRA PLASTINDO  . PT'),
+(646, 'STYROFOAM HELM TRX-S D.22', 'FG_EPS_0630', 'CITRA PLASTINDO  . PT'),
+(647, 'STYROFOAM HELM BETA D.20', 'FG_EPS_0789', 'CITRA PLASTINDO  . PT'),
+(648, 'STYROFOAM HELM FF SPORT 70 Gr', 'FG_EPS_0881', 'CITRA PLASTINDO  . PT'),
+(649, 'STYROFOAM HELM FF SPORT 90 Gr', 'FG_EPS_0882', 'CITRA PLASTINDO  . PT'),
+(650, 'STYROFOAM HELM LPS', 'FG_EPS_0580', 'LINTANG PERMAI SATU  . PT'),
+(651, 'STYROFOAM HELM JHM D-13', 'FG_EPS_0631', 'ECERAN'),
+(652, 'EPS HEAD', 'FG_EPS_0583', 'TERANG PART INDONESIA. PT'),
+(653, 'EPS HEAD MODEL HMJ D.22', 'FG_EPS_0584', 'CAHAYA ABADI PAINTING. CV'),
+(654, 'STY SHELL OPTIMAX D.30', 'FG_EPS_0619', 'POLIPRIMA. PT'),
+(655, 'CHEEK PAD JP-CROSS R D.55', 'FG_EPS_0694', 'SIGMA ADHILOKA LESTARI'),
+(656, 'CHEEK PAD JP-CROSS R D.70', 'FG_EPS_0871', 'SIGMA ADHILOKA LESTARI'),
+(657, 'CHEEK PAD JP-CROSS L D.55', 'FG_EPS_0695', 'SIGMA ADHILOKA LESTARI'),
+(658, 'CHEEK PAD JP-CROSS L D.70', 'FG_EPS_0871', 'SIGMA ADHILOKA LESTARI'),
+(659, 'JP-CROSS MOUNT VENT D.55', 'FG_EPS_0696', 'SIGMA ADHILOKA LESTARI'),
+(660, 'JP-CROSS MOUNT VENT D.70', 'FG_EPS_0870', 'SIGMA ADHILOKA LESTARI'),
+(661, 'CHEEK PAD K2 RIDER DEN 45 RIGHT', 'FG_EPS_0727', 'PT BIMA'),
+(662, 'CHEEK PAD K2 RIDER DEN 45 LEFT', 'FG_EPS_0728', 'PT BIMA'),
+(663, 'EPS SHELL K2 RIDER DEN.45 GR/L', 'FG_EPS_0726', 'PT BIMA'),
+(664, 'STY HELM JMS D18', 'FG_EPS_0729', 'CV JAYA MANDIRI'),
+(665, 'CHEEK PAD PRO RIDER DEN 45 RIGHT', 'FG_EPS_0737', 'PT TARA KUSUMA INDAH'),
+(666, 'CHEEK PAD PRO RIDER DEN 45 LEFT', 'FG_EPS_0738', 'PT TARA KUSUMA INDAH'),
+(667, 'EPS SHELL PRO RIDER  DEN.45 GR/L', 'FG_EPS_0736', 'PT TARA KUSUMA INDAH'),
+(668, 'CHEEK PAD SCORPION KING DEN 45 RIGHT', 'FG_EPS_0740', 'PT TARA KUSUMA INDAH'),
+(669, 'CHEEK PAD SCORPION KING DEN 45 LEFT', 'FG_EPS_0741', 'PT TARA KUSUMA INDAH'),
+(670, 'EPS SHELL SCORPION KING  DEN.45 GR/L', 'FG_EPS_0739', 'PT TARA KUSUMA INDAH'),
+(671, 'CHEEK PAD VENOM DEN 45 RIGHT', 'FG_EPS_0743', 'PT TARA KUSUMA INDAH'),
+(672, 'CHEEK PAD VENOM DEN 45 LEFT', 'FG_EPS_0744', 'PT TARA KUSUMA INDAH'),
+(673, 'EPS SHELL VENOM DEN.45 GR/L', 'FG_EPS_0742', 'PT TARA KUSUMA INDAH'),
+(674, 'EPS SHELL KING 2 VISION M DEN.45 GR/L', 'FG_EPS_0788', 'PT TARA KUSUMA INDAH'),
+(675, 'EPS SHELL CENTRO DEN.45 GR/L CAV 9', 'FG_EPS_0787', 'PT TARA KUSUMA INDAH'),
+(676, 'CHEEK PAD JP-9 L', 'FG_EPS_0694', 'SIGMA ADHILOKA LESTARI'),
+(677, 'CHEEK PAD JP-9 R', 'FG_EPS_0695', 'SIGMA ADHILOKA LESTARI'),
+(678, 'MX 726 R D. 35', 'FG_EPS_0780', 'SIGMA ADHILOKA LESTARI'),
+(679, 'CHEEKPAD MX-726 R', 'FG_EPS_0913', 'SIGMA ADHILOKA LESTARI'),
+(680, 'CHEEKPAD MX-726 L', 'FG_EPS_0914', 'SIGMA ADHILOKA LESTARI'),
+(681, 'S-1', 'FG_EPS_0794', 'SIGMA ADHILOKA LESTARI'),
+(682, 'S-2', 'FG_EPS_0826', 'SIGMA ADHILOKA LESTARI'),
+(683, 'S-2 D.35', 'FG_EPS_0872', 'SIGMA ADHILOKA LESTARI'),
+(684, 'S-2 D.45', 'FG_EPS_0872', 'SIGMA ADHILOKA LESTARI'),
+(685, 'C-1 D.16', 'FG_EPS_966', 'SIGMA ADHILOKA LESTARI'),
+(686, 'C-1 D.13', 'FG_EPS_969', 'SIGMA ADHILOKA LESTARI'),
+(687, 'CHEEKPAD FS 735 R', 'FG_EPS_1002', 'SIGMA ADHILOKA LESTARI'),
+(688, 'CHEEKPAD FS 735 L', 'FG_EPS_1003', 'SIGMA ADHILOKA LESTARI'),
+(689, 'FS 735 HEAD', 'FG_EPS_1001', 'SIGMA ADHILOKA LESTARI'),
+(690, 'CHEEK PAD JP-11 L', 'FG_EPS_0793', 'SIGMA ADHILOKA LESTARI'),
+(691, 'CHEEK PAD JP-11 R', 'FG_EPS_0793', 'SIGMA ADHILOKA LESTARI'),
+(692, 'CHEEKPAD BG CROSS R', 'FG_EPS_SET_048', 'SIGMA ADHILOKA LESTARI'),
+(693, 'CHEEKPAD BG CROSS L', '', 'SIGMA ADHILOKA LESTARI'),
+(694, 'CHEEKPAD BG CROSS  D.70', 'FG_EPS_SET_052', 'SIGMA ADHILOKA LESTARI'),
+(695, 'CHEEKPAD BG CROSS L D.70', '', 'SIGMA ADHILOKA LESTARI'),
+(696, 'BG CROSS HEAD', 'FG_EPS_0808', 'SIGMA ADHILOKA LESTARI'),
+(697, 'ALM', 'FG_EPS_1038', 'SIGMA ADHILOKA LESTARI'),
+(698, 'PLT', 'FG_EPS_1039', 'SIGMA ADHILOKA LESTARI'),
+(699, 'STC-1', 'FG_EPS_1041', 'SIGMA ADHILOKA LESTARI'),
+(700, 'KID BOY', 'FG_EPS_1053', 'SIGMA ADHILOKA LESTARI'),
+(701, 'EPS CHEEK PAD 207 R', 'FG_EPS_0790', 'PT INDO- SAFETY MANUFACTURE'),
+(702, 'EPS CHEEK PAD 207 L', 'FG_EPS_0791', 'PT INDO- SAFETY MANUFACTURE'),
+(703, 'STY HELM D50', 'FG_EPS_0855', 'PT INTERESTISI MATERIAL MAJU'),
+(704, 'STY HELM JMS D.16', 'FG_EPS_1035', 'CASH'),
+(705, 'STY BOX 1 KG', 'FG_EPS_SET_102', 'CASH'),
+(706, 'STSTY BOX 1 KG TOP ', 'FG_EPS_1140', 'CASH'),
+(707, 'STY BOX 1 KG BOTTOM', 'FG_EPS_1141', 'CASH'),
+(708, 'STY BOX 2 KG NEW', 'FG_EPS_SET_103', 'CASH'),
+(709, 'STY BOX 2 KG NEW TOP ', 'FG_EPS_1142', 'CASH'),
+(710, 'STY BOX 2 KG NEW  BOTTOM', 'FG_EPS_1143', 'CASH'),
+(711, 'BOX SOUR SALLY', 'FG_EPS_SET_104', 'CASH'),
+(712, 'BOX SOUR SALLY TOP', 'FG_EPS_1144', 'CASH'),
+(713, 'BOX SOUR SALLY BOTTOM', 'FG_EPS_1145', 'CASH'),
+(714, 'STFF-01', 'FG_EPS_1041', 'SIGMA ADHILOKA LESTARI'),
+(715, 'STY BOX BM MEDIUM', 'FG_EPS_SET_105', 'CASH'),
+(716, 'STY BOX BM MEDIUM TOP', 'FG_EPS_1157', 'CASH'),
+(717, 'STY BOX BM MEDIUM BOTTOM', 'FG_EPS_1158', 'CASH'),
+(718, 'LTPA1001/ CUSHION TOP SIDE', 'FG_EPS_1148', 'PHCI. PT'),
+(719, 'LTPA1002/ CUSHION BOTTOM SIDE', 'FG_EPS_1149', 'PHCI. PT'),
+(720, 'YUNIOR', 'FG_EPS_1147', 'SIGMA ADHILOKA LESTARI'),
+(721, 'STYROFOAM HELM FF SPORT D.22 BERAT 85 GR', 'FG_EPS_1167', 'YASUNLI ABADI UTAMA PLASTIK'),
+(722, 'EPS CS D.16', 'FG_EPS_1168', 'CASH'),
+(723, 'EPS MP5 D.16', 'FG_EPS_1182', 'CASH'),
+(724, 'STYROFOAM HELM TRX-RR D.22 BERAT 85 GR', 'FG_EPS_', 'YASUNLI ABADI UTAMA PLASTIK'),
+(725, 'STYROFOAM MANIFOLD ASSY, IN_2ZJ', 'FG_EPS_', 'NITTSU SHOJI INDONESIA'),
+(726, 'STY BOX UDANG DPR D.30', 'FG_EPS_SET_101', 'CASH'),
+(727, 'STY BOX UDANG DPR D.30 TOP', 'FG_EPS_1125', 'CASH'),
+(728, 'STY BOX UDANG DPR D.30 BOTTOM', 'FG_EPS_1126', 'CASH'),
+(729, 'ZPA200FADZ/ CUSHION ASSY', 'FG_EPS_SET_107', 'PT PANASONIC MANUFACTURING IND'),
+(730, 'ZPA200FADZ-1/ UPPER CUSHION STYROFOAM 200 FLOW SWITCH', 'FG_EPS_1216', 'PT PANASONIC MANUFACTURING IND'),
+(731, 'ZPA200FADZ-1/ BOTTOM CUSHION STYROFOAM 200 FLOW SWITCH', 'FG_EPS_1217', 'PT PANASONIC MANUFACTURING IND'),
+(732, 'SH-11 D.16', 'FG_EPS_', 'SIGMA ADHILOKA LESTARI'),
+(733, 'SH-11 D.22', 'FG_EPS_', 'SIGMA ADHILOKA LESTARI'),
+(734, 'D58065-BZ010/PAD SUB-ASSY, RR FLOOR S', 'FG_EPS_1237', 'ADM. PT'),
+(735, 'STYROFOAM CRANK SHAFT', 'FG_EPS_1193', 'PT SUZUKI INDOMOBIL MOTOR'),
+(736, '5100017555--FRONT PAD 305 X 90 X 20 MM', 'FG_EPS_0012', 'DMC / AST. PT'),
+(737, '5100017556-SIDE PAD 235 X 90 X 20', 'FG_EPS_0013', 'DMC / AST. PT'),
+(738, '5100017557-REAR PAD 90 X 65 X 40/30 MM', 'FG_EPS_0014', 'DMC / AST. PT'),
+(739, '5100020214-1A-CX09CP08-600 X 200 X 40 MM', 'FG_EPS_0015', 'DMC / AST. PT'),
+(740, '5100022783-12A--PS PAD A 133 X 131 X 80', 'FG_EPS_0016', 'DMC / AST. PT'),
+(741, '5100022783-13A--PS PAD B 425 X 30 X 80', 'FG_EPS_0017', 'DMC / AST. PT'),
+(742, '5100022783-14A--PS PAD C 600 X 20 X 55', 'FG_EPS_0018', 'DMC / AST. PT'),
+(743, '5100026062-P-PADSPACER HP503 UK:70X70X10', 'FG_EPS_0019', 'DMC / AST. PT'),
+(744, '5100028311-PBSPACER 250 X 140 X 140', 'FG_EPS_0020', 'DMC / AST. PT'),
+(745, '5100028312-SIDEPAD PS 374 X 48 X 34', 'FG_EPS_0021', 'DMC / AST. PT'),
+(746, '5100028313-UPPERPAD PS 55 X 35 X 35', 'FG_EPS_0022', 'DMC / AST. PT'),
+(747, '5100028769-SPADREAR PS 70 X 70 X 40 MM', 'FG_EPS_0023', 'DMC / AST. PT'),
+(748, '5100030201-3A-P.INNER3 HPI-50(235X66X14)', 'FG_EPS_0024', 'DMC / AST. PT'),
+(749, '5100030201-4A P.INNER HPI-50 (350X66X14)', 'FG_EPS_0025', 'DMC / AST. PT'),
+(750, '5100031839-2A-FP-80-PADF A 350 X 70 X 44', 'FG_EPS_0026', 'DMC / AST. PT'),
+(751, '5100031839-3A-FP-80-PAD B 105 X 70 X 55', 'FG_EPS_0027', 'DMC / AST. PT'),
+(752, 'AIHA0006-A--PROTECTION FOAM', 'FG_EPS_0031', 'DMC / AST. PT'),
+(753, 'AIHA0029-A--PAD B 100 X 85 X 75', 'FG_EPS_0032', 'DMC / AST. PT'),
+(754, 'AIHA0033-A--PAD F 151 X 50 X 25', 'FG_EPS_0033', 'DMC / AST. PT'),
+(755, 'AIHA0034-A--PAD G 87 X 82 X 75', 'FG_EPS_0034', 'DMC / AST. PT'),
+(756, 'AIHA0035-A--PAD H 66 X 50 X 25', 'FG_EPS_0035', 'DMC / AST. PT'),
+(757, 'AIHA0038-A--PAD K 250 X 66 X 17', 'FG_EPS_0036', 'DMC / AST. PT'),
+(758, 'AIHA0047-A--PAD T 259 X 45 X 33', 'FG_EPS_0037', 'DMC / AST. PT'),
+(759, 'AIHA0090-A--PAD A 220 X 80 X 50 MM', 'FG_EPS_0038', 'DMC / AST. PT'),
+(760, 'AIHA0091-A--PAD B 220 X 100 X 70', 'FG_EPS_0039', 'DMC / AST. PT'),
+(761, 'AIHA0092-A--PAD C 460 X 60 X45 MM', 'FG_EPS_0040', 'DMC / AST. PT'),
+(762, 'AIHA0093-A-PAD D 355 X 55 X 80', 'FG_EPS_0041', 'DMC / AST. PT'),
+(763, 'AIHA0094-A-PAD E 150 X 55 X 80', 'FG_EPS_0042', 'DMC / AST. PT'),
+(764, 'AIHA0095-A--PAD F 460 X 75 X 62 MM', 'FG_EPS_0043', 'DMC / AST. PT'),
+(765, 'AIHA0096-A--PAD G 200 X 100 X 30 MM', 'FG_EPS_0044', 'DMC / AST. PT'),
+(766, 'AIHA0097-A--PAD A 357 X 150 X 35', 'FG_EPS_0045', 'DMC / AST. PT'),
+(767, 'AIHA0098-A--PAD B 357 X 100 X 35', 'FG_EPS_0046', 'DMC / AST. PT'),
+(768, 'AIHA0099-A--PAD C 400 X 100 X 30', 'FG_EPS_0047', 'DMC / AST. PT'),
+(769, 'AIHA0100-A--PAD D 200 X 44 X 44', 'FG_EPS_0048', 'DMC / AST. PT'),
+(770, 'AIHA0101-A--PAD E 100 X 90 X 195', 'FG_EPS_0049', 'DMC / AST. PT'),
+(771, 'AIHA0102-A--PAD F 200 X 60 X 40', 'FG_EPS_0050', 'DMC / AST. PT'),
+(772, 'AIHA0103-A--PAD G 499 X 43 X 43', 'FG_EPS_0051', 'DMC / AST. PT'),
+(773, 'AIHA0104-B--PAD H 200 X 60 (55) X 95', 'FG_EPS_0052', 'DMC / AST. PT'),
+(774, 'AIHA0105-A--PAD I 285 X 150 X 52', 'FG_EPS_0053', 'DMC / AST. PT'),
+(775, 'AIHA0106-A--PAD J 150 X 128 X 128', 'FG_EPS_0054', 'DMC / AST. PT'),
+(776, 'AIHA0107-A--PAD K 100 X 100 X 52', 'FG_EPS_0055', 'DMC / AST. PT'),
+(777, 'AIHA0108-A--PAD L 250 X 43 X 52', 'FG_EPS_0056', 'DMC / AST. PT');
+INSERT INTO `tb_produk` (`id_Produk`, `partName`, `kodeBarang`, `customer`) VALUES
+(778, 'AIHA0109-A--PAD M 200 X 150 X 52', 'FG_EPS_0057', 'DMC / AST. PT'),
+(779, 'AIHA0110-A--PAD N  200 X 70 X 43', 'FG_EPS_0058', 'DMC / AST. PT'),
+(780, 'AIHA0113-A--PAD 59 X 50 X 87', 'FG_EPS_0059', 'DMC / AST. PT'),
+(781, 'AIHA0114-A--PAD 210 X 50 X 25', 'FG_EPS_0060', 'DMC / AST. PT'),
+(782, 'AIHA0115-A--PAD 125 X 50 X 25', 'FG_EPS_0061', 'DMC / AST. PT'),
+(783, 'AIHA0116-A--PAD 241 X 50 X 32', 'FG_EPS_0062', 'DMC / AST. PT'),
+(784, 'AIHA0117-A--PAD 191 X 75 X 32', 'FG_EPS_0063', 'DMC / AST. PT'),
+(785, 'AIHA0118-A--PAD 422 X 57 X 85', 'FG_EPS_0064', 'DMC / AST. PT'),
+(786, 'AIHA0119-A--PAD 777 X 40 X 15', 'FG_EPS_0065', 'DMC / AST. PT'),
+(787, 'AIHA0120-A--PAD 422 X 35 X 15', 'FG_EPS_0066', 'DMC / AST. PT'),
+(788, 'AIHA0121-A--PAD 220 X 50 X 15', 'FG_EPS_0067', 'DMC / AST. PT'),
+(789, 'AIHA0125-A--PS PAD D 140 X 60 X 35', 'FG_EPS_0068', 'DMC / AST. PT'),
+(790, 'AIHA0126-A--PS PAD E 60 X 400 X 35', 'FG_EPS_0069', 'DMC / AST. PT'),
+(791, 'AIHA0127-A--PS PAD F 264 X 80 X 80', 'FG_EPS_0070', 'DMC / AST. PT'),
+(792, 'AIHA0128-A--PAD O 70 X 70 X 43', 'FG_EPS_0071', 'DMC / AST. PT'),
+(793, 'AIHA0131-A--PAD 422 X 57 X 87', 'FG_EPS_0072', 'DMC / AST. PT'),
+(794, 'AIHA0132-A--PAD 87 X 82 X 175', 'FG_EPS_0073', 'DMC / AST. PT'),
+(795, 'AIHA0133-A--PAD A UK: 640 X 100 X 30 MM', 'FG_EPS_0074', 'DMC / AST. PT'),
+(796, 'AIHA0134-A--PAD A 20 X 40 X 300 MM', 'FG_EPS_0075', 'DMC / AST. PT'),
+(797, 'AIHA0135-A--PAD B 20 X 60 X 300', 'FG_EPS_0076', 'DMC / AST. PT'),
+(798, 'AIHA0136-A--PS PAD 57 X 57 X 487 MM', 'FG_EPS_0077', 'DMC / AST. PT'),
+(799, 'AIHA0140-A--PAD 300 X 60 X 40', 'FG_EPS_0078', 'DMC / AST. PT'),
+(800, 'AIHA0142-A--PAD 145 X 57 X 40', 'FG_EPS_0079', 'DMC / AST. PT'),
+(801, 'AIHA0273-A-PAD 330X100X70', 'FG_EPS_0370', 'DMC / AST. PT'),
+(802, 'STEYROFOAM 100X50X100MM', 'FG_EPS_0526', 'PANDITA BASTARI.CV'),
+(803, 'STEYROFOAM 75X50X75MM', 'FG_EPS_0524', 'PANDITA BASTARI.CV'),
+(804, 'STEYROFOAM 50X26X26MM', 'FG_EPS_0525', 'PANDITA BASTARI.CV'),
+(805, 'STYROFOAM UK. 125 X 80 X 80 MM D.15', 'FG_EPS_0480', 'ALVINY INDONESIA. PT'),
+(806, 'STYROFOAM UK. 160 X 160 X 15 MM D.15', 'FG_EPS_0481', 'ALVINY INDONESIA. PT'),
+(807, 'STYROFOAM UK. 85 X 435 X 15 MM D.15', 'FG_EPS_0482', 'ALVINY INDONESIA. PT'),
+(808, 'STY SHEET L UK: 250X60X55 MM', 'FG_EPS_0406', 'BAPAK AHMAD/DANBORU'),
+(809, '140 CM X 30 CM X 5 CM', 'FG_EPS_0404', 'BP JEFFRY'),
+(810, 'STY POTONGAN 2 X 2 X 1 CM', 'FG_EPS_0261', 'CENDIKIA. PT'),
+(811, 'STY PIPA 2\" X 10 CM (5 + 5 CM) HD', 'FG_EPS_0464', 'DHARMA SAMUDERA. PT'),
+(812, 'GE40544-003A-SHEET UK : 450 X 100 X 30', 'FG_EPS_0142', 'DMC / JVC. PT'),
+(813, '150-800300-CASETTE PACKING', 'FG_EPS_0001', 'DMC / NAKAJIMA. PT'),
+(814, '610-80020-RELEASE PACKING', 'FG_EPS_0030', 'DMC / NAKAJIMA. PT'),
+(815, 'X73258A', 'FG_EPS_0330', 'DMC MECOINDO. PT'),
+(816, 'BLOK CUT FOAM UK (1700X150X50) MM', 'FG_EPS_0081', 'DMC. PT'),
+(817, 'BLOK CUT FOAM UK: 700X80X50 MM', 'FG_EPS_0082', 'DMC. PT'),
+(818, 'CUT FOAM 2MQ (UK : 198 X 155 X 78)', 'FG_EPS_0102', 'DMC. PT'),
+(819, 'CUT FOAM 2MQ (UK: 1105X150X25MM)', 'FG_EPS_0103', 'DMC. PT'),
+(820, 'CUTFOAM UK: 500X600X80 (MM)', 'FG_EPS_0369', 'DMC. PT'),
+(821, 'CUT FOAM 2MQ (UK: 440 X 160 X 15 MM)', 'FG_EPS_0993', 'DMC. PT'),
+(822, 'CUT FOAM 2MQ (UK: 650 X 160 X 30 MM)', 'FG_EPS_0994', 'DMC. PT'),
+(823, 'STY SHEET SL UK: 1M X 2M X 2 CM', 'FG_EPS_0305', 'DMP. PT'),
+(824, 'STY BAR 75 X 75 X 200 MM (DIA 22MM)', 'FG_EPS_0424', 'EPITERMA. PT '),
+(825, 'STY BAR 75 X 75 X 200 MM (DIA 26MM)', 'FG_EPS_0425', 'EPITERMA. PT '),
+(826, 'STY BAR 75 X 75 X 250 MM (DIA 32MM)', 'FG_EPS_0426', 'EPITERMA. PT '),
+(827, 'STY LEMBARAN FR UK. 2 M X 1 M X 5 CM', 'FG_EPS_0371', 'FLEXI CRETE. PT'),
+(828, 'EPS 106X100X25MM D400806-CO-12', 'FG_EPS_0104', 'FRIGOGLASS. PT'),
+(829, 'EPS FR. COL. TOP COV. FVS1200', 'FG_EPS_0359', 'FRIGOGLASS. PT'),
+(830, 'EPS INS LINER TOP COV FVS1200', 'FG_EPS_0360', 'FRIGOGLASS. PT'),
+(831, 'STYROFOAM SHEET GRANDMAX / A', 'FG_EPS_0407', 'GAMA INTI WAHANA'),
+(832, 'STYROFOAM SHEET GRANDMAX / B', 'FG_EPS_0408', 'GAMA INTI WAHANA'),
+(833, 'STYROFOAM SHEET GRANDMAX / C', 'FG_EPS_0409', 'GAMA INTI WAHANA'),
+(834, 'STYROFOAM GRANDMAX / D', 'FG_EPS_0410', 'GAMA INTI WAHANA'),
+(835, 'STYROFOAM SHEET GRANDMAX / PALANG ATAS', 'FG_EPS_0411', 'GAMA INTI WAHANA'),
+(836, 'STYROFOAM SHEET GRANDMAX / PALANG BAWAH', 'FG_EPS_0412', 'GAMA INTI WAHANA'),
+(837, 'STYROFOAM GRANDMAX/ PALANG SAMPING BAWAH', 'FG_EPS_0413', 'GAMA INTI WAHANA'),
+(838, 'STYROFOAM GRANDMAX / PALANG SAMPING ATAS', 'FG_EPS_0414', 'GAMA INTI WAHANA'),
+(839, 'STYROFOAM SHEET UK : 200 X 100 X 10 CM (TYPE FR D.32)', 'FG_EPS_0326', 'GITA CIPTA SELARAS. PT'),
+(840, 'STY SHEET SL 1 M X 2 M X 5 CM', 'FG_EPS_0299', 'INDOASIA. PT'),
+(841, 'STY SHEET SL UK : 200 X 100 X 50 CM', 'FG_EPS_0300', 'INDOPRATAMA. PT'),
+(842, 'STY SHEET SL UK : 200 X 100 X 50 CM', 'FG_EPS_0300', 'INDOPRATAMA.PT/PACIFIC. PT'),
+(843, 'STY SHEET L 535 X 100 X 25 MM', 'FG_EPS_0298', 'KANEPACKAGE INDONESIA, PT'),
+(844, 'DWF58-0331 STEREOFOAM 22 CM X 2 CM X 19.9 CM', 'FG_EPS_0498', 'MATTEL. PT'),
+(845, 'DWF58-0330 STEREOFOAM 37.5 CM X 2 CM X 19.9 CM', 'FG_EPS_0499', 'MATTEL. PT'),
+(846, 'STY SHEET SL UK: 1M X 2M X 1.5 CM', 'FG_EPS_0302', 'MOLDS & DIES INDONESIA. PT'),
+(847, '220010159-STYROFOAM LEMBARAN 150 X 310 X 30 MM', 'FG_EPS_0002', 'NITTOH PRESISI. PT'),
+(848, 'STY SHEET EL1 10 X 1000 X 2000 MM', 'FG_EPS_0295', 'NITTSU SHOJI. PT'),
+(849, 'STY SHEET D.M UK: 185 X 105 X 10 MM', 'FG_EPS_0292', 'NORITAKE INDONESIA. PT'),
+(850, 'STY SHEET D.M UK: 255 X 105 X 20 MM', 'FG_EPS_0293', 'NORITAKE INDONESIA. PT'),
+(851, 'STY SHEET D.M UK: 275 X 195 X 10 MM', 'FG_EPS_0294', 'NORITAKE INDONESIA. PT'),
+(852, 'STY SHEET MEDIUM UK: 235 X 105 X 20 MM', 'FG_EPS_0344', 'NORITAKE INDONESIA. PT'),
+(853, 'STY SHEET MEDIUM UK: 190 X 105 X 20 MM', 'FG_EPS_0345', 'NORITAKE INDONESIA. PT'),
+(854, 'STY SHEET MEDIUM UK: 100 X 100 X 10 MM', 'FG_EPS_0465', 'NORITAKE INDONESIA. PT'),
+(855, 'STY SHEET MEDIUM UK: 100 X 100 X 20 MM', 'FG_EPS_0465', 'NORITAKE INDONESIA. PT'),
+(856, 'STYROFOAM SHEET 2000X1000X50 DEN 22', '', 'PADMA SOODE INDONESIA. PT'),
+(857, 'STYROFOAM SHEET 660X485X20 MM SL', '', 'DACO JAYA ABADI. PT'),
+(858, 'STYROFOAM BALOK 280X100X100 MM SL', '', 'DACO JAYA ABADI. PT'),
+(859, 'STY UK. 1 CM X 1M X 2M', '', 'MULTI OPTIMAL. PT'),
+(860, 'STYROFOAM SHEET 910 X 920 X 250 MM', 'FG_EPS_0852', 'PT. SHOWA WORKS INDONESIA'),
+(861, 'STYROFOAM SHEET 830 X 920 X 250 MM', 'FG_EPS_0851', 'PT. SHOWA WORKS INDONESIA'),
+(862, 'STYROFOAM SHEET 910 X 920 X 140 MM', 'FG_EPS_0850', 'PT. SHOWA WORKS INDONESIA'),
+(863, 'STYROFOAM SHEET 1000 X 920 X 140 MM', 'FG_EPS_0849', 'PT. SHOWA WORKS INDONESIA'),
+(864, 'STYROFOAM SHEET 800 X 790 X 250 MM', 'FG_EPS_0917', 'PT. SHOWA WORKS INDONESIA'),
+(865, 'STYROFOAM SHEET 800 X 790 X 300 MM', 'FG_EPS_0918', 'PT. SHOWA WORKS INDONESIA'),
+(866, 'STYROFOAM SHEET 800 X 790 X 180 MM', 'FG_EPS_0919', 'PT. SHOWA WORKS INDONESIA'),
+(867, 'STYROFOAM SHEET 800 X 790 X 200 MM', 'FG_EPS_0922', 'PT. SHOWA WORKS INDONESIA'),
+(868, 'STYROFOAM SHEET 800 X 790 X 285 MM', 'FG_EPS_0923', 'PT. SHOWA WORKS INDONESIA'),
+(869, 'STYROFOAM SHEET 810 X 790 X 150 MM', 'FG_EPS_0925', 'PT. SHOWA WORKS INDONESIA'),
+(870, 'STYROFOAM SHEET 810 X 790 X 260 MM', 'FG_EPS_0924', 'PT. SHOWA WORKS INDONESIA'),
+(871, 'STYROFOAM SHEET 1040 X 790 X 310 MM', 'FG_EPS_0920', 'PT. SHOWA WORKS INDONESIA'),
+(872, 'STYROFOAM SHEET 1040 X 790 X 295 MM', 'FG_EPS_0921', 'PT. SHOWA WORKS INDONESIA'),
+(873, 'STYROFOAM SHEET 1030 X 790 X 220 MM', 'FG_EPS_0926', 'PT. SHOWA WORKS INDONESIA'),
+(874, 'STYROFOAM SHEET 1030 X 800 X 215 MM', 'FG_EPS_0927', 'PT. SHOWA WORKS INDONESIA'),
+(875, 'STYROFOAM SHEET 370 X 790 X 220 MM', 'FG_EPS_0939', 'PT. SHOWA WORKS INDONESIA'),
+(876, 'STYROFOAM SHEET 770 X 690 X 300 MM', 'FG_EPS_0938', 'PT. SHOWA WORKS INDONESIA'),
+(877, 'STYROFOAM SHEET 870 X 790 X 220 MM', 'FG_EPS_0937', 'PT. SHOWA WORKS INDONESIA'),
+(878, 'STYROFOAM SHEET 760 X 790 X 250 MM', 'FG_EPS_0936', 'PT. SHOWA WORKS INDONESIA'),
+(879, 'STYROFOAM SHEET 690 X 740 X 280 MM', 'FG_EPS_0934', 'PT. SHOWA WORKS INDONESIA'),
+(880, 'STYROFOAM SHEET 790 X 730 X 300 MM', 'FG_EPS_0932', 'PT. SHOWA WORKS INDONESIA'),
+(881, 'STYROFOAM SHEET 790 X 870 X 220 MM', 'FG_EPS_0933', 'PT. SHOWA WORKS INDONESIA'),
+(882, 'STYROFOAM SHEET 870 X 710 X 310 MM', 'FG_EPS_0943', 'PT. SHOWA WORKS INDONESIA'),
+(883, 'STYROFOAM SHEET 760 X 610 X 300 MM', 'FG_EPS_0942', 'PT. SHOWA WORKS INDONESIA'),
+(884, 'STYROFOAM SHEET 870 X 705 X 220 MM', 'FG_EPS_0941', 'PT. SHOWA WORKS INDONESIA'),
+(885, 'STYROFOAM SHEET 740 X 570 X 280 MM', 'FG_EPS_0940', 'PT. SHOWA WORKS INDONESIA'),
+(886, 'STYROFOAM SHEET 760 X 390 X 150 MM', 'FG_EPS_0955', 'PT. SHOWA WORKS INDONESIA'),
+(887, 'STYROFOAM SHEET 760 X 650 X 250 MM', 'FG_EPS_0954', 'PT. SHOWA WORKS INDONESIA'),
+(888, 'STYROFOAM SHEET 600 X 540 X 225 MM', 'FG_EPS_0953', 'PT. SHOWA WORKS INDONESIA'),
+(889, 'STYROFOAM SHEET 780 X 760 X 300 MM', 'FG_EPS_0952', 'PT. SHOWA WORKS INDONESIA'),
+(890, 'STYROFOAM SHEET 1070 X 800 X 280 MM', 'FG_EPS_0971', 'PT. SHOWA WORKS INDONESIA'),
+(891, 'STYROFOAM SHEET 1050 X 790 X 90 MM', 'FG_EPS_0972', 'PT. SHOWA WORKS INDONESIA'),
+(892, 'STYROFOAM SHEET 1060 X 800 X 100 MM', 'FG_EPS_0973', 'PT. SHOWA WORKS INDONESIA'),
+(893, 'STYROFOAM SHEET 970 X 790 X 280 MM', 'FG_EPS_0974', 'PT. SHOWA WORKS INDONESIA'),
+(894, 'STYROFOAM SHEET 970 X 790 X 170 MM', 'FG_EPS_0975', 'PT. SHOWA WORKS INDONESIA'),
+(895, 'STYROFOAM SHEET 950 X 790 X 280 MM', 'FG_EPS_0976', 'PT. SHOWA WORKS INDONESIA'),
+(896, 'STYROFOAM SHEET 970 X 790 X 160 MM', 'FG_EPS_0977', 'PT. SHOWA WORKS INDONESIA'),
+(897, 'STYROFOAM SHEET 970 X 790 X 260 MM', 'FG_EPS_0978', 'PT. SHOWA WORKS INDONESIA'),
+(898, 'STYROFOAM SHEET 970 X 800 X 115 MM', 'FG_EPS_0979', 'PT. SHOWA WORKS INDONESIA'),
+(899, 'STYROFOAM SHEET 300 X 790 X 90 MM', 'FG_EPS_0980', 'PT. SHOWA WORKS INDONESIA'),
+(900, 'STYROFOAM SHEET 970 X 800 X 120 MM', 'FG_EPS_0981', 'PT. SHOWA WORKS INDONESIA'),
+(901, 'STYROFOAM SHEET 770 X 970 X 220 MM', 'FG_EPS_1080', 'PT. SHOWA WORKS INDONESIA'),
+(902, 'STYROFOAM SHEET 1029 X 772 X 320 MM', 'FG_EPS_1072', 'PT. SHOWA WORKS INDONESIA'),
+(903, 'STYROFOAM SHEET 1029 X 772 X 300 MM', 'FG_EPS_1073', 'PT. SHOWA WORKS INDONESIA'),
+(904, 'STYROFOAM SHEET 749 X 781 X 310 MM', 'FG_EPS_1074', 'PT. SHOWA WORKS INDONESIA'),
+(905, 'STYROFOAM SHEET 781 X 765 X 180 MM', 'FG_EPS_1075', 'PT. SHOWA WORKS INDONESIA'),
+(906, 'STYROFOAM SHEET 769 X 733 X 170 MM', 'FG_EPS_1076', 'PT. SHOWA WORKS INDONESIA'),
+(907, 'STYROFOAM SHEET 732 X 588 X 200 MM', 'FG_EPS_1077', 'PT. SHOWA WORKS INDONESIA'),
+(908, 'STYROFOAM SHEET 765 X 781 X 180 MM', 'FG_EPS_1078', 'PT. SHOWA WORKS INDONESIA'),
+(909, 'STYROFOAM SHEET 770 X 1030 X 220 MM', 'FG_EPS_1081', 'PT. SHOWA WORKS INDONESIA'),
+(910, 'STYROFOAM SHEET 750 X 780 X 290 MM', 'FG_EPS_1082', 'PT. SHOWA WORKS INDONESIA'),
+(911, 'STYROFOAM SHEET 750 X 780 X 170 MM', 'FG_EPS_1083', 'PT. SHOWA WORKS INDONESIA'),
+(912, 'STYROFOAM SHEET 430 X 730 X 200 MM', 'FG_EPS_1084', 'PT. SHOWA WORKS INDONESIA'),
+(913, 'STYROFOAM SHEET 730 X 770 X 310 MM', 'FG_EPS_1085', 'PT. SHOWA WORKS INDONESIA'),
+(914, 'STYROFOAM SHEET 860 X 920 X 140 MM', 'FG_EPS_0854', 'PT. SHOWA WORKS INDONESIA'),
+(915, 'STYROFOAM SHEET 920 X 920 X 260 MM', 'FG_EPS_0853', 'PT. SHOWA WORKS INDONESIA'),
+(916, 'MASTER BOX 8/ STYROFOAM 626 X 200 X 30 MM', 'FG_EPS_0848', 'DMC TEKNOLOGI INDONESIA. PT'),
+(917, 'STY SHEET D 13 FR 56 X 116 X 4 CM', 'FG_EPS_0859', 'BPK WILLY'),
+(918, 'STY BLOK M 200 X 100 X 50 CM', 'FG_EPS_0856', 'PT TAE SUNG METAL'),
+(919, 'STY SHEET SL 1 M X 2 M X 4 CM', 'FG_EPS_0857', 'BPK SANDY'),
+(920, 'STY SHEET SL 1 M X 2 M X 3 CM', 'FG_EPS_0858', 'BPK SANDY'),
+(921, 'STOPPER GARNISH', 'FG_EPS_0823', 'PT. INDONESIA THAI SUMMIT'),
+(922, 'GARNISH STOPPER 2', 'FG_EPS_0956', 'PT. INDONESIA THAI SUMMIT'),
+(923, 'GARNISH STOPPER 3', 'FG_EPS_0957', 'PT. INDONESIA THAI SUMMIT'),
+(924, '6000018675/STYROFOAM HARD DINAR MAKMUR 2.4X1X0.20 M', 'FG_EPS_0896', 'PT ADM'),
+(925, 'STYROFOAM UP FLOODLIGHT FD10', 'FG_EPS_0865', 'PT HONORIS INDUSTRY'),
+(926, 'STYROFOAM DOWN FLOODLIGHT FD10', 'FG_EPS_0866', 'PT HONORIS INDUSTRY'),
+(927, 'LDCC009100-0/ PAD SHELF-S500H', 'FG_EPS_0935', 'PHCI. PT'),
+(928, 'LDCC008100-ES2/ PAD UPPER R-S500H', 'FG_EPS_0944', 'PHCI. PT'),
+(929, 'LDCC008200-ES2/ PAD UPPER L-S500H', 'FG_EPS_0945', 'PHCI. PT'),
+(930, 'LDCC007900-0/ PAD UNDER R-S500H', 'FG_EPS_0809', 'PHCI. PT'),
+(931, 'LDCC007900-ES2/ PAD UNDER R-S500H', 'FG_EPS_0946', 'PHCI. PT'),
+(932, 'LDCC008000-ES2/ PAD UNDER L-S500H', 'FG_EPS_0947', 'PHCI. PT'),
+(933, 'LDBC024300-E0/ PS BLOCK L', 'FG_EPS_0962', 'PHCI. PT'),
+(934, 'LDBC024400-E0/ PS BLOCK R', 'FG_EPS_0963', 'PHCI. PT'),
+(935, 'LDBC024700-E0/ SUCTION BLOCK A', 'FG_EPS_0964', 'PHCI. PT'),
+(936, 'LDBC024500-E0/ RAIL BLOCK', 'FG_EPS_0965', 'PHCI. PT'),
+(937, 'STY SHEET (85 X 10 X 1000 MM)', 'FG_EPS_1005', 'PHCI. PT'),
+(938, 'LDCC009200-0/ PAD RACK-S500RH', 'FG_EPS_1056', 'PHCI. PT'),
+(939, 'LDCC009300-0/ RAIL CUSHION', 'FG_EPS_1057', 'PHCI. PT'),
+(940, 'CUSHION VENT- I BOTTOM', 'FG_EPS_1051', 'PHCI. PT'),
+(941, 'CUSHION VENT- I TOP', 'FG_EPS_1052', 'PHCI. PT'),
+(942, 'STYROFOAM 365 X 490 X 720 MM (FOR MODL URNAL)', 'FG_EPS_0967', 'AMERICAN STANDARD IND PT'),
+(943, 'STYROFOAM 740 X 425 X 460 MM (FOR MODEL BOWL)', 'FG_EPS_0968', 'AMERICAN STANDARD IND PT'),
+(944, 'STYROFOAM 446 X 235 X 371 MM (FOR MODEL TANK)', 'FG_EPS_0970', 'AMERICAN STANDARD IND PT'),
+(945, 'CASSETTE RIBBON PACKING', '', 'PT HANA MASTER JAYA'),
+(946, 'STY SHEET H UK : 2 M X 1 M X 3 CM', 'FG_EPS_0991', 'EKO DARMAWAN'),
+(947, 'STY SHEET AH UK : 2 M X 1 M X 3 CM', 'FG_EPS_0992', 'BP. YOS'),
+(948, 'STYROFOAM 124 X 124 X 3 CM', 'FG_EPS_0928', 'PASIFIK SATELIT NUSANTARA. PT'),
+(949, 'STYROFOAM 124 X 100 X 3 CM', 'WIP_EPS_056', 'PASIFIK SATELIT NUSANTARA. PT'),
+(950, 'STYROFOAM 124 X 24 X 3 CM', 'WIP_EPS_057', 'PASIFIK SATELIT NUSANTARA. PT'),
+(951, 'STYROFOAM 15 X 135 X 3 CM', 'FG_EPS_0959', 'PASIFIK SATELIT NUSANTARA. PT'),
+(952, 'STYROFOAM FOR WAFER REJECT (485 X 245 X 93 MM)', 'FG_EPS_1006', 'PT SUMCO INDONESIA'),
+(953, 'STY SHEET H UK : 60 X 80 X 2.5 CM', 'FG_EPS_1027', 'CASH'),
+(954, 'STY SHEET H UK : 40 X 30 X 1 CM', 'FG_EPS_1004', 'CASH'),
+(955, 'STY BLOK D.15 UK: 200 X 100 X 50 CM', 'FG_EPS_1029', 'CASH'),
+(956, 'STY SHEET M UK : 300 X 100 X 2 CM', 'FG_EPS_1030', 'CASH'),
+(957, 'STY SHEET M UK : 300 X 100 X 3 CM', 'FG_EPS_1031', 'CASH'),
+(958, 'STY BLOK D.15 UK: 33 X 50 X 1 CM', 'FG_EPS_1047', 'CASH'),
+(959, 'STY SHEET L UK : 100 X 50 X 4 CM', 'FG_EPS_1044', 'CASH'),
+(960, 'STY SHEET SL UK : 100 X 50 X 2 CM', 'FG_EPS_1045', 'CASH'),
+(961, 'STY SHEET M UK : 200 X 100 X 5 CM', 'FG_EPS_1046', 'CASH'),
+(962, 'STY SHEET SL UK : 100 X 50 X 1 CM', 'FG_EPS_1049', 'CASH'),
+(963, 'STY SHEET H UK : 100 X 50 X 2 CM', 'FG_EPS_1050', 'CASH'),
+(964, 'EPS DENSITY19-21 FR (FIRE RETARDANT) SIZE P 2000 X L 1000 X T 50', 'FG_EPS_1108', 'PT SARI MULTI UTAMA PLASTIC ENGINEERING INDUSTRY'),
+(965, 'EPS DENSITY19-21 FR (FIRE RETARDANT) SIZE P 1900 X L 1000 X T 50', 'FG_EPS_1109', 'PT SARI MULTI UTAMA PLASTIC ENGINEERING INDUSTRY'),
+(966, 'EPS DENSITY19-21 FR (FIRE RETARDANT) SIZE P 2000 X L 1000 X T 75', 'FG_EPS_1110', 'PT SARI MULTI UTAMA PLASTIC ENGINEERING INDUSTRY'),
+(967, 'EPS DENSITY19-21 FR (FIRE RETARDANT) SIZE P 250 X L 1000 X T 75', 'FG_EPS_1111', 'PT SARI MULTI UTAMA PLASTIC ENGINEERING INDUSTRY'),
+(968, 'EPS H FR (EPS FOR WALL, PARTITION & ROOF PANEL) 5000 X 1200 X 75 MM', 'FG_EPS_0795', 'PT SARI MULTI UTAMA PLASTIC ENGINEERING INDUSTRY'),
+(969, 'EPS H FR (EPS FOR WALL, PARTITION & ROOF PANEL) 5000 X 1200 X 75 MM', 'FG_EPS_0795', 'PT SARI MULTI UTAMA PLASTIC ENGINEERING INDUSTRY'),
+(970, 'EPS H FR (EPS FOR WALL, PARTITION & ROOF PANEL) 2500 X 1200 X 75 MM', '', 'PT SARI MULTI UTAMA PLASTIC ENGINEERING INDUSTRY'),
+(971, 'EPS H FR (EPS FOR WALL, PARTITION & ROOF PANEL) 2500 X 1200 X 75 MM', '', 'PT SARI MULTI UTAMA PLASTIC ENGINEERING INDUSTRY'),
+(972, 'EPS H FR (EPS FOR WALL, PARTITION & ROOF PANEL) 3750 X 1200 X 75 MM', '', 'PT SARI MULTI UTAMA PLASTIC ENGINEERING INDUSTRY'),
+(973, 'EPS H FR (EPS FOR WALL, PARTITION & ROOF PANEL) 1500 X 1200 X 75 MM', '', 'PT SARI MULTI UTAMA PLASTIC ENGINEERING INDUSTRY'),
+(974, 'STY SHEET H UK: 60 X 60 X 3CM', 'FG_EPS_1086', 'CASH'),
+(975, 'STY SHEET L UK: 100 X 50 X 1 CM', 'FG_EPS_1089', 'CASH'),
+(976, 'STY SHEET M UK: 100 X 50 X 1 CM', 'FG_EPS_1087', 'CASH'),
+(977, 'STYROFOAM UK. 60 X 80 X 3 CM', 'FG_EPS_1054', 'CASH'),
+(978, 'STYROFOAM UK. 60 X 90 X 3 CM', 'FG_EPS_1055', 'CASH'),
+(979, 'STY SHEET D.15 UK : 33 X 50 X 1CM', 'FG_EPS_1047', 'CASH'),
+(980, 'STY SHEET SL UK : 100 X 50 X 2 CM', 'FG_EPS_1064', 'CASH'),
+(981, 'STY SHEET SL UK : 100 X 50 X 3 CM', 'FG_EPS_1065', 'CASH'),
+(982, 'STY SHEET L UK : 100 X 50 X 2 CM', 'FG_EPS_1066', 'CASH'),
+(983, 'STY SHEET L UK : 100 X 50 X 3 CM', 'FG_EPS_1067', 'CASH'),
+(984, 'STY SHEET M UK: 100 X 50 X 2 CM', 'FG_EPS_1068', 'CASH'),
+(985, 'STY SHEET M UK : 100 X 50 X 3 CM', 'FG_EPS_1069', 'CASH'),
+(986, 'STY SHEET H UK : 100 X 50 X 2 CM', 'FG_EPS_1070', 'CASH'),
+(987, 'STY SHEET H UK : 100 X 50 X 3 CM', 'FG_EPS_1071', 'CASH'),
+(988, 'STY SHEET L UK . 2M X 1M X 0.5 CM', 'FG_EPS_1079', 'CASH'),
+(989, 'STY SHEET H UK : 100 X 50 X 1 CM', 'FG_EPS_1088', 'CASH'),
+(990, 'STY SHEET M UK . 2M X 1M X 1.5 CM', 'FG_EPS_1032', 'CASH'),
+(991, 'STY SHEET SL 3 M X 1 M X 3 CM', 'FG_EPS_0874', 'CASH (BP. IYAN)'),
+(992, 'STY SHEET L 3 M X 1 M X 3 CM', 'FG_EPS_0873', 'CASH (BP. IYAN)'),
+(993, 'STY SHEET M UK 200 X 100 X 2 CM', 'FG_EPS_1128', 'CASH'),
+(994, '-STY ZPAZA 125 JB COA 120 X 100 X 50 MM', 'FG_EPS_0318', 'PANASONIC (WP). PT'),
+(995, 'ZPA1F200HOZ-STYPAD SL UK 50 X 50 X 50 MM', 'FG_EPS_0333', 'PANASONIC (WP). PT'),
+(996, 'ZPAOF200HOZ-STY FOR  MOTOR SL UK: 130 X 70 X 20 MM', 'FG_EPS_0334', 'PANASONIC (WP). PT'),
+(997, '7FB6K414059000 PAD UNDER DOOR', 'FG_EPS_0338', 'PHCI. PT'),
+(998, 'LDCC004700-0 LEAD WIRE HOLE BLOCK A', 'FG_EPS_0427', 'PHCI. PT'),
+(999, 'LDCC004600-0 MEASUREMENT HOLE BLOCK A', 'FG_EPS_0428', 'PHCI. PT'),
+(1000, 'LDCC004402-0 PAD FRONT UPPER', 'FG_EPS_0429', 'PHCI. PT'),
+(1001, 'LDCC005100-0 CRISPER CATH', 'FG_EPS_0430', 'PHCI. PT'),
+(1002, 'LDCC005000-0 DOOR REINFORCEMENT HOLDING', 'FG_EPS_0432', 'PHCI. PT'),
+(1003, 'LDCC004300-0 PAD UNDER', 'FG_EPS_0442', 'PHCI. PT'),
+(1004, 'LDCC001600-0 FRAME BOTTOM PAD', 'FG_EPS_0443', 'PHCI. PT'),
+(1005, 'LDCC005200-0 LEAD WIRE HOLE BLOCK', 'FG_EPS_0489', 'PHCI. PT'),
+(1006, 'LDCC005300-0 LEAD WIRE BLOCK', 'FG_EPS_0501', 'PHCI. PT'),
+(1007, 'LDCC004401-0 PAD FRONT LOWER', 'FG_EPS_0490', 'PHCI. PT'),
+(1008, 'LDCC004900-0 INS AUXIL DOOR', 'FG_EPS_0491', 'PHCI. PT'),
+(1009, 'LDBC019500-0 SUCTION BLOCK B', '', 'PHCI. PT'),
+(1010, 'LDBC019300-0 MEASUREMENT HOLE BLOCK A', '', 'PHCI. PT'),
+(1011, 'LDBC019400-0 INSULATION BLOCK A', '', 'PHCI. PT'),
+(1012, 'LDCC006300-0 PAD UNDER R (HAND MADE)', '', 'PHCI. PT'),
+(1013, 'LDCC006400-0 PAD UNDER L (HAND MADE)', '', 'PHCI. PT'),
+(1014, 'LDCC006500-0 PAD UNDER R (HAND MADE)', '', 'PHCI. PT'),
+(1015, 'LDCC006600-0 PAD UNDER L (HAND MADE)', '', 'PHCI. PT'),
+(1016, 'LDBC018700-0 SUCTION BLOCK A', '', 'PHCI. PT'),
+(1017, 'LDCC007701-0/ PAD L = 800', 'FG_EPS_0796', 'PHCI. PT'),
+(1018, 'LDCC007702-0/ PAD L = 500', 'FG_EPS_0797', 'PHCI. PT'),
+(1019, 'LDCC007703-0/ PAD L = 290', 'FG_EPS_0798', 'PHCI. PT'),
+(1020, 'LDCC008600-0/ DOOR PAD INNER', 'FG_EPS_0842', 'PHCI. PT'),
+(1021, 'LDCC008700-0/ DOOR PAD U/L', 'FG_EPS_0843', 'PHCI. PT'),
+(1022, 'LDCC008900-0/ DOOR PAD', 'FG_EPS_0844', 'PHCI. PT'),
+(1023, 'LDCC008800-0/ DOOR PAD SIDE', 'FG_EPS_0845', 'PHCI. PT'),
+(1024, 'LDCA030400-0/ PAD ASSY', 'FG_EPS_0846', 'PHCI. PT'),
+(1025, 'LDCA030300-0/ PAD ASSY', 'FG_EPS_0847', 'PHCI. PT'),
+(1026, 'LDCC008500-0/ DOOR PAD INNER', 'FG_EPS_0841', 'PHCI. PT'),
+(1027, 'LDCC007900-WS1 PAD UNDER R S500H', 'FG_EPS_0809', 'PHCI. PT'),
+(1028, 'LDCC008000-WS1 PAD UNDER L S500H', 'FG_EPS_0810', 'PHCI. PT'),
+(1029, 'LDCC008100-WS1 PAD UPPER R S500H', 'FG_EPS_0811', 'PHCI. PT'),
+(1030, 'LDCC008200-WS1 PAD UPPER L S500H', 'FG_EPS_0812', 'PHCI. PT'),
+(1031, 'STYROPOR SHEET GRDE M UKURAN 2X1MX5MM', 'FG_EPS_0418', 'SANKEI MEDICAL. PT'),
+(1032, 'STYROPOR SHEET GRDE M UKURAN 2X1MX20MM', 'FG_EPS_0419', 'SANKEI MEDICAL. PT'),
+(1033, 'HAND MADE STY SHEET SL UK: 170 X 70 X 50 MM', 'FG_EPS_0143', 'SANSURYA. PT'),
+(1034, 'PG LP FO 410 X 310 X 20 MM', 'FG_EPS_0169', 'SCHOTT IGAR GLASS. PT'),
+(1035, 'PG LP FO 410 X 310 X 30 MM', 'FG_EPS_0170', 'SCHOTT IGAR GLASS. PT'),
+(1036, 'PG LP FO 580 X 300 X 20 MM', 'FG_EPS_0171', 'SCHOTT IGAR GLASS. PT'),
+(1037, 'PG LP FO 580 X 300 X 30 MM', 'FG_EPS_0172', 'SCHOTT IGAR GLASS. PT'),
+(1038, 'PG LP GO 410 X 310 X 10 MM', 'FG_EPS_0420', 'SCHOTT IGAR GLASS. PT'),
+(1039, 'PG LP FO 370 X 225 X 10 MM', 'FG_EPS_0421', 'SCHOTT IGAR GLASS. PT'),
+(1040, 'PG LP FO 200X150X10 MM', 'FG_EPS_0422', 'SCHOTT IGAR GLASS. PT'),
+(1041, 'PG LP FO 580 X 300 X 10 MM', 'FG_EPS_0423', 'SCHOTT IGAR GLASS. PT'),
+(1042, 'PG LP FO 350X300X40 MM', 'FG_EPS_0444', 'SCHOTT IGAR GLASS. PT'),
+(1043, 'PCUSSI702VRFO-SUPPORT CUSHION R (CROWN)', 'FG_EPS_0166', 'SHARP. PT'),
+(1044, 'STYROFOAM 390X250X30 MM', 'FG_EPS_0395', 'SHARP. PT'),
+(1045, 'STYROFOAM 490X310X20 MM', 'FG_EPS_0396', 'SHARP. PT'),
+(1046, 'STYROFOAM 250X190X30 MM', 'FG_EPS_0397', 'SHARP. PT'),
+(1047, 'STYROFOAM 1460X70X30MM', 'FG_EPS_0417', 'SHARP. PT'),
+(1048, 'PCUSCI701VRFO-CRISPER CUSHION L/R (12 X 15 X 170 MM)', 'FG_EPS_0448', 'SHARP. PT'),
+(1049, 'PCUSDA001VDFZ', '', 'SHARP. PT'),
+(1050, 'PCUSSI701VRFO-SUPPORT CUSHION L (CROWN)', 'FG_EPS_0461', 'SHARP. PT'),
+(1051, 'SPAKA820WJ61', 'FG_EPS_0819', 'SHARP. PT'),
+(1052, 'STEREOFOAM SANKEN SIZE 370 X 237 X 8 MM D.SL', 'FG_EPS_0183', 'SHARP. PT'),
+(1053, 'STY SHEET BLENDER TSK-9627-63000-01-13008512N UK: 13 X 8.5 X 1.2 CM (SL)', 'FG_EPS_0329', 'STAR COMGISTIC. PT'),
+(1054, 'STYROFOAM SIZE 495X260X100 MM MATERIAL DENS.SL', 'FG_EPS_0416', 'SUMCO INDONESIA. PT'),
+(1055, 'STY SHEET EL UK 500X500X18 MM', 'FG_EPS_0474', 'TOA GALVA INDUSTRIES. PT'),
+(1056, 'DWF58-0331 STEREOFOAM 22.00 CM X 2 CM X 19.9 CM', '', 'PT. MATTEL'),
+(1057, 'DWF58-0330 STEREOFOAM 37.5 CM X 2 CM X 19.9 CM', '', 'PT. MATTEL'),
+(1058, 'STREOFORM LEMBARAN HARD D-32', '', 'CV. VIVARIA MARINE'),
+(1059, 'EPP SHEET BLACK 30P 900MM X L 450MM X TBL 15 MM', 'FG_EPP_0127', 'CITRA BARU PERKASA. PT'),
+(1060, 'Putih', '', 'CITRA BARU PERKASA. PT'),
+(1061, 'EPP SHEET WHITE 30P 900MM X L 450MM X TBL 15 MM', 'FG_EPP_0129', 'CITRA BARU PERKASA. PT'),
+(1062, 'EPP SHEET WHITE 30P 900MM X L 450MM X TBL 5 MM', 'FG_EPP_0128', 'CITRA BARU PERKASA. PT'),
+(1063, 'STYROFOAM SHEET  SUPER HARD UK: 200X100X10 CM', '', 'GITA CIPTA SELARAS. PT'),
+(1064, 'STYROFOAM 1 CM DENSITY 22', 'FG_EPS_0573', 'MULIAGLASS. PT'),
+(1065, 'STYROFOAM 1.5 CM DENSITY 22', 'FG_EPS_0574', 'MULIAGLASS. PT'),
+(1066, 'STYROFOAM 100X100X3 CM (STYROFOAM 3 CM)', 'FG_EPS_0711', 'PASIFIK SATELIT NUSANTARA. PT'),
+(1067, 'STY SHEET SL UK 1000X100X30 MM', 'FG_EPS_0627', 'PASIFIK SATELIT NUSANTARA. PT'),
+(1068, 'H1A-0245-01', '', 'JVC KENWOOD. PT'),
+(1069, 'STYROFOAM BLOK L UK : 2000X1000X510 MM', '', 'H-ONE KOGI PRIMA AUTO TECHNOLOGIES INDONESIA'),
+(1070, 'STY SHEET BLOK SL UK : 255 x 130 x 45 MM', '', 'NATURA DHARMA. CV'),
+(1071, 'STY SHEET BLOK SL UK : 400 x 360 x 70 MM', '', 'HAIER. PT'),
+(1072, 'STY SHEET BLOK L UK : 400 x 360 x 70 MM', '', 'HAIER. PT'),
+(1073, 'H (FR) STYROFOAM SHEET H FR (1190 X 590 X 50 MM)', '', 'TAKAGI SARI MULTI UTAMA. PT'),
+(1074, 'EPP SHEET WHITE 45P UK. 1200 X 600 X 5 MM', '', 'BP. ARIEF DHARMAWAN'),
+(1075, 'STY SHEET EL UK : 1M X 2M X 1 CM', '', 'PUTRIANA ULFA'),
+(1076, 'STYROFORM SIZE 1000 X 1000 X20 MM', '', 'NITTSU SHOJI. PT'),
+(1077, 'STYROFOAM 245 X 200 X 30 MM (MASTER BOX 1)', 'FG_EPS_0707', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1078, 'STYROFOAM 370 X 200 X 30 MM (MASTER BOX 4)', 'FG_EPS_0708', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1079, 'STYROFOAM 335 X 200 X 30 MM', 'FG_EPS_0709', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1080, 'STYROFOAM 540 X 200 X 30 MM', 'FG_EPS_0706', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1081, 'STY SHEET SL UK 2M X 1M X 2.5CM', 'FG_EPS_0718', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1082, 'STYROFOAM 535 X 305 X 30 MM (MASTER BOX 1)', 'FG_EPS_0735', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1083, 'STYROFOAM 460 X 200 X 30 MM (MASTER BOX 3)', 'FG_EPS_0733', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1084, 'STYROFOAM 540 X 520 X 30 MM', 'FG_EPS_0732', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1085, 'STYROFOAM 690 X 200 X 30 MM (MASTER BOX 4)', 'FG_EPS_0731', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1086, 'STYROFOAM 690 X 440 X 30 MM (MASTER BOX 4)', 'FG_EPS_0730', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1087, 'STYROFOAM 540 X 395 X 30 MM (MASTER BOX 5)', 'FG_EPS_0729', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1088, 'STYROFOAM 485 X 430 X 30 MM', 'FG_EPS_0763', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1089, 'STYROFOAM 485 X 200 X 30 MM/ MASTER BOX 2', 'FG_EPS_0799', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1090, 'STYROFOAM 740 X 200 X 30 MM/ MASTER BOX 7', 'FG_EPS_0800', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1091, 'STYROFOAM 625 X 200 X 30 MM', '', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1092, 'H1C-0235-00/ PACKING FIXTURE', 'FG_EPS_0728', 'PT JVC'),
+(1093, 'H1C-0047-00/ PACKING FIXTURE', 'FG_EPS_0770', 'PT JVC'),
+(1094, 'DXC01 BLOCK WITH HOLE', 'FG_EPP_0147', 'PT JIDOKA'),
+(1095, 'DXC01 BLOCK SHORT', 'FG_EPP_0148', 'PT JIDOKA'),
+(1096, 'DXC01 BLOCK LONG', 'FG_EPP_0149', 'PT JIDOKA'),
+(1097, 'DXC01 TOP BLOCK', 'FG_EPP_0150', 'PT JIDOKA'),
+(1098, 'DXC04 BLOCK SIDE SIZE :1200X70X50 EPP', 'FG_EPP_0163', 'PT JIDOKA'),
+(1099, 'DXC09 FOAM BLOCK A', 'FG_EPP_0151', 'PT JIDOKA'),
+(1100, 'DXC09 FOAM BLOCK B', 'FG_EPP_0152', 'PT JIDOKA'),
+(1101, 'DXC09 FOAM BLOCK C', 'FG_EPP_0153', 'PT JIDOKA'),
+(1102, 'DXC09 FOAM BLOCK D', 'FG_EPP_0154', 'PT JIDOKA'),
+(1103, 'DXC10 FOAM BLOCK', 'FG_EPP_0155', 'PT JIDOKA'),
+(1104, 'DXC11 BLOCK', 'FG_EPP_0156', 'PT JIDOKA'),
+(1105, 'DXC17 FOAM BLOCK A', 'FG_EPP_0157', 'PT JIDOKA'),
+(1106, 'DXC17 FOAM BLOCK B', 'FG_EPP_0158', 'PT JIDOKA'),
+(1107, 'DXC17 FOAM BLOCK C', 'FG_EPP_0159', 'PT JIDOKA'),
+(1108, 'DXC17 FOAM BLOCK D', 'FG_EPP_0160', 'PT JIDOKA'),
+(1109, 'DXC17 FOAM BLOCK E', 'FG_EPP_0161', 'PT JIDOKA'),
+(1110, 'DXC17 FOAM BLOCK F', 'FG_EPP_0162', 'PT JIDOKA'),
+(1111, 'EPS SHEET DENSITY 22-25', 'FG_EPP_0840', 'PT JIDOKA'),
+(1112, '75.HSL.STY01LDL6D01/ STYROFOAM SOLAR PANEL LDL-6D', 'FG_EPS_0773', 'PT HONORIS INDUSTRY'),
+(1113, '75.HSL.3STY00LDL6D01A/ STYROFOAM LDL-6D SOLAR 576.0X274.0', 'FG_EPS_0774', 'PT HONORIS INDUSTRY'),
+(1114, '75.HSL.3STY00LDL6D01B/ STYROFOAM LDL-6D SOLAR 439.0X173.0', 'FG_EPS_0775', 'PT HONORIS INDUSTRY'),
+(1115, '75.HSL.3STY00LDL6D01C/ STYROFOAM LDL-6D SOLAR 274.0X173.0', 'FG_EPS_0776', 'PT HONORIS INDUSTRY'),
+(1116, '75.HSL.3STY00LDL6D01D/ STYROFOAM LDL-6D SOLAR 225.0X210.0', 'FG_EPS_0777', 'PT HONORIS INDUSTRY'),
+(1117, '75.HSL.3STY00LDL6D01E/ STYROFOAM LDL-6D SOLAR 225.X184.0', 'FG_EPS_0778', 'PT HONORIS INDUSTRY'),
+(1118, 'MMK-19070019/EM063 (EPS) SIZE: 100X30X40 MM', 'FG_EPS_0806', 'PT KANEPACKAGE INDONESIA'),
+(1119, 'STYROFOAM SHEET 750 X 380 X 180 MM', 'FG_EPS_0828', 'PT. SHOWA WORKS INDONESIA'),
+(1120, 'STYROFOAM SHEET 900 X 750 X 250 MM', 'FG_EPS_0829', 'PT. SHOWA WORKS INDONESIA'),
+(1121, 'STYROFOAM SHEET 950 X 750 X 150 MM', 'FG_EPS_0830', 'PT. SHOWA WORKS INDONESIA'),
+(1122, 'STYROFOAM SHEET 900 X 750 X 270 MM', 'FG_EPS_0831', 'PT. SHOWA WORKS INDONESIA'),
+(1123, 'STYROFOAM SHEET 950 X 750 X 270 MM', 'FG_EPS_0832', 'PT. SHOWA WORKS INDONESIA'),
+(1124, 'STYROFOAM SHEET 850 X 750 X 270 MM', 'FG_EPS_0833', 'PT. SHOWA WORKS INDONESIA'),
+(1125, 'STYROFOAM SHEET 900 X 760 X 300 MM', 'FG_EPS_0834', 'PT. SHOWA WORKS INDONESIA'),
+(1126, 'STYROFOAM SHEET 900 X 760 X 250 MM', 'FG_EPS_0835', 'PT. SHOWA WORKS INDONESIA'),
+(1127, 'STTYROFOAM SHEET 900 X 750 X 150 MM', 'FG_EPS_0836', 'PT. SHOWA WORKS INDONESIA'),
+(1128, 'STYROFOAM SHEET 900 X 750 X 270 MM', 'FG_EPS_0837', 'PT. SHOWA WORKS INDONESIA'),
+(1129, 'STYTROFOAM SHEET 900 X 750 X 230 MM', 'FG_EPS_0838', 'PT. SHOWA WORKS INDONESIA'),
+(1130, 'STYROFOAM SHEET 810 X 660 X 160 MM', 'FG_EPS_0781', 'PT. SHOWA WORKS INDONESIA'),
+(1131, 'STYROFOAM SHEET 810 X 520 X 260 MM', 'FG_EPS_0782', 'PT. SHOWA WORKS INDONESIA'),
+(1132, 'STYROFOAM SHEET 770 X 620 X 92 MM', 'FG_EPS_0783', 'PT. SHOWA WORKS INDONESIA'),
+(1133, 'STYROFOAM SHEET 810 X 660 X 300 MM', 'FG_EPS_0784', 'PT. SHOWA WORKS INDONESIA'),
+(1134, 'STYROFOAM SHEET 810 X 660 X 160 MM', 'FG_EPS_0784', 'PT. SHOWA WORKS INDONESIA'),
+(1135, 'STYROFOAM SHEET 860 X 920 X 140 MM', 'FG_EPS_0854 ', 'PT. SHOWA WORKS INDONESIA'),
+(1136, 'STYROFOAM SHEET 920 X 920 X 260 MM', 'FG_EPS_0853', 'PT. SHOWA WORKS INDONESIA'),
+(1137, 'GARNISH STOPPER', 'FG_EPS_0820', 'PT. INDONESIA THAI SUMMIT'),
+(1138, 'LDBC025200-E0/ INS DOOR', 'FG_EPS_1138', 'PT. INDONESIA THAI SUMMIT'),
+(1139, 'LDBC025300-E0/ INS DOOR', 'FG_EPS_1139', 'PT. INDONESIA THAI SUMMIT'),
+(1140, 'STY BLOK EL 202 X 104 X 53 CM', 'FG_EPS_1137', 'PT. INDONESIA THAI SUMMIT'),
+(1141, 'STYROFOAM SHEET 750 X 900 X 295 MM', 'FG_EPS_', 'PT. SHOWA WORKS INDONESIA'),
+(1142, 'STYROFOAM SHEET 2500 X 1000 X 25 MM', 'FG_EPS_', 'PT. NITTSU SHOJI'),
+(1143, 'STYROFOAM SHEET 920 X 750 X 300 MM', 'FG_EPS_1099', 'PT. SHOWA WORKS INDONESIA'),
+(1144, 'STYROFOAM SHEET 925 X 750 X 300 MM', 'FG_EPS_1100', 'PT. SHOWA WORKS INDONESIA'),
+(1145, 'STYROFOAM SHEET 925 X 750 X 200 MM', 'FG_EPS_1101', 'PT. SHOWA WORKS INDONESIA'),
+(1146, 'STYROFOAM SHEET 925 X 750 X 280 MM', 'FG_EPS_1102', 'PT. SHOWA WORKS INDONESIA'),
+(1147, 'STYROFOAM SHEET 925 X 750 X 220 MM', 'FG_EPS_1103', 'PT. SHOWA WORKS INDONESIA'),
+(1148, 'SLEVE POLYSTYRENE DIA 75X200 (mm) - HOLE DIA M22 mm', 'FG_EPS_1169', 'PT. EPITERMA MAS KONSTRUKSI'),
+(1149, 'SLEVE POLYSTYRENE DIA 65X150 (mm) - HOLE DIA M18 mm', 'FG_EPS_1170', 'PT. EPITERMA MAS KONSTRUKSI'),
+(1150, 'SLEVE POLYSTYRENE DIA 75X250 (mm) - HOLE DIA M44 mm', 'FG_EPS_1171', 'PT. EPITERMA MAS KONSTRUKSI'),
+(1151, 'SLEVE POLYSTYRENE DIA 75X200 (mm) - HOLE DIA M26 mm', 'FG_EPS_1172', 'PT. EPITERMA MAS KONSTRUKSI'),
+(1152, 'SLEVE POLYSTYRENE DIA 75X250 (mm) - HOLE DIA M32 mm', 'FG_EPS_1173', 'PT. EPITERMA MAS KONSTRUKSI'),
+(1153, 'SLEVE POLYSTYRENE DIA 75X250 (mm) - HOLE DIA M38 mm', 'FG_EPS_1174', 'PT. EPITERMA MAS KONSTRUKSI'),
+(1154, 'STY BLOK SL UK. 2.5 X 0.5 X 0.5', 'FG_EPS_1160', 'CASH'),
+(1155, 'STYROFOAM SHEET 920 X 990 X 140 MM', 'FG_EPS_1161', 'PT. SHOWA WORKS INDONESIA'),
+(1156, 'STYROFOAM SHEET 920 X 830 X 250 MM', 'FG_EPS_1162', 'PT. SHOWA WORKS INDONESIA'),
+(1157, 'STYROFOAM SHEET 900 X 920 X 250 MM', 'FG_EPS_1163', 'PT. SHOWA WORKS INDONESIA'),
+(1158, 'STY SHEET EL UK. 40 X 30 X 2 CM', 'FG_EPS_1164', 'CASH'),
+(1159, 'STY SHEET D.15 UK. 33 X 50 X 2 CM', 'FG_EPS_1165', 'CASH'),
+(1160, 'LDCC009200-1/ PAD RACK-S500RH', 'FG_EPS_1166', 'PHCI. PT'),
+(1161, 'STYROFOAM SHEET 960 X 770 X 220 MM', 'FG_EPS_1175', 'PT. SHOWA WORKS INDONESIA'),
+(1162, 'STYROFOAM SHEET 1000 X 770 X 190 MM', 'FG_EPS_1176', 'PT. SHOWA WORKS INDONESIA'),
+(1163, 'STYROFOAM SHEET 1000 X 770 X 190 MM', 'FG_EPS_1177', 'PT. SHOWA WORKS INDONESIA'),
+(1164, 'STYROFOAM SHEET 1000 X 760 X 260 MM', 'FG_EPS_1178', 'PT. SHOWA WORKS INDONESIA'),
+(1165, 'STYROFOAM SHEET 1000 X 760 X 240 MM', 'FG_EPS_1179', 'PT. SHOWA WORKS INDONESIA'),
+(1166, 'STYROFOAM SHEET 1000 X 760 X 100 MM', 'FG_EPS_1180', 'PT. SHOWA WORKS INDONESIA'),
+(1167, 'STYROFOAM SHEET 1000 X 760 X 250 MM', 'FG_EPS_1181', 'PT. SHOWA WORKS INDONESIA'),
+(1168, 'STY SHEET SL UK : 3M X 1M X 2CM', 'FG_EPS_1183', 'CASH'),
+(1169, 'STY SHEET SL UK : 3M X 1M X 4CM', 'FG_EPS_1184', 'CASH'),
+(1170, 'STY SHEET EL UK : 3M X 1M X 3CM', 'FG_EPS_1185', 'CASH'),
+(1171, 'STY SHEET EL UK : 3M X 1M X 4CM', 'FG_EPS_1186', 'CASH'),
+(1172, 'STY SHEET EL UK : 3M X 1M X 4CM', 'FG_EPS_1187', 'CASH'),
+(1173, 'STY SHEET L 1600 X 500 X 150 MM', 'FG_EPS_1188', 'CASH'),
+(1174, 'EPP SHEET 30P UK 1200 X 900 X 6 MM', 'FG_EPP_0226', 'CASH'),
+(1175, 'STYROFOAM SHEET 750 X 910 X 270 MM', 'FG_EPS_1150', 'CASH'),
+(1176, 'STYROFOAM SHEET 750 X 900 X 110 MM', 'FG_EPS_1151', 'CASH'),
+(1177, 'STYROFOAM SHEET 750 X 910 X 120 MM', 'FG_EPS_1152', 'CASH'),
+(1178, 'STYROFOAM SHEET 750 X 900 X 230 MM', 'FG_EPS_1153', 'CASH'),
+(1179, 'STYROFOAM SHEET 720 X 920 X 220 MM', 'FG_EPS_1154', 'CASH'),
+(1180, 'STYROFOAM SHEET 680 X 920 X 220 MM', 'FG_EPS_1155', 'CASH'),
+(1181, 'STYROFOAM SHEET 750 X 910 X 220 MM', 'FG_EPS_1156', 'CASH'),
+(1182, 'STYROFOAM SHEET 750 X 900 X 295 MM', 'FG_EPS_1159', 'CASH'),
+(1183, 'EPP SHEET D.20 WHITE 600 X 450 X 2 MM', 'FG_EPS_0230', 'CASH'),
+(1184, 'EPP SHEET D.20 WHITE 600 X 450 X 3 MM', 'FG_EPS_0231', 'CASH'),
+(1185, 'STYROFOAM SHEET 100 X 225 X 330 MM', 'FG_EPS_1230', 'PT FUJIARE INDONESIA'),
+(1186, 'STYROFOAM SHEET 750 X 780 X 280 MM', 'FG_EPS_1224', 'PT. SHOWA WORKS INDONESIA'),
+(1187, 'STYROFOAM SHEET 750 X 780 X 150 MM', 'FG_EPS_1225', 'PT. SHOWA WORKS INDONESIA'),
+(1188, 'STYROFOAM SHEET 750 X 780 X 250 MM', 'FG_EPS_1226', 'PT. SHOWA WORKS INDONESIA'),
+(1189, 'STYROFOAM SHEET 750 X 780 X 200 MM', 'FG_EPS_1227', 'PT. SHOWA WORKS INDONESIA'),
+(1190, 'STYROFOAM 399 X 200 X 30 MM/ MASTER BOX 8', 'FG_EPS_1228', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1191, 'EPS BLOK 4M X 1M X 50CM (M)', 'FG_EPS_1231', 'CASH'),
+(1192, 'EPS 300 MM X 100 MM X 3000 MM DENSITY 15', 'FG_EPS_1222', 'PT ELMOZ GEO SOLUSI'),
+(1193, 'HIGH (D.22) EPS SHEET H 2M X 1M X 2,5CM', 'FG_EPS_1223', 'PT ALOE VERA INDONESIA'),
+(1194, 'EPS BLOK 4M X 1M X 50CM (L)', 'FG_EPS_1214', 'SAMUDRA FOAM INDONESIA'),
+(1195, 'EPS BLOK 4M X 1M X 50CM (SL)', 'FG_EPS_1215', 'SAMUDRA FOAM INDONESIA'),
+(1196, 'STYROFOAM SHEET 620 X 770 X 230 MM', 'FG_EPS_1218', 'PT. SHOWA WORKS INDONESIA'),
+(1197, 'STYROFOAM SHEET 620 X 770 X 260 MM', 'FG_EPS_1219', 'PT. SHOWA WORKS INDONESIA'),
+(1198, 'STYROFOAM SHEET 620 X 770 X 170 MM', 'FG_EPS_1220', 'PT. SHOWA WORKS INDONESIA'),
+(1199, 'STYROFOAM SHEET 620 X 770 X 130 MM', 'FG_EPS_1221', 'PT. SHOWA WORKS INDONESIA'),
+(1200, 'STY SHEET D.17 UK 131 X 65 X 3 CM', 'FG_EPS_1206', 'PT SINARA MAXIMUM NUSANTARA'),
+(1201, 'STY SHEET D.9 UK 136,5 X 72,5 X 2 CM', 'FG_EPS_1207', 'PT SINARA MAXIMUM NUSANTARA'),
+(1202, 'STY SHEET D.17 UK 179,5 X 77 X 3 CM', 'FG_EPS_1203', 'PT SINARA MAXIMUM NUSANTARA'),
+(1203, 'STY SHEET D.17 UK 179,5 X 13 X 3 CM', 'FG_EPS_1204', 'PT SINARA MAXIMUM NUSANTARA'),
+(1204, 'STY SHEET D.22 UK 82 X 12,5 X 2 CM', 'FG_EPS_1205', 'PT SINARA MAXIMUM NUSANTARA'),
+(1205, 'STYROFOAM SHEET 760 X 700 X 230 MM', 'FG_EPS_1208', 'PT. SHOWA WORKS INDONESIA'),
+(1206, 'STYROFOAM SHEET 760 X 700 X 280 MM', 'FG_EPS_1209', 'PT. SHOWA WORKS INDONESIA'),
+(1207, 'STYROFOAM SHEET 760 X 700 X 150 MM', 'FG_EPS_1210', 'PT. SHOWA WORKS INDONESIA'),
+(1208, 'STYROFOAM 535 X 200 X 30 MM (MASTER BOX 1)', 'FG_EPS_0734', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1209, 'STYROFOAM 725 X 200 X 30 MM (MASTER BOX 6)', 'FG_EPS_1233', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1210, 'STYROFOAM 725 X 550 X 30 MM (MASTER BOX 6)', 'FG_EPS_1234', 'DMC TEKNOLOGI INDONESIA. PT'),
+(1211, 'H1C-0327-00/ PACKING FIXTURE', 'FG_EPS_1232', 'PT JVC'),
+(1212, 'LDCC008700-1/ DOOR PAD U/L', 'FG_EPS_0843', 'PHCI. PT'),
+(1213, 'LDCC008800-1/ DOOR PAD SIDE', 'FG_EPS_0845', 'PHCI. PT'),
+(1214, 'ABF TMB AS 125 CM X 100 M', 'FG_ABF_0004', 'ECERAN'),
+(1215, 'ABF TMB COKLAT 125 CM X 100 M', 'FG_ABF_0005', 'ECERAN'),
+(1216, 'ABF MB 125 CM X 100 M', 'FG_ABF_0028', 'ECERAN'),
+(1217, 'ABF AMB 125 CM X 100 M', 'FG_ABF_0034', 'ECERAN'),
+(1218, 'ABF TMB 125 CM X 100 M', 'FG_ABF_0049', 'ECERAN'),
+(1219, 'ABF MA 125 CM X 100 MTR', '', 'ECERAN'),
+(1220, 'ABF TMA 125 CM X 100 M', '', 'ECERAN'),
+(1221, 'AMA 100 X 125 CM', '', 'ECERAN'),
+(1222, 'ABF AMB COKLAT 100 M X 125 CM', '', 'ECERAN'),
+(1223, 'TMB COKLAT TUA', '', 'CERES.PT. '),
+(1224, 'ABF TMB WHITE 30 CM X 100 M', 'FG_ABF_0154', 'CASH'),
+(1225, 'ABF AMB 20 CM X 100 M', 'FG_ABF_0155', 'CASH'),
+(1226, 'BUBBLE SHEET CLEAR 1.2 X 50 MTR LDPE TYPE (MB)', 'FG_ABF_0006', 'MOLDS & DIES INDONESIA.PT'),
+(1227, 'BUBBLE BAG ANTISTATIC SIZE : 1250 X 50M', 'FG_ABF_0096', 'BERDIKARI.CV'),
+(1228, 'AIR BUUBLE FILM (ROLL) UK:1250MMX50M', 'FG_ABF_0096', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1229, 'ABF MB UK 62.5 CM X 50 M', 'FG_ABF_0108', 'PANJI PACKING'),
+(1230, 'ABF MB UK 41.6 CM X 50 M', 'FG_ABF_0124', 'PANJI PACKING'),
+(1231, 'ABF MB UK 125 CM X 50 M (BLACK)', 'FG_ABF_0134', 'BAPAK SANDI'),
+(1232, 'ABF BLACK 130 CM X 100 M', 'WIP_ABF_08', 'CUSTOMER CASH'),
+(1233, 'ABF MB NC 30 CM X 100 M', 'FG_ABF_0148', 'CUSTOMER CASH'),
+(1234, 'ABF MB BLACK NC 30 CM X 100 M', 'FG_ABF_0150', 'CUSTOMER CASH'),
+(1235, 'ABF MB UK 125 CM X 100 M /BUBBLE GRADE B', 'FG_ABF_0160', 'CUSTOMER CASH'),
+(1236, 'SINGLE BUBBLE BAG UK. 210 X 145 MM (SEAL BENTUK L)', 'FG_ABF_0068', ' DACO JAYA ABADI.PT'),
+(1237, 'ESD BUBBLE BAG 19.5CMX10CM+21CM NON PRINTING', 'FG_ABF_0090', ' DACO JAYA ABADI.PT'),
+(1238, '4H711035-ON-CUSHION BAG', 'FG_ABF_0001', ' PHCI.PT'),
+(1239, '4H711040-ON POLY BAG B', 'FG_ABF_0002', ' PHCI.PT'),
+(1240, 'LMPF0198-POLY BAG', 'FG_ABF_0018', ' PHCI.PT'),
+(1241, 'LSPF 0265-ABF AMB BAG 110 X (80+160) MM', 'FG_ABF_0019', ' PHCI.PT'),
+(1242, 'LSPF 0331-ABF AMB BAG 460 (O) X 470 + 20 MM', 'FG_ABF_0020', ' PHCI.PT'),
+(1243, 'LSPF 0333-ABF AMB BAG 120 (O) X 120 + 20 MM', 'FG_ABF_0021', ' PHCI.PT'),
+(1244, 'LSPF0310-AIRCAP BAG (MC12)', 'FG_ABF_0022', ' PHCI.PT'),
+(1245, 'LSPF0315-1-ABF BAG AMB UK: 210 (O)  X 145 +145 MM', 'FG_ABF_0023', ' PHCI.PT'),
+(1246, 'LSPN 1083 - AMB SHEET UK : 100 X 70 MM', 'FG_ABF_0024', ' PHCI.PT'),
+(1247, 'LSPF 0332-ABF AMB BAG 260 (O) X 350 + 20 MM', 'FG_ABF_0029', ' PHCI.PT'),
+(1248, 'LSPF 0270-ABF MA BAG 110 X (80+160) MM', 'FG_ABF_0033', ' PHCI.PT'),
+(1249, 'LSPF 0350-AMB BAG 80 + 20 MM X 90 MM (O)', 'FG_ABF_0048', ' PHCI.PT'),
+(1250, 'X01I0084 POLYBAG (H)', 'FG_ABF_0057', ' PHCI.PT'),
+(1251, 'ABF AMB BAG 150 X 110 MM (4H711061)', 'FG_ABF_0066', ' PHCI.PT'),
+(1252, 'ABF AMB SHEET 500 X 260 MM (LSPN 1034)', 'FG_ABF_0067', ' PHCI.PT'),
+(1253, 'LDCF000700-0 AIRCAP BAG', 'FG_ABF_0071', ' PHCI.PT'),
+(1254, 'LDCF002100-0 POLY BAG', 'FG_ABF_0075', ' PHCI.PT'),
+(1255, 'LDCF001906-0 PAD SHEET', 'FG_ABF_0077', ' PHCI.PT'),
+(1256, 'LDCF001902-0 PAD SHEET', 'FG_ABF_0078', ' PHCI.PT'),
+(1257, 'LSPF0296-1-ABF BAG MB UK : 200 (O) X 80 + 110 MM', 'FG_ABF_0079', ' PHCI.PT'),
+(1258, 'LDCF001903-0 PAD SHEET', 'FG_ABF_0079', ' PHCI.PT'),
+(1259, 'LDCF001904-0 PAD SHEET', 'FG_ABF_0080', ' PHCI.PT'),
+(1260, 'LDCF001901-0 PAD SHEET', 'FG_ABF_0081', ' PHCI.PT'),
+(1261, 'LDCF001905-0 PAD SHEET', 'FG_ABF_0082', ' PHCI.PT'),
+(1262, 'POLYBAG LDCF002100-1', 'FG_ABF_0094', ' PHCI.PT'),
+(1263, 'LDCF001908-0', 'FG_ABF_0097', ' PHCI.PT'),
+(1264, 'LDCF001907-0', 'FG_ABF_0098', ' PHCI.PT'),
+(1265, 'LDCF001909-0', 'FG_ABF_0099', ' PHCI.PT'),
+(1266, 'LSPF0313-1-ABF BAG MB UK : 300(0) X 130 +90 MM', 'FG_EPS_0802', ' PHCI.PT'),
+(1267, 'LDCF004001-0 BUBLE BAG SHEET', 'FG_ABF_0109', ' PHCI.PT'),
+(1268, 'LDCF004002-0 BUBLE BAG SHEET', 'FG_EPS_0113', ' PHCI.PT'),
+(1269, 'LDCF006307-0 PAD SHEET 1400 X 150 MM', 'FG_EPS_0114', ' PHCI.PT'),
+(1270, 'LDCF006306-0 PAD SHEET 650 X 1000 MM', 'FG_EPS_0115', ' PHCI.PT'),
+(1271, 'LDCF006305-0 PAD SHEET 300 X 300 MM', 'FG_EPS_0116', ' PHCI.PT'),
+(1272, 'LDCF006303-0 PAD SHEET 850 X 150 MM', 'FG_EPS_0117', ' PHCI.PT'),
+(1273, 'LDCF006302-1 PAD SHEET 1250 X 1600 MM', 'FG_EPS_0118', ' PHCI.PT'),
+(1274, 'LDCF006301-0 PAD SHEET 1000 X 1400 MM', 'FG_EPS_0119', ' PHCI.PT'),
+(1275, 'LDCF006304-0 PAD SHEET 150 X 150 MM', 'FG_EPS_0120', ' PHCI.PT'),
+(1276, 'LDCF006308-0 PAD SHEET 800 X 18000', 'FG_EPS_0130', ' PHCI.PT'),
+(1277, 'LDCF006309-0 PAD SHEET 710 X 1370', 'FG_EPS_0139', ' PHCI.PT'),
+(1278, 'LDCF006310-0 PAD SHEET 350 X 1600', 'FG_EPS_0140', ' PHCI.PT'),
+(1279, 'LDCF006311-0 PAD SHEET 300 X 1000', 'FG_EPS_0145', ' PHCI.PT'),
+(1280, 'LDCF006312-0 PAD SHEET 600 X 600', 'FG_EPS_0146', ' PHCI.PT'),
+(1281, 'L-105-BUBBLE PAD 30 MONTES 132 G', 'FG_ABF_0014', 'CERES.PT. '),
+(1282, 'P0001822 AR BBL FILM 260 X 145 MM MERLION/DF 180G EX L-126', 'FG_ABF_0015', 'CERES.PT. '),
+(1283, 'L-128-ABF TMB COKLAT 196 X 125 MM', 'FG_ABF_0016', 'CERES.PT. '),
+(1284, 'P0001824 AIR BUBBLE PAD CF CHOCO DRGS 100G EX L-12C', 'FG_ABF_0017', 'CERES.PT. '),
+(1285, 'L-103-BUBBLE PAD OF PICTORIA 303 X 229 MM', 'FG_ABF_0026', 'CERES.PT. '),
+(1286, 'L-106-BUBBLE PAD SQ O NUTS 88G TMB COKLAT UK : 217 X 115 MM', 'FG_ABF_0030', 'CERES.PT. '),
+(1287, 'L-104-AIR BUBLE PAD 145 X 92 MM FOR MERLION 50 G', 'FG_ABF_0045', 'CERES.PT. '),
+(1288, 'P0001825 AIR BUBBLE PAD V/H CHOCO 90G EX L-12E', 'FG_ABF_0072', 'CERES.PT. '),
+(1289, 'L-114 BUBBLE PAD SELAMAT CHOCOLISH 150g', 'FG_ABF_0088', 'CERES.PT. '),
+(1290, 'P0002509 P.AIR BUBBLE FILM VH CHOCO DRAGESS 180G', 'FG_ABF_0110', 'CERES.PT. '),
+(1291, 'BUBBLE SHEET GRADE AMERIKA ', 'FG_ABF_0069', 'DOLPHIN SICM.PT'),
+(1292, 'ABF MB SHEET 7 X 7 CM', 'FG_ABF_0043', 'ECERAN'),
+(1293, 'BUBBLE SHEET PINK UK : 820 MM X 130 MM', 'FG_ABF_0008', 'GLOBAL .PT'),
+(1294, 'BUBBLE SHEET PIN 215X310', 'FG_ABF_0058', 'GLOBAL .PT'),
+(1295, 'AIR CUSHION 120 X 334 MM', 'FG_ABF_0101', 'KDS INDONESIA.PT'),
+(1296, 'ABF BAG MB 13 X 8 (FL 43.5 CM)', 'FG_ABF_0002', 'NGK CERAMICS .PT '),
+(1297, 'BUBBLE SHEET 21 X 26 CM', 'FG_ABF_0031', 'NGK CERAMICS .PT '),
+(1298, 'ABF BAG PINK UK  130 MM (0) X 360 MM ', 'FG_ABF_0037', 'NGK CERAMICS .PT '),
+(1299, 'ABF BAG PINK UK  130 MM (0) X 280 MM PINK', 'FG_ABF_0038', 'NGK CERAMICS .PT '),
+(1300, 'ABF BAG WHITE UK  200 MM (0) X 350 MM ', 'FG_ABF_0041', 'NGK CERAMICS .PT '),
+(1301, 'ABF BAG SIZE 200 MM X 350 MM', 'FG_ABF_0041', 'NGK CERAMICS .PT '),
+(1302, 'AIR PACK (DB) DOUBLE UK: 1070 X 1070 MM', 'FG_ABF_0050', 'NGK CERAMICS .PT '),
+(1303, 'ABF BAG UK: 130 MM (O) X 280 MM', 'FG_ABF_0054', 'NGK CERAMICS .PT '),
+(1304, 'ABF BAG UK  130 MM (0) X 280 MM ', 'FG_ABF_0054', 'NGK CERAMICS .PT '),
+(1305, 'ABF BAG WHITE UK  200 MM (0) X 300 MM ', 'FG_ABF_0055', 'NGK CERAMICS .PT '),
+(1306, 'ABF BAG WHITE UK  130 MM (0) X 360 MM ', 'FG_ABF_0056', '      '),
+(1307, '220240003-BUBBLE SHEET ANTISTATIC 63 X 30 CM', 'FG_ABF_0070', 'NGK CERAMICS .PT '),
+(1308, 'ABF BAG MB 13 X 8 (FL 33.5 CM)', 'FG_ABF_0074', 'NGK CERAMICS .PT '),
+(1309, '220010273 ABF SHEET ANTISTATIC UK. P 46 X L 32 CM', 'FG_ABF_0086', 'NGK CERAMICS .PT '),
+(1310, '220010272 ABF SHEET ANTISTATIC UK. P 67 X L 46 CM', 'FG_ABF_0087', 'NGK CERAMICS .PT '),
+(1311, 'AIR PACK E SIZE: 1180X780 MM', 'FG_ABF_0091', 'NGK CERAMICS .PT '),
+(1312, 'AIR BUBBLE FILM BAG 13X8 (FL 33.5 CM) ANTISTATIC', 'FG_ABF_0100', 'NGK CERAMICS .PT '),
+(1313, 'PLASTIK BUBBLE 27.5 X 19.5 CM', 'FG_ABF_0039', 'ORIENTAL .PT'),
+(1314, 'PLASTIK BUBBLE 27.5 X 16 CM', 'FG_ABF_0039', 'ORIENTAL .PT'),
+(1315, 'AIR BUBBLE 19 X 25 CM (MB BAG)', 'FG_ABF_0032', 'SOHO INDUSTRI PHARMASI.PT'),
+(1316, 'ABF MB 150 X 220 MM', 'FG_ABF_0035', 'TAHARICA.PT'),
+(1317, 'ABF MB 150 X 250 MM', 'FG_ABF_0042', 'TAHARICA.PT'),
+(1318, 'ABF BAG WHITE UK : 200 (0) X  300 MM', 'FG_ABF_0055', 'TAHARICA.PT'),
+(1319, 'ABF TYPE MB :177 MM X 332 MM', 'FG_ABF_0059', 'TAHARICA.PT'),
+(1320, 'Air bubble Film 145 mm X 1050 MM', 'FG_ABF_0073', 'TAHARICA.PT'),
+(1321, 'Air bubble Film 100 mm X 400 MM', 'FG_ABF_0076', 'TAHARICA.PT'),
+(1322, 'KANTONG PLASTIK BUBBLE BAG 60 X 60 CM', 'FG_ABF_0033', 'TAKAGI SARI MULTI UTAMA.PT'),
+(1323, 'BUBBLE PLASTIK BAG 20 X 25', 'FG_ABF_0095', 'TAKAGI SARI MULTI UTAMA.PT'),
+(1324, 'KANTONG PLASTIK BUBBLE BAG 60 X 60 CM', 'FG_ABF_0033', 'ASTRA JOUKU.PT'),
+(1325, 'BUBBLE PLASTIK BAG 20 X 25', 'FG_ABF_0095', 'ASTRA JOUKU.PT'),
+(1326, 'BUBBLE PLASTIK BAG 7 X 9 SIZE 250 X 340 MM', 'FG_ABF_0142', 'ASTRA JOUKU.PT'),
+(1327, 'PLASTIK BUBBLE 100 X 35 CM TYPE MB (SHEET)', 'FG_ABF_0036', 'TOKAI RIKA INDONESIA.PT '),
+(1328, 'BUBBLE SHEET MB 125 X 37.5 MM', 'FG_ABF_0007', 'TOSO INDUSTRY INDONESIA.PT'),
+(1329, 'BUBBLE SHEET GRADE B 12 CM X 20 CM', 'FG_ABF_0062', 'TOSO INDUSTRY INDONESIA.PT'),
+(1330, 'ABF BAG PINK UK: 130 MM (O) X 360 MM', 'FG_ABF_0037', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1331, 'ABF BAG PINK UK: 130 MM (O) X 280 MM', 'FG_ABF_0038', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1332, 'ABF BAG WHITE UK: 250 MM (O) X 600 MM', 'FG_ABF_0040', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1333, 'ABF BAG WHITE UK: 200 MM (O) X 350 MM', 'FG_ABF_0041', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1334, 'ABF SHEET UK: 1250 MM X 750 MM', 'FG_ABF_0051', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1335, 'ABF SHEET UK: 500 MM X 500 MM', 'FG_ABF_0052', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1336, 'ABF SHEET UK: 700 MM X 700 MM', 'FG_ABF_0053', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1337, 'ABF BAG UK: 130 MM (O) X 280 MM', 'FG_ABF_0054', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1338, 'ABF BAG WHITE UK: 200 MM (O) X 300 MM', 'FG_ABF_0055', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1339, 'ABF BAG WHITE UK: 130 MM (O) X 360 MM', 'FG_ABF_0056', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1340, 'AIR BUBBLE SHEET UK: 1000 MM X 2000 MM', 'FG_ABF_0060', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1341, 'AIR BUBBLE SHEET UK: 800 MM X 600 MM', 'FG_ABF_0061', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1342, 'AIR BUBBLE SHEET (LEMBARAN) UK: 400 MM X 1000 MM', 'FG_ABF_0063', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1343, 'AIR BUBBLE SHEET UK: 400 MM X 600 MM', 'FG_ABF_0064', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1344, 'AIR BUBBLE SHEET UK: 1600 MM X 1200 MM', 'FG_ABF_0065', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1345, 'AIR BUBBLE SHEET UK: 300MMX400MM', 'FG_ABF_0083', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1346, 'ABF SHEET UK: 1500 MM X 1250 MM', 'FG_ABF_0089', 'TRISAHABAT JAYAPRIMA.PT. '),
+(1347, 'AIR BUBBLE SHEET UK: 600 MM X 400 MM', 'FG_ABF_0064', 'NITTSU SHOJI. PT.'),
+(1348, 'AIR BUBBLE SHEET UK: 1200 MM X 1600 MM', 'FG_ABF_0065', 'NITTSU SHOJI. PT.'),
+(1349, 'ABF SHEET UK: 500 MM X 500 MM', 'FG_ABF_0052', 'NITTSU SHOJI. PT.'),
+(1350, 'ABF SHEET UK: 700 MM X 700 MM', 'FG_ABF_0053', 'NITTSU SHOJI. PT.'),
+(1351, 'ABF SHEET UK: 1250 MM X 750 MM', 'FG_ABF_0051', 'NITTSU SHOJI. PT.'),
+(1352, 'ABF SHEET UK: 1500 MM X 1250 MM', 'FG_ABF_0089', 'NITTSU SHOJI. PT.'),
+(1353, 'AIR BUBBLE SHEET UK: 1000 MM X 2000 MM', 'FG_ABF_0060', 'NITTSU SHOJI. PT.'),
+(1354, 'AIR BUBBLE SHEET UK: 800 MM X 600 MM', 'FG_ABF_0061', 'NITTSU SHOJI. PT.'),
+(1355, 'AIR BUBBLE SHEET UK: 200 MM X 300 MM', 'FG_ABF_0136', 'NITTSU SHOJI. PT.'),
+(1356, 'AIR BUBBLE SHEET UK: 370 MM X 410 MM', 'FG_ABF_0137', 'NITTSU SHOJI. PT.'),
+(1357, 'AIR BUBBLE SHEET UK: 210 MM X 460 MM', 'FG_ABF_0138', 'NITTSU SHOJI. PT.'),
+(1358, 'ABF MB BAG Size (O) UK: 280 MM X 280 MM', 'FG_ABF_0147', 'NITTSU SHOJI. PT.'),
+(1359, 'DJG23-BUBBL 200X125 CM BBL WRAP', 'FG_ABF_0103', 'MATTEL. PT.'),
+(1360, '75.HSL.BYULDL4A00001/BUBBLE SHEET 50X50 CM', 'FG_ABF_0112', 'HONORIS. PT'),
+(1361, 'AIR BUBBLE BAG PINK SINGLE LAYER UK. 380 X 270 X 80 MM', 'FG_ABF_0128', 'NOBEL ANUGERAH SUKSES. PT'),
+(1362, 'AIR BUBBLE BAG PINK SINGLE LAYER UK. 470 X 220 X T.85 MM', 'FG_ABF_0122', 'NOBEL ANUGERAH SUKSES. PT'),
+(1363, 'BUBBLE BAG TMB 210 X 160 (O) X 10 MM', 'FG_ABF_0127', 'CV. BERDIKARI'),
+(1364, 'AIR BUBBLE SHEET 2300 X 500 MM ABF (DOUBLE LAYER) TMB WHITE', 'FG_ABF_0144', 'PT HONDA PROSPECT MOTOR'),
+(1365, 'AIR BUBBLE SHEET 2300 X 500 MM ABF TYPE MB WHITE', 'FG_ABF_0143', 'PT HONDA PROSPECT MOTOR'),
+(1366, 'AIR BUBBLE SHEET 2300 X 600 MM ABF (DOUBLE LAYER) TMB WHITE', 'FG_ABF_0149', 'PT HONDA PROSPECT MOTOR'),
+(1367, 'ABF MB 30 CM X 10 M', 'FG_ABF_0141', 'CASH'),
+(1368, 'ABF BLACK 30 CM X 10 MTR', 'FG_ABF_0151', 'CASH'),
+(1369, 'ABF TMB WHITE 30 CM X 100 M', 'FG_ABF_0154', 'CASH'),
+(1370, 'ABF MB SHEET 9.5 X 9.5 CM', 'FG_ABF_0156', 'PT GARUDA GOJAYA'),
+(1371, 'BUBBLE BAG (40)CM X 55CM', 'FG_ABF_', 'PT INSAKO JAYA SEJAHTERA'),
+(1372, 'BUBBLE BAG (50)CM X 57CM', 'FG_ABF_', 'PT INSAKO JAYA SEJAHTERA'),
+(1373, 'ABF AIR BUBBLE BAG 200 X 350 MM (DOUBLE LAYER)', 'FG_ABF_0162', 'PT HONDA PROSPECT MOTOR'),
+(1374, 'ABF AIR BUBBLE BAG 300 X 500 MM (DOUBLE LAYER)', 'FG_ABF_0163', 'PT HONDA PROSPECT MOTOR'),
+(1375, 'GE40545-001A--ABF BAG AMB  600 X 250 MM', 'FG_ABF_0009', 'JVC.PT'),
+(1376, 'GE40545-002A-ABF BAG AMB UK: 55 MM X 65 MM', 'FG_ABF_0010', 'JVC.PT'),
+(1377, 'GE40545-003A--ABF BAG 200 X 200 MM', 'FG_ABF_0011', 'JVC.PT'),
+(1378, 'H2F-0027-00-ABF BAG AMB PINK UK: 100 X 200 MM', 'FG_ABF_0012', 'JVC.PT'),
+(1379, 'H2F-0027-01-ABF BAG AMB PINK UK : 60 X 160 MM', 'FG_ABF_0013', 'JVC.PT'),
+(1380, 'LV45040-001A-ABF AMB BAG 250 X 205 (0) MM', 'FG_ABF_0025', 'JVC.PT'),
+(1381, 'VPE4005-007-ABF MB UK : 250 (x2) X 120 MM KANTONG', 'FG_ABF_0026', 'JVC.PT'),
+(1382, 'GE40545-004A-ABF BAG UK : 600 X 390 MM', 'FG_ABF_0046', 'JVC.PT'),
+(1383, 'LV45040-003A-POLY BAG', 'FG_ABF_0047', 'JVC.PT'),
+(1384, ' QPS 01302540-ABF MB UK : 130 X 250 MM ( PINK)', 'FG_ABF_0093', 'JVC.PT'),
+(1385, 'H2F-0087-01/BUBBLE POLY BAG', 'FG_ABF_0125', 'JVC.PT'),
+(1386, 'H2B-0088-00/ BUBBLE SHEET', 'FG_ABF_0131', 'JVC.PT'),
+(1387, 'H2F-0294-00/ PROTECTION BAG', 'FG_ABF_0152', 'JVC.PT'),
+(1388, 'H2F-0295-00/ PROTECTION BAG', 'FG_ABF_0153', 'JVC.PT'),
+(1389, '55453-D40L1-00/ PAD INSTRUMENT, LWR RH', 'FG_EPP_0167', 'ADM. PT'),
+(1390, '58621-BZ080 PAD, FR FLOOR SILENCER RH', 'FG_EPP_0164', 'ADM. PT'),
+(1391, 'PAD, INSTRUMENT PANEL SAFETY, NO.1 55453-BZ100-00', 'FG_EPP_0104', 'ADM. PT'),
+(1392, '55454-D40L1-00/ PAD INSTRUMENT, LWR LH', 'FG_EPP_0167', 'ADM. PT'),
+(1393, 'D55453-BZ080-001 PAD INSTRUMENT PANEL NO 1', 'FG_EPP_0172', 'ADM. PT'),
+(1394, 'D55453-BZ080-001 PAD INSTRUMENT PANEL NO 1', 'FG_EPP_0172', 'ADM. PT'),
+(1395, 'D55454-BZ100-001 PAD INSTRUMENT PANEL NO 2', 'FG_EPP_0173', 'ADM. PT'),
+(1396, '55453-BZ080-00 PAD,INSTRUMENT PANEL SAFETY NO.1', 'FG_EPP_0068', 'ADM. PT'),
+(1397, '55454-BZ100-00 PAD,INSTRUMENT PANEL SAFETY NO.2', 'FG_EPP_0069', 'ADM. PT'),
+(1398, '55453-BZ050-00 PAD, INSTRUMENT, LWR RH', 'FG_EPP_0165', 'ADM. PT'),
+(1399, 'D55453-BZ050-001/ PAD, INSTRUMENT, LWR RH', 'FG_EPP_0192', 'ADM. PT'),
+(1400, '55454-BZ060-00 PAD, INSTRUMENT, LWR LH', 'FG_EPP_0166', 'ADM. PT'),
+(1401, 'D55454-BZ060-00 1PAD, INSTRUMENT, LWR LH', 'FG_EPP_0180', 'ADM. PT'),
+(1402, 'PAD, INSTRUMENT PANEL SAFETY, NO.2 55454-BZ020-00', 'FG_EPP_0105', 'ADM. PT'),
+(1403, '55453-BZ110-00PAD INS PANEL SAFETY NO.01', 'FG_EPP_0111', 'ADM. PT'),
+(1404, '55453-BZ130-00 PAD INSTRUMENT PANEL SAFETY, NO.1', 'FG_EPP_0181', 'ADM. PT'),
+(1405, '55454-BZ140-00 PAD INSTRUMENT PANEL SAFETY, NO.2', 'FG_EPP_0182', 'ADM. PT'),
+(1406, '55453-BZ120-00 PAD INSTRUMENT PANEL SAFETY, NO.1', 'FG_EPP_0183', 'ADM. PT'),
+(1407, '55454-BZ130-00 PAD INSTRUMENT PANEL SAFETY, NO.2', 'FG_EPP_0184', 'ADM. PT'),
+(1408, '75787-BZ070-00 PAD, FR DOOR OUTSIDE MOULDING, RH', 'FG_EPP_0187', 'ADM. PT'),
+(1409, '75788-BZ070-00 PAD, FR DOOR OUTSIDE MOULDING, LH', 'FG_EPP_0188', 'ADM. PT'),
+(1410, '52075-BZ020-00/ RETAINER SUB ASSY, RR BUMPER SIDE, RH', 'FG_EPP_0198', 'ADM. PT'),
+(1411, '52076-BZ010-00/ RETAINER SUB ASSY, RR BUMPER SIDE, LH', 'FG_EPP_0199', 'ADM. PT'),
+(1412, '64993-BZ010-00/ BOX, DECK FLOOR, RR', 'FG_EPP_0200', 'ADM. PT'),
+(1413, '75787-BZ080-00 PAD, FR DOOR OUTSIDE MOULDING, RH', 'FG_EPP_0201', 'ADM. PT'),
+(1414, '75788-BZ080-00 PAD, FR DOOR OUTSIDE MOULDING, LH', 'FG_EPP_0202', 'ADM. PT'),
+(1415, '55215-BZ130-00/ PAD DASH PANEL INSULATOR, NO.3', 'FG_EPP_0211', 'ADM. PT'),
+(1416, '55215-BZ120-00/ PAD DASH PANEL INSULATOR, NO.3', 'FG_EPP_0212', 'ADM. PT'),
+(1417, '55216-BZ080-00/ PAD DASH PANEL INSULATOR, NO.4', 'FG_EPP_0213', 'ADM. PT'),
+(1418, '55216-BZ090-00/ PAD DASH PANEL INSULATOR, NO.4', 'FG_EPP_0214', 'ADM. PT'),
+(1419, '55215-BZ110-00/ PAD DASH PANEL INSULATOR, NO.3', 'FG_EPP_0215', 'ADM. PT'),
+(1420, '55214-BZ160-00/ PAD DASH PANEL INSULATOR, NO.2', 'FG_EPP_0216', 'ADM. PT');
+INSERT INTO `tb_produk` (`id_Produk`, `partName`, `kodeBarang`, `customer`) VALUES
+(1421, '55214-BZ150-00/ PAD DASH PANEL INSULATOR, NO.2', 'FG_EPP_0217', 'ADM. PT'),
+(1422, 'T55453-BZ100-001/ PAD, INSTRUMENT PANEL SA', 'FG_EPP_0191', 'ADM. PT'),
+(1423, 'PAD IMPACT 77360-T9A-T010-22', 'FG_EPP_0079', 'AOP. PT'),
+(1424, 'EPP WHITE D.45 CHEEKPAD SGP S (L/R)', 'FG_EPP_0145', 'BIMA INDO PRIMA. PT'),
+(1425, 'EPP WHITE D.60 CHEEKPAD SGP S (L/R)', 'FG_EPP_0146', 'BIMA INDO PRIMA. PT'),
+(1426, 'EPP WHITE D.30 CHEEKPAD SGP S (L/R)', 'FG_EPP_0140', 'BIMA INDO PRIMA. PT'),
+(1427, '205CKDP002 SPC FRONT DOOR EA PAD LH', 'FG_EPP_0085', 'EATI. PT'),
+(1428, '205CKDP001 SPC FRONT DOOR EA PAD RH', 'FG_EPP_0086', 'EATI. PT'),
+(1429, '77370-T7A-0001-PAD, DR OUTSIDE', 'FG_EPP_0032', 'HPM. PT'),
+(1430, '77375-T7A-0001-PAD, DR INSIDE', 'FG_EPP_0033', 'HPM. PT'),
+(1431, '77370TSV X000 KNEE PAD, DR R', 'FG_EPP_0174', 'HPM. PT'),
+(1432, '77375TSV X000 KNEE PAD, DR L', 'FG_EPP_0175', 'HPM. PT'),
+(1433, '84523T5S T110 BOX ASSY, CARGO FLOOR', 'FG_EPP_0074', 'HPM. PT'),
+(1434, '84523-T5S-T210 BOX ASSY, CARGO FLOOR', 'FG_EPP_0080', 'HPM. PT'),
+(1435, '84540TME T001 BOX ASSY CARGO FLOOR (18 INCH)', 'FG_EPP_0100', 'HPM. PT'),
+(1436, '71570-TE7-K900-ABS R,RR BPR', 'FG_EPP_0001', 'HPM. PT'),
+(1437, '71575-TE7-K900-ABS L,RR BPR', 'FG_EPP_0002', 'HPM. PT'),
+(1438, 'ABS L,RR BPR-71575TE7 K000', 'FG_EPP_0005', 'HPM. PT'),
+(1439, 'ABS R,RR BPR-71570TE7 K000', 'FG_EPP_0006', 'HPM. PT'),
+(1440, '77370TSA K000 PAD,DR OUTSIDE', 'FG_EPP_0065', 'HPM. PT'),
+(1441, '77375TSA K000 PAD,DR INSIDE', 'FG_EPP_0064', 'HPM. PT'),
+(1442, '83305-T5A-J000-STOPPER ASSY,HEEL (RHD)', 'FG_EPP_0003', 'HPM. PT'),
+(1443, 'TSPT10309/PAD, COLUMN LWR', 'FG_EPP_0176', 'ITSP. PT'),
+(1444, 'SPCR RH EPP (SPCR P32R)', 'FG_EPP_0029', 'KICI. PT'),
+(1445, 'FOOT SPCR RHD AS 2MD', 'FG_EPP_0043', 'KICI. PT'),
+(1446, 'FOOT SPCR RHD DR 2MD', 'FG_EPP_0044', 'KICI. PT'),
+(1447, 'TIBIA PAD', 'FG_EPP_0185', 'KICI. PT'),
+(1448, 'ACCEL HEEL STOPPER', 'FG_EPP_0186', 'KICI. PT'),
+(1449, 'BASE FOOT REST CVT', 'FG_EPP_0189', 'KICI. PT'),
+(1450, 'BASE FOOT REST MT', 'FG_EPP_0190', 'KICI. PT'),
+(1451, 'EA PAD LH (EXP 30X)', 'FG_EPP_0085', 'KTSI. PT'),
+(1452, 'EA PAD RH (EXP 30X)', 'FG_EPP_0086', 'KTSI. PT'),
+(1453, 'PAD UPPER & LOWER 29A121AA1/29A1212A', 'FG_EPP_0107', 'KYORAKU. PT'),
+(1454, 'PAD UPPER 29A121AA1', 'FG_EPP_0107A', 'KYORAKU. PT'),
+(1455, 'PAD LOWER 29A1212A', 'FG_EPP_0107B', 'KYORAKU. PT'),
+(1456, 'PAD CVR STERING COLOM 484P1-1YPOA', 'FG_EPP_0052', 'MAH SING. PT'),
+(1457, 'PAD COLUMN COVER D14 45289-BZ050', 'FG_EPP_0102', 'MAH SING. PT '),
+(1458, '45289-BZ080/ PAD, COLUMN COVER D55L', 'FG_EPP_0194', 'MAH SING. PT '),
+(1459, '45289-BZ090/ PAD, COLUMN COVER D55L', 'FG_EPP_0193', 'MAH SING. PT '),
+(1460, 'PAD COLUMN LWR HOLE D26A 45289-BZ110', 'FG_EPP_0205', 'MAH SING. PT '),
+(1461, 'PAD COLUMN LWR NO HOLE D26A 45289-BZ120', 'FG_EPP_0206', 'MAH SING. PT '),
+(1462, 'SPACER,RR FLOOR 7272A177 (LH)', 'FG_EPP_0081', 'MITSUBISHI. PT'),
+(1463, 'SPACER,RR FLOOR 7272A178 (RH)', 'FG_EPP_0082', 'MITSUBISHI. PT'),
+(1464, 'SPACER, FOOTREST (RHD) 7272A174', 'FG_EPP_0083', 'MITSUBISHI. PT'),
+(1465, '7272A175 SPACER,FOOTREST (LHD)', 'FG_EPP_0094', 'MITSUBISHI. PT'),
+(1466, 'SPACER,RR FLOOR 7272A177 (LH)', 'FG_EPP_0209', 'MITSUBISHI. PT'),
+(1467, 'SPACER,RR FLOOR 7272A178 (RH)', 'FG_EPP_0210', 'MITSUBISHI. PT'),
+(1468, '7646A657/ BOX, REPAIR KIT', 'FG_EPP_0203', 'MITSUBISHI. PT'),
+(1469, '62090 1 YP0A-ABS-FR BMPR ENERGY', 'FG_EPP_0039', 'NISSAN. PT'),
+(1470, '85090 -1YSOB-L-ABS RR BMPR ENERGY', 'FG_EPP_0063 ', 'NISSAN. PT'),
+(1471, 'ABS RR BMPR ENERGY INSERT', 'FG_EPP_0063 ', 'NISSAN. PT'),
+(1472, 'LB0281900 EPP FOAM LB02 TOP', 'FG_EPP_0109', 'NITTOH. PT'),
+(1473, 'LB0281900 EPP FOAM LB02 BOTTOM', 'FG_EPP_0110', 'NITTOH. PT'),
+(1474, 'LB0381900 EPP FOAM LB03 TOP', 'FG_EPP_0112', 'NITTOH. PT'),
+(1475, 'LB0381900 EPP FOAM LB03 BOTTOM', 'FG_EPP_0113', 'NITTOH. PT'),
+(1476, 'LB0381900 EPP FOAM LB03', 'FG_EPP_0114', 'NITTOH. PT'),
+(1477, 'LB0181900 EPP FOAM LB01 TOP', 'FG_EPP_0115', 'NITTOH. PT'),
+(1478, 'LB0181900 EPP FOAM LB01 BOTTOM', 'FG_EPP_0116', 'NITTOH. PT'),
+(1479, 'LB0181900 EPP FOAM LB01', 'FG_EPP_0117', 'NITTOH. PT'),
+(1480, 'LB0581900 EPP FOAM LB05 TOP', 'FG_EPP_0179', 'NITTOH. PT'),
+(1481, 'LB0581900 EPP FOAM LB05 BOTTOM', '', 'NITTOH. PT'),
+(1482, 'LB0581900 EPP FOAM LB05', '', 'NITTOH. PT'),
+(1483, 'LB0481900 EPP FOAM LB04 TOP', 'FG_EPP_0133', 'NITTOH. PT'),
+(1484, 'LB0481900 EPP FOAM LB04 BOTTOM', 'FG_EPP_0134', 'NITTOH. PT'),
+(1485, 'LB0481900 EPP FOAM LB04', '', 'NITTOH. PT'),
+(1486, 'LB0681900 EPP FOAM LB06 TOP', 'FG_EPP_0136', 'NITTOH. PT'),
+(1487, 'LB0681900 EPP FOAM LB06 BOTTOM', 'FG_EPP_0137', 'NITTOH. PT'),
+(1488, '84523-T7Y-U200 01 BOX COMP, TRUNK FLOOR', 'FG_EPP_0121', 'PT. HPM'),
+(1489, '77360 TSA K010 20, PAD IMPACT', 'FG_EPP_0045', 'SANKO. PT'),
+(1490, 'LI-SKEFC-EPSF-010-PROTECTOR DRAIN HOSE PIOCELAN', 'FG_EPP_0010', 'SEKISUI. PT'),
+(1491, '48435-52R00-000 01 PAD, STRG COLUMN COVER', 'FG_EPP_0124', 'SUZUKI. PT'),
+(1492, '83716-73R00-000 01 PAD, FR DOOR TRIM LOWER R', 'FG_EPP_0122', 'SUZUKI. PT'),
+(1493, '83726-73R00-000 01 PAD, FR DOOR TRIM LOWER L', 'FG_EPP_0123', 'SUZUKI. PT'),
+(1494, 'PAD DECK TRIM SIDE NO.2 64734-X1V11', 'FG_EPP_0019', 'TBI. PT'),
+(1495, 'PAD SPARE WHEEL COVER 64772-0D060', 'FG_EPP_0020', 'TMMIN. PT'),
+(1496, 'PAD SPARE WHEEL COVER 64772-0D090', 'FG_EPP_0021', 'TMMIN. PT'),
+(1497, 'PAD SPARE WHEEL COVER NO.2 64773-0D020', 'FG_EPP_0022', 'TMMIN. PT'),
+(1498, 'PAD SPARE WHEEL COVER NO.2 64773-0D040', 'FG_EPP_0023', 'TMMIN. PT'),
+(1499, 'PROTECTOR FR FENDER SIDE PANEL LH 53828-0D070', 'FG_EPP_0024', 'TMMIN. PT'),
+(1500, 'PROTECTOR FR FENDER SIDE PANEL LH 53828-0D160', 'FG_EPP_0025', 'TMMIN. PT'),
+(1501, 'PROTECTOR FR FENDER SIDE PANEL RH 53827-0D070', 'FG_EPP_0026', 'TMMIN. PT'),
+(1502, 'PROTECTOR FR FENDER RH 53827 - OD160', 'FG_EPP_0027', 'TMMIN. PT'),
+(1503, '53828-0D170-00 PROTECTOR,FR FENDER SIDE PANEL LH', 'FG_EPP_0057', 'TMMIN. PT'),
+(1504, '53827-0D170-00 PROTECTOR,FR FENDER SIDE PANEL RH', 'FG_EPP_0058', 'TMMIN. PT'),
+(1505, '64773-0D140-00/PAD,SPARE WHEEL COVER, NO.2', 'FG_EPP_0088', 'TMMIN. PT'),
+(1506, '64772-0D200-00/PAD,SPARE WHEEL COVER', 'FG_EPP_0089', 'TMMIN. PT'),
+(1507, '67923-0D130-00 CUSHION,FR DOOR STIFFENER, NO.1', 'FG_EPP_0056', 'TMMIN. PT'),
+(1508, '67924-0D140-00 CUSHION,FR DOOR STIFFENER, NO.2', 'FG_EPP_0060', 'TMMIN. PT'),
+(1509, '64773-0D070-00/PAD,SPARE WHEEL COVER, NO.2', 'FG_EPP_0087', 'TMMIN. PT'),
+(1510, '64772-0D130-00/PAD,SPARE WHEEL COVER', 'FG_EPP_0090', 'TMMIN. PT'),
+(1511, '52611-0D110-00/ABSORBER,FR BUMPER ENERGY', 'FG_EPP_0093', 'TMMIN. PT'),
+(1512, '52611-0D111/ABSORBER,FR BUMPER ENERGY', 'FG_EPP_0178', 'TMMIN. PT'),
+(1513, '52611-0D112/ABSORBER,FR BUMPER ENERGY', 'FG_EPP_0195', 'TMMIN. PT'),
+(1514, 'PAD DASH PANEL INSULATOR NO.3 55215-0D190', 'FG_EPP_0015', 'TMMIN. PT'),
+(1515, '58575-0D010-00 PAD,FR FLOOR, RR NO.1 INSERT', 'FG_EPP_0061B', 'TMMIN. PT'),
+(1516, '58576-0D010-00 PAD,FR FLOOR, RR NO.2 INSERT', 'FG_EPP_0062B', 'TMMIN. PT'),
+(1517, 'CUSHION FR DOOR STIFFENER NO.1 67923-0D110', 'FG_EPP_0008', 'TMMIN. PT'),
+(1518, 'CUSHION FR DOOR STIFFENER NO.2 67924-0D120', 'FG_EPP_0009', 'TMMIN. PT'),
+(1519, '67924-0D190-00/CUSHION,FR DOOR STIFFENER,NO.2', 'FG_EPP_0091', 'TMMIN. PT'),
+(1520, '67923-0D180-00/CUSHION,FR DOOR STIFFENER,NO.1', 'FG_EPP_0092', 'TMMIN. PT'),
+(1521, 'PAD DASH PANEL INSULATOR NO.2 55214-0D230', 'FG_EPP_0013', 'TMMIN. PT'),
+(1522, 'PAD DASH PANEL INSULATOR NO.2 55214-0D240', 'FG_EPP_0014', 'TMMIN. PT'),
+(1523, 'PAD DASH PANEL INSULATOR NO.3 55215-0D200', 'FG_EPP_0016', 'TMMIN. PT'),
+(1524, 'PAD DASH PANEL INSULATOR NO.4 55216-0D110', 'FG_EPP_0017', 'TMMIN. PT'),
+(1525, 'PAD DASH PANEL INSULATOR NO.4 55216-0D120', 'FG_EPP_0018', 'TMMIN. PT'),
+(1526, 'PAD DASH PANEL INSULATOR NO.2 55214-KK010-00', 'FG_EPP_0034', 'TMMIN. PT'),
+(1527, 'PAD DASH PANEL INSULATOR NO.2 55214-KK020-00', 'FG_EPP_0035', 'TMMIN. PT'),
+(1528, 'PAD DASH PANEL INSULATOR NO.2 55214-KK030-00', 'FG_EPP_0036', 'TMMIN. PT'),
+(1529, 'PAD DASH PANEL INSULATOR NO.3 55215-KK010-00', 'FG_EPP_0037', 'TMMIN. PT'),
+(1530, 'PAD DASH PANEL INSULATOR NO.3 55215-KK020-00', 'FG_EPP_0038', 'TMMIN. PT'),
+(1531, '55214-0D250-00 PAD, DASH PANEL INSULATOR, NO.2', 'FG_EPP_0059', 'TMMIN. PT'),
+(1532, '58575-0D010-00 PAD,FR FLOOR, RR NO.1', 'FG_EPP_0061', 'TMMIN. PT'),
+(1533, '58575-0D010-00 PAD,FR FLOOR, RR NO.1 MAINPART', 'FG_EPP_0061A', 'TMMIN. PT'),
+(1534, '58576-0D010-00 PAD,FR FLOOR, RR NO.2', 'FG_EPP_0062', 'TMMIN. PT'),
+(1535, '58576-0D010-00 PAD,FR FLOOR, RR NO.2 MAINPART', 'FG_EPP_0062A', 'TMMIN. PT'),
+(1536, 'PAD DASH PANEL INSULATOR NO 2 55214-0D151-00', 'FG_EPP_0077', 'TMMIN. PT'),
+(1537, 'PAD DASH PANEL INSULATOR NO 3 55215-0D131-00', 'FG_EPP_0078', 'TMMIN. PT'),
+(1538, 'ZP43990 PP PAD NS-SW1000SR', 'FG_EPP_0030', 'YEMI. PT'),
+(1539, 'ZT14610 PP PAD NS-5000SR', 'FG_EPP_0070', 'YEMI. PT'),
+(1540, 'VAX5460 PP PAD NS-3000SR', 'FG_EPP_0135', 'YEMI. PT'),
+(1541, 'EPP SHEET WHITE 30P UK : 120 X 100 X 5 CM', 'FG_EPP_0196', 'CASH'),
+(1542, 'EPP SHEET BLACK 30P UK : 120 X 100 X 5 CM', 'FG_EPP_0197', 'CASH'),
+(1543, '86521-I7000 /ENERGY ABSORBER-FR BUMPER', 'FG_EPP_0218', 'SUMMIT SEOYEON AUTOMOTIVE INDONESIA. PT'),
+(1544, 'PAD SPACER 56.7 X T25 EPP BLACK (15P)', 'FG_EPP_0221', 'TAKAGI SARI MULTIUTAMA. PT'),
+(1545, '77370T86 P000 KNEE PAD, DR L', 'FG_EPP_0224', 'HPM. PT'),
+(1546, '77375T86 P000 KNEE PAD, DR R', 'FG_EPP_0225', 'HPM. PT'),
+(1547, '55453-BZ170-00 PAD, INSTRUMENT, LWR RH', 'FG_EPP_0222', 'ADM. PT'),
+(1548, '55454-BZ180-00 PAD, INSTRUMENT, LWR LH', 'FG_EPP_0223', 'ADM. PT'),
+(1549, 'PAD A', 'FG_EPP_0227', 'NISSEN CHEMITEC INDONESIA. PT'),
+(1550, 'PAD B', 'FG_EPP_0228', 'NISSEN CHEMITEC INDONESIA. PT'),
+(1551, 'PAD C', 'FG_EPP_0229', 'NISSEN CHEMITEC INDONESIA. PT'),
+(1552, 'IGS1CP-00155/KS-ENERGY ABSORBER-FR BUMPER', 'FG_EPP_0232', 'SUMMIT SEOYEON AUTOMOTIVE INDONESIA. PT'),
+(1553, 'ACCEL HEEL STOPPER', 'FG_EPP_0219', 'KICI. PT'),
+(1554, 'BASE FOOT REST', 'FG_EPP_0220', 'KICI. PT'),
+(1555, '845233K6 K001 / TOOL BOX ASSY, CARGO FLOOR', 'FG_EPP_000', 'PT. HPM'),
+(1556, 'PP PAD SP BTM NS 2000A', 'FG_EPP_0233', 'YEMI. PT'),
+(1557, 'PP PAD SP MID NS 2000A', 'FG_EPP_0234', 'YEMI. PT'),
+(1558, 'PP PAD SP TOP NS 2000A', 'FG_EPP_0235', 'YEMI. PT'),
+(1559, 'FOOTREST, FR FLOOR, RH', 'FG_EPP_', 'TMMIN. PT'),
+(1560, 'PAD, HEEL', 'FG_EPP_', 'TMMIN. PT'),
+(1561, 'PAD, HEEL', 'FG_EPP_', 'TMMIN. PT'),
+(1562, 'FOOTREST, FR FLOOR, RH', 'FG_EPP_', 'TMMIN. PT'),
+(1563, 'TIBIA PAD R', 'FG_EPP_', 'TMMIN. PT'),
+(1564, 'TIBIA PAD L', 'FG_EPP_', 'TMMIN. PT');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_return`
+--
+
+CREATE TABLE `tb_return` (
+  `id_Return` int(11) NOT NULL,
+  `id_Produk` int(11) NOT NULL,
+  `tglInput` varchar(15) NOT NULL,
+  `tglTinfo` varchar(15) NOT NULL,
+  `tglTerimaBrg` varchar(15) NOT NULL,
+  `qty` varchar(50) NOT NULL,
+  `proses` varchar(50) NOT NULL,
+  `tglGanti` varchar(15) NOT NULL,
+  `stat` varchar(15) NOT NULL,
+  `fotoSjl` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id_Users` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `level` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id_Users`, `username`, `password`, `level`) VALUES
+(11, 'willy', '1234', 'administrator'),
+(12, 'dwi', '1234', 'administrator'),
+(13, 'selly', '2345\r\n', 'user'),
+(14, 'omin', '2345\r\n', 'user'),
+(15, 'rezza', '2345', 'user'),
+(16, 'laras', '1234', 'administrator'),
+(17, 'raray', '2345', 'user'),
+(18, 'gilang', '2345', 'user'),
+(19, 'yustika', '2345', 'user'),
+(20, 'haryono', '2345', 'user'),
+(21, 'qois', '2345', 'user'),
+(22, 'bayyan', '2345', 'user'),
+(23, 'edy', '2345', 'user'),
+(24, 'wagini', '2345', 'user'),
+(25, 'solihin', '2345', 'user'),
+(26, 'sandi', '2345', 'user'),
+(27, 'fachri', '2345', 'user'),
+(28, 'mista', '2345', 'user'),
+(34, 'nizar', '1234', 'administrator');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `assy_epp`
+--
+ALTER TABLE `assy_epp`
+  ADD PRIMARY KEY (`id_AssyEpp`),
+  ADD KEY `id_Produk` (`id_Produk`);
+
+--
+-- Indexes for table `assy_eps`
+--
+ALTER TABLE `assy_eps`
+  ADD PRIMARY KEY (`id_AssyEps`),
+  ADD KEY `id_Produk` (`id_Produk`);
+
+--
+-- Indexes for table `claim`
+--
+ALTER TABLE `claim`
+  ADD PRIMARY KEY (`id_Claim`),
+  ADD KEY `id_Produk` (`id_Produk`);
+
+--
+-- Indexes for table `ipqc_epp`
+--
+ALTER TABLE `ipqc_epp`
+  ADD PRIMARY KEY (`id_IpqcEpp`),
+  ADD KEY `id_PartEpp` (`id_PartEpp`);
+
+--
+-- Indexes for table `ipqc_eps`
+--
+ALTER TABLE `ipqc_eps`
+  ADD PRIMARY KEY (`id_IpqcEps`),
+  ADD KEY `id_PartEps` (`id_PartEps`);
+
+--
+-- Indexes for table `kalibrasi`
+--
+ALTER TABLE `kalibrasi`
+  ADD PRIMARY KEY (`id_Kalibrasi`);
+
+--
+-- Indexes for table `kontrol_cf`
+--
+ALTER TABLE `kontrol_cf`
+  ADD PRIMARY KEY (`id_KontrolCf`),
+  ADD KEY `id_Produk` (`id_Produk`);
+
+--
+-- Indexes for table `oqc`
+--
+ALTER TABLE `oqc`
+  ADD PRIMARY KEY (`id_Oqc`),
+  ADD KEY `id_Produk` (`id_Produk`);
+
+--
+-- Indexes for table `part_abf`
+--
+ALTER TABLE `part_abf`
+  ADD PRIMARY KEY (`id_PartAbf`),
+  ADD KEY `id_Produk` (`id_Produk`);
+
+--
+-- Indexes for table `part_epp`
+--
+ALTER TABLE `part_epp`
+  ADD PRIMARY KEY (`id_PartEpp`),
+  ADD KEY `id_Produk` (`id_Produk`);
+
+--
+-- Indexes for table `part_eps`
+--
+ALTER TABLE `part_eps`
+  ADD PRIMARY KEY (`id_PartEps`),
+  ADD KEY `id_Produk` (`id_Produk`);
+
+--
+-- Indexes for table `part_sb`
+--
+ALTER TABLE `part_sb`
+  ADD PRIMARY KEY (`id_PartSb`),
+  ADD KEY `id_Produk` (`id_Produk`);
+
+--
+-- Indexes for table `patrol_qc`
+--
+ALTER TABLE `patrol_qc`
+  ADD PRIMARY KEY (`id_PatrolQc`),
+  ADD KEY `id_Produk` (`id_Produk`);
+
+--
+-- Indexes for table `tb_produk`
+--
+ALTER TABLE `tb_produk`
+  ADD PRIMARY KEY (`id_Produk`);
+
+--
+-- Indexes for table `tb_return`
+--
+ALTER TABLE `tb_return`
+  ADD PRIMARY KEY (`id_Return`),
+  ADD KEY `id_Produk` (`id_Produk`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_Users`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `assy_epp`
+--
+ALTER TABLE `assy_epp`
+  MODIFY `id_AssyEpp` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `assy_eps`
+--
+ALTER TABLE `assy_eps`
+  MODIFY `id_AssyEps` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `claim`
+--
+ALTER TABLE `claim`
+  MODIFY `id_Claim` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `ipqc_epp`
+--
+ALTER TABLE `ipqc_epp`
+  MODIFY `id_IpqcEpp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ipqc_eps`
+--
+ALTER TABLE `ipqc_eps`
+  MODIFY `id_IpqcEps` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `kalibrasi`
+--
+ALTER TABLE `kalibrasi`
+  MODIFY `id_Kalibrasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `kontrol_cf`
+--
+ALTER TABLE `kontrol_cf`
+  MODIFY `id_KontrolCf` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `oqc`
+--
+ALTER TABLE `oqc`
+  MODIFY `id_Oqc` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `part_abf`
+--
+ALTER TABLE `part_abf`
+  MODIFY `id_PartAbf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `part_epp`
+--
+ALTER TABLE `part_epp`
+  MODIFY `id_PartEpp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `part_eps`
+--
+ALTER TABLE `part_eps`
+  MODIFY `id_PartEps` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `part_sb`
+--
+ALTER TABLE `part_sb`
+  MODIFY `id_PartSb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `patrol_qc`
+--
+ALTER TABLE `patrol_qc`
+  MODIFY `id_PatrolQc` bigint(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+
+--
+-- AUTO_INCREMENT for table `tb_produk`
+--
+ALTER TABLE `tb_produk`
+  MODIFY `id_Produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1571;
+
+--
+-- AUTO_INCREMENT for table `tb_return`
+--
+ALTER TABLE `tb_return`
+  MODIFY `id_Return` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_Users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `assy_epp`
+--
+ALTER TABLE `assy_epp`
+  ADD CONSTRAINT `assy_epp_ibfk_1` FOREIGN KEY (`id_Produk`) REFERENCES `tb_produk` (`id_Produk`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `assy_eps`
+--
+ALTER TABLE `assy_eps`
+  ADD CONSTRAINT `assy_eps_ibfk_1` FOREIGN KEY (`id_Produk`) REFERENCES `tb_produk` (`id_Produk`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `claim`
+--
+ALTER TABLE `claim`
+  ADD CONSTRAINT `claim_ibfk_1` FOREIGN KEY (`id_Produk`) REFERENCES `tb_produk` (`id_Produk`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `ipqc_epp`
+--
+ALTER TABLE `ipqc_epp`
+  ADD CONSTRAINT `ipqc_epp_ibfk_1` FOREIGN KEY (`id_PartEpp`) REFERENCES `part_epp` (`id_PartEpp`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `ipqc_eps`
+--
+ALTER TABLE `ipqc_eps`
+  ADD CONSTRAINT `ipqc_eps_ibfk_1` FOREIGN KEY (`id_PartEps`) REFERENCES `part_eps` (`id_PartEps`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `kontrol_cf`
+--
+ALTER TABLE `kontrol_cf`
+  ADD CONSTRAINT `kontrol_cf_ibfk_1` FOREIGN KEY (`id_Produk`) REFERENCES `tb_produk` (`id_Produk`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `oqc`
+--
+ALTER TABLE `oqc`
+  ADD CONSTRAINT `oqc_ibfk_1` FOREIGN KEY (`id_Produk`) REFERENCES `tb_produk` (`id_Produk`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `part_abf`
+--
+ALTER TABLE `part_abf`
+  ADD CONSTRAINT `part_abf_ibfk_1` FOREIGN KEY (`id_Produk`) REFERENCES `tb_produk` (`id_Produk`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `part_epp`
+--
+ALTER TABLE `part_epp`
+  ADD CONSTRAINT `part_epp_ibfk_1` FOREIGN KEY (`id_Produk`) REFERENCES `tb_produk` (`id_Produk`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `part_eps`
+--
+ALTER TABLE `part_eps`
+  ADD CONSTRAINT `part_eps_ibfk_1` FOREIGN KEY (`id_Produk`) REFERENCES `tb_produk` (`id_Produk`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `part_sb`
+--
+ALTER TABLE `part_sb`
+  ADD CONSTRAINT `part_sb_ibfk_1` FOREIGN KEY (`id_Produk`) REFERENCES `tb_produk` (`id_Produk`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `patrol_qc`
+--
+ALTER TABLE `patrol_qc`
+  ADD CONSTRAINT `patrol_qc_ibfk_1` FOREIGN KEY (`id_Produk`) REFERENCES `tb_produk` (`id_Produk`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `tb_return`
+--
+ALTER TABLE `tb_return`
+  ADD CONSTRAINT `tb_return_ibfk_1` FOREIGN KEY (`id_Produk`) REFERENCES `tb_produk` (`id_Produk`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
